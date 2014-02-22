@@ -1,0 +1,161 @@
+@import 'reset';
+@import 'variables';
+
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box;
+}
+body {
+    font-family: arial;
+}
+section {
+    width: 100%;
+    margin: 0 auto;
+}
+@media screen and (max-width: 400px) {
+    .logos li { width: 100% !important}
+}
+
+a {
+    color: $color-highlight;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($color-highlight, 10)
+    }
+}
+
+//
+//
+//  Tabs
+//  ==============================
+//
+.tabs {
+    overflow: hidden;
+    border: 1px solid $color-highlight;
+    width: 300px;
+    border-radius: 10px;
+    margin: 0 auto;
+
+    li {
+        width: 16.666666667%;
+        text-align: center;
+        border-left: 1px solid $color-highlight;
+        float: left;
+
+        &:first-child {
+            border-left: 0;
+        }
+        
+        a {
+            padding: 1em;
+            display: block;
+
+            &.active {
+                background: $color-highlight;
+                color: white;
+            }
+        }
+
+        
+
+        
+    }
+}
+
+
+//
+//
+//  Logos Container
+//  ====================
+//
+$blur-values: 0 10 20 30 40 50;
+.logos {
+    border-top: 1px solid #eee;
+    margin: 2em 0 5em;
+    overflow: hidden;
+
+    @each $blur-value in $blur-values {
+        &.logos--blur#{$blur-value} {
+            .logo {
+                background-position-y: #{-30 * $blur-value}px;
+            }
+        }
+    }
+}
+
+.logos li {
+    position: relative;
+    box-sizing: border-box;
+    width: 25%;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    float: left;
+    overflow: hidden;
+}
+
+.logos h2 {
+    position: absolute;
+    width: 100%;
+    bottom: -100%;
+    right: .5em;
+    font-size: 1em;
+    color: black; 
+    text-align: right;
+    -webkit-transition: .2s ease all;
+    color: #999;   
+}
+
+.logo {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: none;            
+    
+    //-webkit-transition: .25s ease all;           
+}
+$logos: 
+    nike
+    apple
+    coke 
+    ibm
+    google
+    mercedes
+    mcdonalds
+    //ups
+    //shell
+    visa
+    //volkswagen
+    //toyota
+    dropbox
+;
+@each $logo in $logos {
+    .logo--#{$logo} {
+        background-image: image_url("#{$logo}.jpg");
+    }
+}
+
+
+//
+//
+//  Touch / Hover Events
+//  ==============================
+//
+
+
+// Logo
+.no-touch .logos li:hover .logo,
+.logos li.hover .logo {
+    background-position-y: 0;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;  
+}
+
+// Logo Name
+.no-touch .logos li:hover h2,
+.logos li.hover h2 {
+    bottom: .5em;
+}
