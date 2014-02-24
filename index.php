@@ -14,8 +14,7 @@
     =================================== 
     <script src="js/modernizr.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="js/js.js"></script>
-    <script src="js/highlight.pack.js"></script>-->
+    <script type="text/javascript" src="js/js.js"></script>-->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -23,14 +22,18 @@
 
     <header class="header">
         <h1 class="h1" id="h1">Logos Test</h1>
-        <ul class="tabs">
-            <li><a href="#">0</a></li>
-            <li><a href="#">10</a></li>
-            <li><a href="#">20</a></li>
-            <li><a href="#">30</a></li>
-            <li><a href="#">40</a></li>
-            <li><a href="#" class="active">50</a></li>
-        </ul>
+        
+        <div class="controls">
+            <h3 class="label">Blur radius (px):</h3>
+            <ul class="tabs">
+                <li><a href="#">0</a></li>
+                <li><a href="#">10</a></li>
+                <li><a href="#">20</a></li>
+                <li><a href="#">30</a></li>
+                <li><a href="#">40</a></li>
+                <li><a href="#" class="active">50</a></li>
+            </ul>
+        </div>
     </header>
     
     <section>
@@ -46,19 +49,24 @@
                     "IBM",
                     "Mercedes",
                     "Nike",
-                    "Visa"
+                    "Shell",
+                    "Volkswagen",
+                    "Toyota",
+                    "UPS",
+                    "Visa",
+                    "Starbucks"
                 );
                 foreach ($logos as $key) {
                     ?>
                         <li>
                             <h2><?php echo $key ?></h2>
                             <ul class="logo logo--<?php echo strtolower($key) ?>">
-                                <li class="blur50"><img src="assets/images/src/<?php echo strtolower($key) ?>-50.jpg"></li>
-                                <li class="blur40"><img src="assets/images/src/<?php echo strtolower($key) ?>-40.jpg"></li>
-                                <li class="blur30"><img src="assets/images/src/<?php echo strtolower($key) ?>-30.jpg"></li>
-                                <li class="blur20"><img src="assets/images/src/<?php echo strtolower($key) ?>-20.jpg"></li>
-                                <li class="blur10"><img src="assets/images/src/<?php echo strtolower($key) ?>-10.jpg"></li>
-                                <li class="blur0"><img src="assets/images/src/<?php echo strtolower($key) ?>-0.png"></li>
+                                <li class="blur50"></li>
+                                <li class="blur40"></li>
+                                <li class="blur30"></li>
+                                <li class="blur20"></li>
+                                <li class="blur10"></li>
+                                <li class="blur0"></li>
                             </ul>
                     <?php
                 }
@@ -74,9 +82,9 @@
 
 
 
-    var logos = document.querySelectorAll('.logos li');
+    var logos = document.querySelectorAll('.logo li');
     for (var i = 0; i < logos.length; i++) {
-        logos[i].addEventListener('touchend', function(e){
+        logos[i].addEventListener('click', function(e){
             e.preventDefault();
             this.classList.toggle('hover');
         }, true);

@@ -34,62 +34,59 @@ a {
 //
 .tabs {
     overflow: hidden;
-    border: 1px solid $color-highlight;
-    width: 300px;
-    border-radius: 10px;
-    margin: 0 auto;
 
     li {
-        width: 16.666666667%;
-        text-align: center;
-        border-left: 1px solid $color-highlight;
         float: left;
+        margin-right: .25em;
 
         &:first-child {
             border-left: 0;
         }
+
+        &:hover a {
+            background: #e9e9e9;
+        }
         
         a {
-            padding: 1em;
+            padding: .5em;
             display: block;
+            color: $color-link;
+            border-radius: 2px;
 
             &.active {
-                background: $color-highlight;
+                background-color: $color-link;
                 color: white;
+                font-weight: bold;
             }
         }
-
-        
-
-        
     }
 }
-
+.controls {
+    margin-top: 1em;
+}
+.label {
+    float: left;
+    margin-right: 1em;
+    padding: .5em 0;
+}
 
 //
 //
 //  Logos Container
 //  ====================
 //
-$blur-values: 0 10 20 30 40 50;
 .logos {
     border-top: 1px solid #eee;
-    margin: 2em 0 5em;
+    margin: 1em 0 5em;
     overflow: hidden;
-
-    @each $blur-value in $blur-values {
-        &.logos--blur#{$blur-value} {
-            .logo {
-                background-position-y: #{-30 * $blur-value}px;
-            }
-        }
-    }
 }
 
 .logos > li {
     position: relative;
     box-sizing: border-box;
     width: 25%;
+    padding-bottom: 25%;
+    //height: 300px;
     border-bottom: 1px solid #eee;
     border-right: 1px solid #eee;
     float: left;
@@ -109,23 +106,15 @@ $blur-values: 0 10 20 30 40 50;
     z-index: 10; 
 }
 
-.logo  {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-}
-.logo img {
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-}
 .logo > li {
     position: absolute;
     opacity: 0;
 
-    //background-size: 100%;
-    //background-repeat: none;            
+    width: 100%;
+    height: 100%;
+    background-position: 50%;
+    background-size: 100%;
+    background-repeat: no-repeat; 
     
     -webkit-transition: .5s ease all;           
 }
@@ -148,7 +137,8 @@ $blur-values: 0 10 20 30 40 50;
 .logos--blur0 .blur0 {
     opacity: 1;
 }
-.no-touch .logo:hover .blur0 {
+.no-touch .logo:hover .blur0,
+.logo.hover .blur0 {
     opacity: 1;
 }
 
@@ -160,13 +150,24 @@ $logos:
     google
     mercedes
     mcdonalds
-    //ups
-    //shell
+    ups
+    shell
     visa
-    //volkswagen
-    //toyota
+    volkswagen
+    toyota
     dropbox
 ;
+
+@each $logo in $logos {
+    .logo--#{$logo} {
+        .blur50 {background-image: image_url("#{$logo}-50.jpg")}
+        .blur40 {background-image: image_url("#{$logo}-40.jpg")}
+        .blur30 {background-image: image_url("#{$logo}-30.jpg")}
+        .blur20 {background-image: image_url("#{$logo}-20.jpg")}
+        .blur10 {background-image: image_url("#{$logo}-10.jpg")}
+        .blur0 {background-image: image_url("#{$logo}-0.png")}
+    }
+}
 
 
 
@@ -178,7 +179,7 @@ $logos:
 
 
 // Logo
-.no-touch .logos li:hover .logo,
+//.no-touch .logos li:hover .logo,
 .logos li.hover .logo {
     background-position-y: 0;
     -webkit-user-select: none;
