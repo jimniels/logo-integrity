@@ -86,7 +86,7 @@ $blur-values: 0 10 20 30 40 50;
     }
 }
 
-.logos li {
+.logos > li {
     position: relative;
     box-sizing: border-box;
     width: 25%;
@@ -105,18 +105,53 @@ $blur-values: 0 10 20 30 40 50;
     color: black; 
     text-align: right;
     -webkit-transition: .2s ease all;
-    color: #999;   
+    color: #999;  
+    z-index: 10; 
 }
 
-.logo {
+.logo  {
+    position: relative;
     width: 300px;
     height: 300px;
     margin: 0 auto;
-    background-size: 100%;
-    background-repeat: none;            
-    
-    //-webkit-transition: .25s ease all;           
 }
+.logo img {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+.logo > li {
+    position: absolute;
+    opacity: 0;
+
+    //background-size: 100%;
+    //background-repeat: none;            
+    
+    -webkit-transition: .5s ease all;           
+}
+
+.logos--blur50 .blur50 {
+    opacity: 1;  
+}
+.logos--blur40 .blur40 {
+    opacity: 1;
+}
+.logos--blur30 .blur30 {
+    opacity: 1;
+}
+.logos--blur20 .blur20 {
+    opacity: 1;
+}
+.logos--blur10 .blur10 {
+    opacity: 1;
+}
+.logos--blur0 .blur0 {
+    opacity: 1;
+}
+.no-touch .logo:hover .blur0 {
+    opacity: 1;
+}
+
 $logos: 
     nike
     apple
@@ -132,11 +167,7 @@ $logos:
     //toyota
     dropbox
 ;
-@each $logo in $logos {
-    .logo--#{$logo} {
-        background-image: image_url("#{$logo}.jpg");
-    }
-}
+
 
 
 //
