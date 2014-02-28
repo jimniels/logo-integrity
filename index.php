@@ -8,7 +8,7 @@
 
     <!-- CSS
     =================================== -->
-    <link rel="stylesheet" href="assets/css/src/styles.css">
+    <link rel="stylesheet" href="assets/css/build/styles.css">
 
     <!-- Scripts
     =================================== 
