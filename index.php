@@ -22,10 +22,12 @@
 
     <header class="header">
         <h1 class="h1" id="h1">Logos Test</h1>
-        
-        <div class="controls">
-            <h3 class="label">Blur radius (px):</h3>
-            <ul class="tabs">
+    </header>
+    
+    <section>
+        <div class="filter">
+            <h3 class="filter-label">Blur radius (px):</h3>
+            <ul class="filter-controls">
                 <li><a href="#">0</a></li>
                 <li><a href="#">10</a></li>
                 <li><a href="#">20</a></li>
@@ -34,10 +36,6 @@
                 <li><a href="#" class="active">50</a></li>
             </ul>
         </div>
-    </header>
-    
-    <section>
-
         <ul class="logos logos--blur50">
             <?php
                 $logos = array(
@@ -54,7 +52,10 @@
                     "Toyota",
                     "UPS",
                     "Visa",
-                    "Starbucks"
+                    "Starbucks",
+                    "Intel",
+                    "Jumpman",
+                    "Target",
                 );
                 foreach ($logos as $key) {
                     ?>
@@ -94,7 +95,7 @@
         document.documentElement.className += " no-touch";
     }
 
-    var tabs = document.querySelectorAll('.tabs a');
+    var tabs = document.querySelectorAll('.filter-controls a');
     for (var i = 0; i < tabs.length; i++) {
         tabs[i].addEventListener('click', function(e){
             e.preventDefault();

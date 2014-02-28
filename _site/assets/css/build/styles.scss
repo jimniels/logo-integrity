@@ -1,0 +1,193 @@
+@import 'reset';
+@import 'variables';
+
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box;
+}
+body {
+    font-family: arial;
+}
+section {
+    width: 100%;
+    margin: 0 auto;
+}
+@media screen and (max-width: 400px) {
+    .logos li { width: 100% !important}
+}
+
+a {
+    color: $color-highlight;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($color-highlight, 10)
+    }
+}
+
+//
+//
+//  Tabs
+//  ==============================
+//
+.tabs {
+    overflow: hidden;
+
+    li {
+        float: left;
+        margin-right: .25em;
+
+        &:first-child {
+            border-left: 0;
+        }
+
+        &:hover a {
+            background: #e9e9e9;
+        }
+        
+        a {
+            padding: .5em;
+            display: block;
+            color: $color-link;
+            border-radius: 2px;
+
+            &.active {
+                background-color: $color-link;
+                color: white;
+                font-weight: bold;
+            }
+        }
+    }
+}
+.controls {
+    margin-top: 1em;
+}
+.label {
+    float: left;
+    margin-right: 1em;
+    padding: .5em 0;
+}
+
+//
+//
+//  Logos Container
+//  ====================
+//
+.logos {
+    border-top: 1px solid #eee;
+    margin: 1em 0 5em;
+    overflow: hidden;
+}
+
+.logos > li {
+    position: relative;
+    box-sizing: border-box;
+    width: 25%;
+    padding-bottom: 25%;
+    //height: 300px;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    float: left;
+    overflow: hidden;
+}
+
+.logos h2 {
+    position: absolute;
+    width: 100%;
+    bottom: -100%;
+    right: .5em;
+    font-size: 1em;
+    color: black; 
+    text-align: right;
+    -webkit-transition: .2s ease all;
+    color: #999;  
+    z-index: 10; 
+}
+
+.logo > li {
+    position: absolute;
+    opacity: 0;
+
+    width: 100%;
+    height: 100%;
+    background-position: 50%;
+    background-size: 100%;
+    background-repeat: no-repeat; 
+    
+    -webkit-transition: .5s ease all;           
+}
+
+.logos--blur50 .blur50 {
+    opacity: 1;  
+}
+.logos--blur40 .blur40 {
+    opacity: 1;
+}
+.logos--blur30 .blur30 {
+    opacity: 1;
+}
+.logos--blur20 .blur20 {
+    opacity: 1;
+}
+.logos--blur10 .blur10 {
+    opacity: 1;
+}
+.logos--blur0 .blur0 {
+    opacity: 1;
+}
+.no-touch .logo:hover .blur0,
+.logo.hover .blur0 {
+    opacity: 1;
+}
+
+$logos: 
+    nike
+    apple
+    coke 
+    ibm
+    google
+    mercedes
+    mcdonalds
+    ups
+    shell
+    visa
+    volkswagen
+    toyota
+    dropbox
+;
+
+@each $logo in $logos {
+    .logo--#{$logo} {
+        .blur50 {background-image: image_url("#{$logo}-50.jpg")}
+        .blur40 {background-image: image_url("#{$logo}-40.jpg")}
+        .blur30 {background-image: image_url("#{$logo}-30.jpg")}
+        .blur20 {background-image: image_url("#{$logo}-20.jpg")}
+        .blur10 {background-image: image_url("#{$logo}-10.jpg")}
+        .blur0 {background-image: image_url("#{$logo}-0.png")}
+    }
+}
+
+
+
+//
+//
+//  Touch / Hover Events
+//  ==============================
+//
+
+
+// Logo
+//.no-touch .logos li:hover .logo,
+.logos li.hover .logo {
+    background-position-y: 0;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;  
+}
+
+// Logo Name
+.no-touch .logos li:hover h2,
+.logos li.hover h2 {
+    bottom: .5em;
+}

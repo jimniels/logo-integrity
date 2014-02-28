@@ -1,2 +1,14 @@
 $color-highlight: #ce4ec6;
 $color-link: #3B5998;
+
+@mixin respond-to($media) {
+    @if $media == mobile {
+        @media only screen and (max-width: 600px) { @content; }
+    }
+    @else if $media == tablet {
+        @media only screen and (min-width: 601px) and (max-width: 900px) { @content; }
+    }
+    @else if $media == widescreen {
+        @media only screen and (min-width: 1200px) { @content; }
+    }
+}
