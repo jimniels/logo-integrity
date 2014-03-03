@@ -7,7 +7,7 @@
 # New Way
 for filename in *.png; do
     basename="$(basename "$filename" .png)"
-    path=../src/
+    path="../src/"
     cp "$basename.png" "$path$basename-0.png"
     convert "$basename.png" -blur 20x10 "$path$basename-10.jpg"  # 10px blur
     convert "$basename.png" -blur 40x20 "$path$basename-20.jpg"  # 20px blur

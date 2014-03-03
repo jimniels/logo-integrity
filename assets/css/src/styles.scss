@@ -155,26 +155,15 @@ a {
     -webkit-transition: .5s ease all;           
 }
 
-.logos--blur50 .blur50 {
-    opacity: 1;  
-}
-.logos--blur40 .blur40 {
-    opacity: 1;
-}
-.logos--blur30 .blur30 {
-    opacity: 1;
-}
-.logos--blur20 .blur20 {
-    opacity: 1;
-}
-.logos--blur10 .blur10 {
-    opacity: 1;
-}
-.logos--blur0 .blur0 {
-    opacity: 1;
-}
-.no-touch .logo:hover .blur0,
-.logo.hover .blur0 {
+.logos--blur50 .blur50 {opacity: 1}
+.logos--blur40 .blur40 {opacity: 1}
+.logos--blur30 .blur30 {opacity: 1}
+.logos--blur20 .blur20 {opacity: 1}
+.logos--blur10 .blur10 {opacity: 1}
+.logos--blur0 .blur0 {opacity: 1}
+
+//.no-touch .logo:hover .blur0,
+.logos .hover .blur0 {
     opacity: 1;
 }
 
@@ -196,6 +185,17 @@ $logos:
     jumpman
     target
     intel
+    honda
+    cnn
+    abc
+    twitter
+    cbs 
+    univision
+    general-electric
+    espn 
+    hyundai
+    mtv 
+    john-deere
 ;
 
 @each $logo in $logos {
@@ -227,7 +227,7 @@ $logos:
 }
 
 // Logo Name
-.no-touch .logos li:hover h2,
+//.no-touch .logos li:hover h2,
 .logos li.hover h2 {
     bottom: .5em;
 }
