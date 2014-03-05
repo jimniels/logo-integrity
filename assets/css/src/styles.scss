@@ -167,35 +167,38 @@ a {
     opacity: 1;
 }
 
+// List these alphabetically
 $logos: 
-    nike
-    apple
-    coke 
-    ibm
-    google
-    mercedes
-    mcdonalds
-    ups
-    shell
-    visa
-    volkswagen
-    toyota
-    dropbox
-    starbucks
-    jumpman
-    target
-    intel
-    honda
-    cnn
     abc
-    twitter
-    cbs 
-    univision
+    apple
+    cbs
+    cnn
+    coke
+    dropbox
+    espn
     general-electric
-    espn 
+    google
+    honda
     hyundai
-    mtv 
+    ibm
+    intel
     john-deere
+    jumpman
+    mazda
+    mcdonalds
+    mercedes
+    mtv
+    nike
+    shell
+    starbucks
+    taco-bell
+    target
+    toyota
+    twitter
+    univision
+    ups
+    visa
+    volkswagen   
 ;
 
 @each $logo in $logos {

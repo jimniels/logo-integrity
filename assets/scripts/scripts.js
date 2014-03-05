@@ -30,6 +30,12 @@ for (var i = 0; i < tabs.length; i++) {
         // Add blur class to logos
         logos.classList.remove('logos--blur'+prevBlur);
         logos.classList.add('logos--blur'+currentBlur);
+
+        //remove hover class
+        var hover = document.querySelectorAll('.hover');
+        for (var i = 0; i < hover.length; i++) {
+            hover[i].classList.remove('hover');
+        };
     }, true);
 };
 

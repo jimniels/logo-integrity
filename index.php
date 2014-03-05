@@ -19,7 +19,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
     <header class="header">
         <h1 class="h1" id="h1">Logos Test</h1>
     </header>
@@ -44,34 +43,36 @@
                     return $string;
                 }
                 $logos = array(
-                    "McDonalds",
-                    "Apple",
-                    "Coke",
-                    "Dropbox",
-                    "Google",
-                    "IBM",
-                    "Mercedes",
-                    "Nike",
-                    "Shell",
-                    "Volkswagen",
-                    "Toyota",
-                    "UPS",
-                    "Visa",
-                    "Starbucks",
-                    "Intel",
-                    "Jumpman",
-                    "Target",
-                    "Honda",
-                    "CNN",
-                    "ABC",
-                    "Twitter",
-                    "Univision",
-                    "CBS",
-                    "General Electric",
-                    "ESPN",
-                    "Hyundai",
-                    "MTV",
-                    "John Deere"
+                    "abc",
+                    "apple",
+                    "cbs",
+                    "cnn",
+                    "coke",
+                    "dropbox",
+                    "espn",
+                    "general-electric",
+                    "google",
+                    "honda",
+                    "hyundai",
+                    "ibm",
+                    "intel",
+                    "john-deere",
+                    "jumpman",
+                    "mazda",
+                    "mcdonalds",
+                    "mercedes",
+                    "mtv",
+                    "nike",
+                    "shell",
+                    "starbucks",
+                    "taco-bell",
+                    "target",
+                    "toyota",
+                    "twitter",
+                    "univision",
+                    "ups",
+                    "visa",
+                    "volkswagen"
                 );
                 foreach ($logos as $key) {
                     ?>
