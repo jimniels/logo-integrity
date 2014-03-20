@@ -1,5 +1,6 @@
 @import 'reset';
 @import 'variables';
+@import 'header';
 
 
 *, *:before, *:after {
@@ -8,7 +9,10 @@
     box-sizing: border-box;
 }
 body {
-    font-family: arial;
+    font-size: #{16 / $font-size-base}em;
+    line-height: 1.5;
+    font-family: Arial;
+    color: #222;
 }
 section {
     width: 100%;
@@ -27,13 +31,16 @@ a {
     }
 }
 
+em {
+    font-style: italic;
+}
+
 //
 //
 //  Filter
 //  ==============================
 //
 .filter {
-    margin-top: 4em;
 }
 
 .filter-label {
@@ -142,17 +149,25 @@ a {
     z-index: 10; 
 }
 
-.logo > li {
+.logo  {
     position: absolute;
-    opacity: 0;
-
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background-position: 50%;
-    background-size: 100%;
-    background-repeat: no-repeat; 
-    
-    -webkit-transition: .5s ease all;           
+
+    > li {
+        width: 300px;
+        height: 300px;
+        margin-left: -150px;
+        position: absolute;
+        left: 50%;
+        opacity: 0;
+        background-size: 100%;
+
+        background-repeat: no-repeat; 
+        -webkit-transition: .5s ease all;  
+    }             
 }
 
 .logos--blur50 .blur50 {opacity: 1}
@@ -161,6 +176,15 @@ a {
 .logos--blur20 .blur20 {opacity: 1}
 .logos--blur10 .blur10 {opacity: 1}
 .logos--blur0 .blur0 {opacity: 1}
+
+.blur0 {background-image: image_url("0.png")}
+.blur10 {background-image: image_url("10.jpg")}
+.blur20 {background-image: image_url("20.jpg")}
+.blur30 {background-image: image_url("30.jpg")}
+.blur40 {background-image: image_url("40.jpg")}
+.blur50 {background-image: image_url("50.jpg")}
+
+//.blur0 {background-position-y: 0}
 
 //.no-touch .logo:hover .blur0,
 .logos .hover .blur0 {
@@ -201,32 +225,17 @@ $logos:
     volkswagen   
 ;
 
-@each $logo in $logos {
-    .logo--#{$logo} {
-        .blur50 {background-image: image_url("#{$logo}-50.jpg")}
-        .blur40 {background-image: image_url("#{$logo}-40.jpg")}
-        .blur30 {background-image: image_url("#{$logo}-30.jpg")}
-        .blur20 {background-image: image_url("#{$logo}-20.jpg")}
-        .blur10 {background-image: image_url("#{$logo}-10.jpg")}
-        .blur0 {background-image: image_url("#{$logo}-0.png")}
+@for $i from 1 through length($logos) {
+    $logo: nth($logos, $i);
+    
+    .#{$logo} {
+        .blur50,
+        .blur40,
+        .blur30,
+        .blur20,
+        .blur10,
+        .blur0 {background-position-y: -#{ $i * 300 - 300 }px }
     }
-}
-
-
-
-//
-//
-//  Touch / Hover Events
-//  ==============================
-//
-
-
-// Logo
-//.no-touch .logos li:hover .logo,
-.logos li.hover .logo {
-    background-position-y: 0;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;  
 }
 
 // Logo Name

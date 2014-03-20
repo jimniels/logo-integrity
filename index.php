@@ -20,7 +20,15 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="h1" id="h1">Logos Test</h1>
+        <h1 class="h1" id="h1">Bringing Logos into Focus</h1>
+        <blockquote>
+            <p>
+                <span>“</span>How far out of focus can an image be and still be recognized? A [logo] which is subject to an infinite number of uses, abuses, and variations whether for competitive purposes or for reasons of ‘self-expression,’ cannot survive unless it is designed with utmost simplicity and restraint.”
+                <br />— Paul Rand, <em>A Designer’s Art</em>.
+            </p>
+        </blockquote>
+        <p><a href="#">Read more about this experiment &raquo;</a></p>
+        <p>How many logos can you identify with a 50 pixel gaussian blur? What about a 40 pixel blur? 30 pixel blur? 20? 10?</p>
     </header>
     
     <section>
@@ -76,7 +84,7 @@
                 );
                 foreach ($logos as $key) {
                     ?>
-                        <li>
+                        <li class="<?php echo stringAdjust($key) ?>">
                             <h2><?php echo $key ?></h2>
                             <ul class="logo logo--<?php echo stringAdjust($key) ?>">
                                 <li class="blur50"></li>
