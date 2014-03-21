@@ -5,7 +5,7 @@
 //
 .header {
     padding: 4em 4%;
-    background: #eee;
+    background: $color-background-light;
 
     h1 {
         font-size: #{24 / $font-size-base}em;

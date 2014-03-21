@@ -11,7 +11,7 @@ if (!("ontouchstart" in document.documentElement)) {
     document.documentElement.className += " no-touch";
 }
 
-var tabs = document.querySelectorAll('.filter-controls a');
+var tabs = document.querySelectorAll('.filter-scale a');
 for (var i = 0; i < tabs.length; i++) {
     tabs[i].addEventListener('click', function(e){
         e.preventDefault();
@@ -43,7 +43,7 @@ for (var i = 0; i < tabs.length; i++) {
 
 // http://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order
 var list = document.querySelector(".logos"),
-    button = document.getElementById("h1");
+    button = document.querySelector(".shuffle");
     console.log(list);
 function shuffle(items)
 {
@@ -68,4 +68,7 @@ function shuffleNodes()
         ++i;
     }
 }
-button.onclick = shuffleNodes;
+button.addEventListener('click', function(e){
+    e.preventDefault();
+    shuffleNodes();
+});

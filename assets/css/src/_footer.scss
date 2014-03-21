@@ -1,0 +1,17 @@
+//
+//
+//  Footer
+//  ------------------------------
+//
+footer {
+    padding: 2em 0;
+    text-align: center;
+    color: #777;
+    font-size: #{14 / $font-size-base}em;
+    background: $color-background-light;
+
+    a {
+        color: #777;
+        text-decoration: underline;
+    }
+}

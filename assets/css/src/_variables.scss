@@ -1,6 +1,6 @@
 $font-size-base: 16;
 $color-highlight: #08c;
-$color-link: #3B5998;
+$color-background-light: #eee;
 
 @mixin respond-to($media) {
     @if $media == mobile {

@@ -33,8 +33,8 @@
     
     <section>
         <div class="filter">
-            <h3 class="filter-label">Blur radius (px):</h3>
-            <ul class="filter-controls">
+            <a href="#" class="filter-control sharpen">&laquo; Sharpen</a>
+            <ul class="filter-scale">
                 <li><a href="#">0</a></li>
                 <li><a href="#">10</a></li>
                 <li><a href="#">20</a></li>
@@ -42,6 +42,8 @@
                 <li><a href="#">40</a></li>
                 <li><a href="#" class="active">50</a></li>
             </ul>
+            <a href="#" class="filter-control blur disable">Blur &raquo;</a>
+            <a href="#" class="shuffle" title="Shuffle">Shuffle</a>
         </div>
         <ul class="logos logos--blur50">
             <?php
@@ -102,6 +104,11 @@
         </ul>
 
     </section>
+
+    <footer>
+        <p>Created by <a href="http://jim-nielsen.com/">Jim Nielsen</a>. Got feedback? Tweet me <a href="http://twitter.com/jimniels/">@jimniels</a>.</p>
+        <p>View source on <a href="https://github.com/jimniels/logos">Github</a>.</p>
+    </footer>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="assets/scripts/scripts.js"></script>

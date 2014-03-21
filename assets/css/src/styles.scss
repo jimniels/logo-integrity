@@ -1,6 +1,9 @@
+@import "compass/css3";
+
 @import 'reset';
 @import 'variables';
 @import 'header';
+@import 'footer';
 
 
 *, *:before, *:after {
@@ -41,6 +44,9 @@ em {
 //  ==============================
 //
 .filter {
+    background: #000;
+    text-align: center;
+    position: relative;
 }
 
 .filter-label {
@@ -53,19 +59,68 @@ em {
     }
 }
 
-.filter-controls {
+.filter-control {
+    background: $color-highlight;
+    color: white;
+    padding: .325em .5em;
+    border-radius: 3px;
+
+    &.sharpen {
+        margin-right: 2em;
+    }
+    &.blur {
+        margin-left: 2em;
+    }
+    &.disable {
+        background: #666;
+
+        &:hover {
+            background: #666;
+            cursor: not-allowed;
+        }
+    }
+
+    &:hover {
+        color: white;
+        background: lighten($color-highlight, 7%);
+    }
+}
+
+.shuffle {
+    text-indent: -9999px;
+    background-image: image-url("shuffle@2x.png");
+    width: 21px;
+    height: 17px;
+    background-size: 100%;
+    position: absolute;
+    right: 1.5em;
+    top: 50%;
+    margin-top: -9px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 700px) {
+        display: none;
+    }
+}
+
+.filter-scale {
     overflow: hidden;
+    @include inline-block();
+    border-left: 1px solid #444;
 
     li {
         float: left;
-        margin-right: .25em;
+        border-right: 1px solid #444;
 
         &:first-child {
             border-left: 0;
         }
 
         &:hover a {
-            background: #e9e9e9;
+            background: #444;
         }
 
         @media screen and (max-width: 900px) {
@@ -83,14 +138,13 @@ em {
         }
         
         a {
-            padding: .5em;
+            padding: .75em 1.25em;
             display: block;
-            color: $color-link;
-            border-radius: 2px;
+            color: white;
 
             &.active {
-                background-color: $color-link;
-                color: white;
+                background-color: white;
+                color: #000;
                 font-weight: bold;
             }
         }
@@ -106,7 +160,6 @@ em {
 //
 .logos {
     border-top: 1px solid #eee;
-    margin: 0 0 5em;
     overflow: hidden;
 }
 
