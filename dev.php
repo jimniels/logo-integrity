@@ -2,9 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-
     <title>Logos Test</title>
-    
 
     <!-- CSS
     =================================== -->
@@ -48,41 +46,47 @@
         <ul class="logos logos--blur50">
             <?php
                 function stringAdjust($string) {
+                    //Lower case everything
                     $string = strtolower($string);
+                    //Make alphanumeric (removes all other characters)
+                    $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
+                    //Clean up multiple dashes or whitespaces
+                    $string = preg_replace("/[\s-]+/", " ", $string);
+                    //Convert whitespaces and underscore to dash
                     $string = preg_replace("/[\s_]/", "-", $string);
                     return $string;
                 }
                 $logos = array(
-                    "abc",
-                    "apple",
-                    "cbs",
-                    "cnn",
-                    "coke",
-                    "dropbox",
-                    "espn",
-                    "general-electric",
-                    "google",
-                    "honda",
-                    "hyundai",
-                    "ibm",
-                    "intel",
-                    "john-deere",
-                    "jumpman",
-                    "mazda",
-                    "mcdonalds",
-                    "mercedes",
-                    "mtv",
-                    "nike",
-                    "shell",
-                    "starbucks",
-                    "taco-bell",
-                    "target",
-                    "toyota",
-                    "twitter",
-                    "univision",
-                    "ups",
-                    "visa",
-                    "volkswagen"
+                    "ABC",
+                    "Apple",
+                    "CBS",
+                    "CNN",
+                    "Coke",
+                    "Dropbox",
+                    "ESPN",
+                    "General Electric",
+                    "Google",
+                    "Honda",
+                    "Hyundai",
+                    "IBM",
+                    "Intel",
+                    "John Deere",
+                    "Jumpman",
+                    "Mazda",
+                    "McDonalds",
+                    "Mercedes",
+                    "MTV",
+                    "Nike",
+                    "Shell",
+                    "Starbucks",
+                    "Taco Bell",
+                    "Target",
+                    "Toyota",
+                    "Twitter",
+                    "Univision",
+                    "UPS",
+                    "Visa",
+                    "Volkswagen"
                 );
                 foreach ($logos as $key) {
                     ?>
