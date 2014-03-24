@@ -65,6 +65,10 @@ em {
     padding: .325em .5em;
     border-radius: 3px;
 
+    @include respond-to(mobile) {
+        display: none;
+    }
+
     &.sharpen {
         margin-right: 2em;
     }
@@ -111,6 +115,11 @@ em {
     @include inline-block();
     border-left: 1px solid #444;
 
+    @media screen and (max-width: 900px) {
+        display: block;
+        border-left: 0;
+    }
+
     li {
         float: left;
         border-right: 1px solid #444;
@@ -124,12 +133,8 @@ em {
         }
 
         @media screen and (max-width: 900px) {
-            width: 16.666666667%;
+            width: 16.6666667%;
             margin: 0;
-            border-left: 1px solid #ddd;
-            border-top: 1px solid #ddd;
-            background: #f7f7f7;
-            border-radius: 0;
             text-align: center;
 
             &:first-child {
