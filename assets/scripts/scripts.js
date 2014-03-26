@@ -1,4 +1,8 @@
+$(document).ready(function(){
+    console.log('ready');
 
+    var logos = $('.logos > li');
+});
 var logos = document.querySelectorAll('.logos > li');
 for (var i = 0; i < logos.length; i++) {
     logos[i].addEventListener('click', function(e){
