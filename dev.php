@@ -28,8 +28,9 @@
         <p><a href="#">Read more about this experiment &raquo;</a></p>
         <p>How many logos can you identify with a 50 pixel gaussian blur? What about a 40 pixel blur? 30 pixel blur? 20? 10?</p>
     </header>
-    
+
     <section>
+
         <div class="filter">
             <a href="#" class="filter-control sharpen">&laquo; Sharpen</a>
             <ul class="filter-scale">
@@ -43,7 +44,8 @@
             <a href="#" class="filter-control blur disable">Blur &raquo;</a>
             <a href="#" class="shuffle" title="Shuffle">Shuffle</a>
         </div>
-        <ul class="logos logos--blur50">
+
+        <ul class="brands brands--blur50">
             <?php
                 function stringAdjust($string) {
                     //Lower case everything
@@ -90,15 +92,16 @@
                 );
                 foreach ($logos as $key) {
                     ?>
-                        <li class="<?php echo stringAdjust($key) ?>">
-                            <h2><?php echo $key ?></h2>
-                            <ul class="logo logo--<?php echo stringAdjust($key) ?>">
-                                <li class="blur50"></li>
-                                <li class="blur40"></li>
-                                <li class="blur30"></li>
-                                <li class="blur20"></li>
-                                <li class="blur10"></li>
-                                <li class="blur0"></li>
+                        <li class="brand" id="<?php echo stringAdjust($key) ?>">
+                            <h2 class="brand-name"><?php echo $key ?></h2>
+                            <ul class="logos">
+                                <?php for ($i=0; $i <= 5; $i++) { ?>
+                                    <li class="logo logo--blur<?php echo $i*10 ?>">
+                                        <a href="assets/images/build/<?php echo stringAdjust($key).'-'.$i*10 ?>.png">
+                                            <?php echo $i*10 ?>px blur
+                                        </a>
+                                    </li>   
+                                <?php } ?>
                             </ul>
                     <?php
                 }
@@ -114,7 +117,7 @@
         <p>View source on <a href="https://github.com/jimniels/logos">Github</a>.</p>
     </footer>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript" src="assets/scripts/scripts.js"></script>
 
 </body>

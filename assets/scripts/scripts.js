@@ -1,47 +1,64 @@
 $(document).ready(function(){
-    console.log('ready');
+    
+    //$('body').addClass('js');
 
     var logos = $('.logos > li');
+    var prevBlur = 50;
+
+    $('.brand').on('click', function(){
+        $(this).toggleClass('reveal');
+    });
+
+    $('.filter-scale a').on('click', function(e){
+        e.preventDefault();
+        var _active = $('.active');
+        _active.removeClass('active');
+        $(this).addClass('active');
+        var prevBlur = _active.text();
+        var currentBlur = $(this).text();
+        $('.brands').removeClass('brands--blur'+prevBlur).addClass('brands--blur'+currentBlur);
+    });
 });
-var logos = document.querySelectorAll('.logos > li');
-for (var i = 0; i < logos.length; i++) {
-    logos[i].addEventListener('click', function(e){
-        e.preventDefault();
-        this.classList.toggle('hover');
-    }, true);
-};
 
-if (!("ontouchstart" in document.documentElement)) {
-    document.documentElement.className += " no-touch";
-}
+// var logos = document.querySelectorAll('.logos > li');
+// for (var i = 0; i < logos.length; i++) {
+//     logos[i].addEventListener('click', function(e){
+//         e.preventDefault();
+//         this.classList.toggle('hover');
+//     }, true);
+// };
 
-var tabs = document.querySelectorAll('.filter-scale a');
-for (var i = 0; i < tabs.length; i++) {
-    tabs[i].addEventListener('click', function(e){
-        e.preventDefault();
+// if (!("ontouchstart" in document.documentElement)) {
+//     document.documentElement.className += " no-touch";
+// }
 
-        var prevEl = document.querySelector('.active'),
-            prevBlur = prevEl.innerText || prevEl.textContent,
-            currentBlur = this.innerText || this.textContent,
-            logos = document.querySelector('.logos');
+// var tabs = document.querySelectorAll('.filter-scale a');
+// for (var i = 0; i < tabs.length; i++) {
+//     tabs[i].addEventListener('click', function(e){
+//         e.preventDefault();
 
-        // Remove current .active class
-        prevEl.classList.remove('active');
+//         var prevEl = document.querySelector('.active'),
+//             prevBlur = prevEl.innerText || prevEl.textContent,
+//             currentBlur = this.innerText || this.textContent,
+//             logos = document.querySelector('.logos');
+
+//         // Remove current .active class
+//         prevEl.classList.remove('active');
         
-        // Add .active class to clicked el
-        this.classList.toggle('active');
+//         // Add .active class to clicked el
+//         this.classList.toggle('active');
 
-        // Add blur class to logos
-        logos.classList.remove('logos--blur'+prevBlur);
-        logos.classList.add('logos--blur'+currentBlur);
+//         // Add blur class to logos
+//         logos.classList.remove('logos--blur'+prevBlur);
+//         logos.classList.add('logos--blur'+currentBlur);
 
-        //remove hover class
-        var hover = document.querySelectorAll('.hover');
-        for (var i = 0; i < hover.length; i++) {
-            hover[i].classList.remove('hover');
-        };
-    }, true);
-};
+//         //remove hover class
+//         // var hover = document.querySelectorAll('.hover');
+//         // for (var i = 0; i < hover.length; i++) {
+//         //     hover[i].classList.remove('hover');
+//         // };
+//     }, true);
+// };
 
 
 
