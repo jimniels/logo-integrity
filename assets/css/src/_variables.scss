@@ -1,6 +1,8 @@
 $font-size-base: 16;
-$color-highlight: #08c;
+$color-highlight: #29abe2;
 $color-background-light: #eee;
+
+$svg-directory: _svgs;
 
 @mixin respond-to($media) {
     @if $media == mobile {
@@ -12,4 +14,13 @@ $color-background-light: #eee;
     @else if $media == widescreen {
         @media only screen and (min-width: 1200px) { @content; }
     }
+}
+
+@mixin filter($value) {
+    filter:         blur(#{$value}px); 
+    -webkit-filter: blur(#{$value}px); 
+    -moz-filter:    blur(#{$value}px);
+    -o-filter:      blur(#{$value}px); 
+    -ms-filter:     blur(#{$value}px);
+    filter:         image-url('_svgs/blur#blur-#{$value}');
 }

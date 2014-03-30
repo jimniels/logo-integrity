@@ -4,6 +4,7 @@
 @import 'variables';
 @import 'header';
 @import 'footer';
+@import 'filters';
 
 
 *, *:before, *:after {
@@ -38,123 +39,8 @@ em {
     font-style: italic;
 }
 
-//
-//
-//  Filter
-//  ==============================
-//
-.filter {
-    background: #000;
-    text-align: center;
-    position: relative;
-}
 
-.filter-label {
-    float: left;
-    margin-right: 1em;
-    padding: .5em 0;
 
-    @media screen and (max-width: 900px) {
-        float: none;
-    }
-}
-
-.filter-control {
-    background: $color-highlight;
-    color: white;
-    padding: .325em .5em;
-    border-radius: 3px;
-
-    @include respond-to(mobile) {
-        display: none;
-    }
-
-    &.sharpen {
-        margin-right: 2em;
-    }
-    &.blur {
-        margin-left: 2em;
-    }
-    &.disable {
-        background: #666;
-
-        &:hover {
-            background: #666;
-            cursor: not-allowed;
-        }
-    }
-
-    &:hover {
-        color: white;
-        background: lighten($color-highlight, 7%);
-    }
-}
-
-.shuffle {
-    text-indent: -9999px;
-    background-image: image-url("shuffle@2x.png");
-    width: 21px;
-    height: 17px;
-    background-size: 100%;
-    position: absolute;
-    right: 1.5em;
-    top: 50%;
-    margin-top: -9px;
-
-    &:hover {
-        cursor: pointer;
-    }
-
-    @media screen and (max-width: 700px) {
-        display: none;
-    }
-}
-
-.filter-scale {
-    overflow: hidden;
-    @include inline-block();
-    border-left: 1px solid #444;
-
-    @media screen and (max-width: 900px) {
-        display: block;
-        border-left: 0;
-    }
-
-    li {
-        float: left;
-        border-right: 1px solid #444;
-
-        &:first-child {
-            border-left: 0;
-        }
-
-        &:hover a {
-            background: #444;
-        }
-
-        @media screen and (max-width: 900px) {
-            width: 16.6666667%;
-            margin: 0;
-            text-align: center;
-
-            &:first-child {
-                border-left: 0;
-            }
-        }
-        
-        a {
-            padding: .75em 1.25em;
-            display: block;
-            color: white;
-
-            &.active {
-                background-color: white;
-                color: #000;
-                font-weight: bold;
-            }
-        }
-    }
-}
 
 
 
@@ -207,39 +93,29 @@ em {
     z-index: 10; 
 }
 
-
-.logos  {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;             
-}
 .logo {
     width: 300px;
     height: 300px;
-    margin-left: -150px;
     position: absolute;
+    margin-left: -150px;
     left: 50%;
-    opacity: 0;
-    background-size: 100%;
+    transition: .15s ease filter;
+    -webkit-transition: .15s ease -webkit-filter;
+    -moz-transition: .15s ease -moz-filter;
+    -o-transition: .15s ease -o-filter;
+    -ms-transition: .15s ease -ms-filter;
 
-    background-repeat: no-repeat; 
-    -webkit-transition: .5s ease all; 
-    transition: .5s ease all;
-
-    a {
-        position: absolute;
-        left: -99999px;
+    .reveal & {
+        filter: none !important; 
+        -webkit-filter: none !important; 
+        -moz-filter: none !important;
+        -o-filter: none !important; 
+        -ms-filter: none !important;
+        filter: none !important;
     }
-
-    &.logo--blur0  {background-image: image_url("0.png")}
-    &.logo--blur10 {background-image: image_url("10.jpg")}
-    &.logo--blur20 {background-image: image_url("20.jpg")}
-    &.logo--blur30 {background-image: image_url("30.jpg")}
-    &.logo--blur40 {background-image: image_url("40.jpg")}
-    &.logo--blur50 {background-image: image_url("50.jpg")}
 }
+
+
 
 .brands--blur50 .logo--blur50 {opacity: 1}
 .brands--blur40 .logo--blur40 {opacity: 1}
@@ -280,11 +156,13 @@ $logos:
     abc
     apple
     cbs
+    chase
     cnn
     coke
     dropbox
     espn
     general-electric
+    girl-scouts
     google
     honda
     hyundai
@@ -296,7 +174,10 @@ $logos:
     mcdonalds
     mercedes
     mtv
+    nbc
     nike
+    pbs
+    pepsi
     shell
     starbucks
     taco-bell
@@ -313,8 +194,15 @@ $logos:
 @for $i from 1 through length($logos) {
     $logo: nth($logos, $i);
     
+    // ##{$logo} {
+    //     .logo {background-position-y: -#{ $i * 300 - 300 }px }
+    // }
+}
+
+// Each logo as a background image
+@each $logo in $logos {
     ##{$logo} {
-        .logo {background-position-y: -#{ $i * 300 - 300 }px }
+        .logo {background-image: image-url('#{$svg-directory}/logos_#{$logo}.svg') }
     }
 }
 
@@ -322,4 +210,29 @@ $logos:
 //.no-touch .logos li:hover h2,
 .logos li.hover h2 {
     bottom: .5em;
+}
+
+// Blurs for controls
+$logo-blurs: 0 5 10 15 20 25;
+$filter-point-value: 0;
+
+@each $logo-blur in $logo-blurs {
+    
+    .container[data-active-blur-value="#{$logo-blur}"] {
+        
+        .logo {
+            @include filter($logo-blur);
+        }
+
+        .filter-point[data-blur-value="#{$logo-blur}"] {
+            background-image: image-url('#{$svg-directory}/filter-point-active.svg');
+        }
+    }
+
+    .filter-point[data-blur-value="#{$logo-blur}"] {
+        @include filter($filter-point-value);
+    }
+
+    $filter-point-value: $filter-point-value + 1;
+
 }

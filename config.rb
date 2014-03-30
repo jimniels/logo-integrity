@@ -6,6 +6,7 @@ css_dir = "assets/css/build"
 sass_dir = "assets/css/src"
 images_dir = "assets/images/build"
 javascripts_dir = "assets/javascripts"
+svg_dir = "assets/svgs"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

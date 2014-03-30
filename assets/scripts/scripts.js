@@ -3,93 +3,58 @@ $(document).ready(function(){
     //$('body').addClass('js');
 
     var logos = $('.logos > li');
-    var prevBlur = 50;
 
     $('.brand').on('click', function(){
         $(this).toggleClass('reveal');
     });
 
-    $('.filter-scale a').on('click', function(e){
+    $('.filter-point').on('click', function(e){
         e.preventDefault();
-        var _active = $('.active');
-        _active.removeClass('active');
-        $(this).addClass('active');
-        var prevBlur = _active.text();
-        var currentBlur = $(this).text();
-        $('.brands').removeClass('brands--blur'+prevBlur).addClass('brands--blur'+currentBlur);
+        
+        
+        // Any 'revealed' logos should go blurred on change
+        $('.reveal').each(function(){
+            $(this).removeClass('reveal');
+        });
+
+        // Change the active blur value to whatever was clicked
+        $('.container').attr('data-active-blur-value', $(this).attr('data-blur-value'));
+    });
+
+    $('.filter-shuffle').on('click', function(){
+        $('.brands li').shuffle(); 
     });
 });
 
-// var logos = document.querySelectorAll('.logos > li');
-// for (var i = 0; i < logos.length; i++) {
-//     logos[i].addEventListener('click', function(e){
-//         e.preventDefault();
-//         this.classList.toggle('hover');
-//     }, true);
-// };
-
-// if (!("ontouchstart" in document.documentElement)) {
-//     document.documentElement.className += " no-touch";
-// }
-
-// var tabs = document.querySelectorAll('.filter-scale a');
-// for (var i = 0; i < tabs.length; i++) {
-//     tabs[i].addEventListener('click', function(e){
-//         e.preventDefault();
-
-//         var prevEl = document.querySelector('.active'),
-//             prevBlur = prevEl.innerText || prevEl.textContent,
-//             currentBlur = this.innerText || this.textContent,
-//             logos = document.querySelector('.logos');
-
-//         // Remove current .active class
-//         prevEl.classList.remove('active');
-        
-//         // Add .active class to clicked el
-//         this.classList.toggle('active');
-
-//         // Add blur class to logos
-//         logos.classList.remove('logos--blur'+prevBlur);
-//         logos.classList.add('logos--blur'+currentBlur);
-
-//         //remove hover class
-//         // var hover = document.querySelectorAll('.hover');
-//         // for (var i = 0; i < hover.length; i++) {
-//         //     hover[i].classList.remove('hover');
-//         // };
-//     }, true);
-// };
-
-
-
-// http://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order
-var list = document.querySelector(".logos"),
-    button = document.querySelector(".shuffle");
-    console.log(list);
-function shuffle(items)
-{
-    var cached = items.slice(0), temp, i = cached.length, rand;
-    while(--i)
-    {
-        rand = Math.floor(i * Math.random());
-        temp = cached[rand];
-        cached[rand] = cached[i];
-        cached[i] = temp;
-    }
-    return cached;
-}
-function shuffleNodes()
-{
-    var nodes = list.children, i = 0;
-    nodes = Array.prototype.slice.call(nodes);
-    nodes = shuffle(nodes);
-    while(i < nodes.length)
-    {
-        list.appendChild(nodes[i]);
-        ++i;
-    }
-}
-button.addEventListener('click', function(e){
-    e.preventDefault();
-    shuffleNodes();
-});
+//
+//  Shuffle plugin
+//  Used to shuffle <li> elements in a list
+//  http://css-tricks.com/snippets/jquery/shuffle-dom-elements/
+// 
+//  Usage
+//  $('.target-ul li').shuffle()
+//
+(function($){
+ 
+    $.fn.shuffle = function() {
+ 
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+           });
+ 
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
+ 
+        return $(shuffled);
+ 
+    };
+ 
+})(jQuery);

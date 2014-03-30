@@ -9,15 +9,53 @@
     <link rel="stylesheet" href="assets/css/build/styles.css">
 
     <!-- Scripts
-    =================================== 
-    <script src="js/modernizr.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="js/js.js"></script>-->
+    =================================== -->
+    <script type="text/javascript" src="assets/scripts/modernizr.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    
+
+
+    </style>
 </head>
 <body>
+    
     <header class="header">
+    <!--
+        <div>
+            <svg width="300" height="300">
+                <image xlink:href="assets/svgs/abc.svg" width="300" height="300"/>
+            </svg>
+        </div>
+        <div>
+            <svg width="300" height="300">
+                <image class="svg-blur-5" xlink:href="assets/svgs/abc.svg" src="assets/images/build/abc-10.jpg" width="300" height="300"/>
+            </svg>
+        </div>
+        <div>
+            <svg width="300" height="300">
+                <image class="svg-blur-10" xlink:href="assets/svgs/abc.svg" src="assets/images/build/abc-20.jpg" width="300" height="300"/>
+            </svg>
+        </div>
+        <div>
+            <svg width="300" height="300">
+                <image class="svg-blur-15" xlink:href="assets/svgs/abc.svg" src="assets/images/build/abc-30.jpg" width="300" height="300"/>
+            </svg>
+        </div>
+        <div>
+            <svg width="300" height="300">
+                <image class="svg-blur-20" xlink:href="assets/svgs/abc.svg" src="assets/images/build/abc-40.jpg" width="300" height="300"/>
+            </svg>
+        </div>
+        <div>
+            <svg width="300" height="300">
+                <image class="svg-blur-25" xlink:href="assets/svgs/abc.svg" src="assets/images/build/abc-50.jpg" width="300" height="300"/>
+            </svg>
+        </div>
+    -->
+
         <h1 class="h1" id="h1">Bringing Logos into Focus</h1>
         <blockquote>
             <p>
@@ -26,26 +64,24 @@
             </p>
         </blockquote>
         <p><a href="#">Read more about this experiment &raquo;</a></p>
-        <p>How many logos can you identify with a 50 pixel gaussian blur? What about a 40 pixel blur? 30 pixel blur? 20? 10?</p>
+        <p>How many logos can you identify? Try sharpening the logos to make it easier.</p>
     </header>
 
-    <section>
+    <section class="container" data-active-blur-value="25">
 
-        <div class="filter">
-            <a href="#" class="filter-control sharpen">&laquo; Sharpen</a>
-            <ul class="filter-scale">
-                <li><a href="#">0</a></li>
-                <li><a href="#">10</a></li>
-                <li><a href="#">20</a></li>
-                <li><a href="#">30</a></li>
-                <li><a href="#">40</a></li>
-                <li><a href="#" class="active">50</a></li>
+        <div class="filters">
+            <ul class="filter-range">
+                <li><a href="#" class="filter-point" data-blur-value="0">Sharp</a></li>
+                <li><a href="#" class="filter-point" data-blur-value="5">Hardly Blurry</a></li>
+                <li><a href="#" class="filter-point" data-blur-value="10">Less Blurry</a></li>
+                <li><a href="#" class="filter-point" data-blur-value="15">Blurry</a></li>
+                <li><a href="#" class="filter-point" data-blur-value="20">Blurrier</a></li>
+                <li><a href="#" class="filter-point" data-blur-value="25">Blurriest</a></li>
             </ul>
-            <a href="#" class="filter-control blur disable">Blur &raquo;</a>
-            <a href="#" class="shuffle" title="Shuffle">Shuffle</a>
+            <a href="#" class="filter-shuffle" title="Shuffle">Shuffle</a>
         </div>
 
-        <ul class="brands brands--blur50">
+        <ul class="brands">
             <?php
                 function stringAdjust($string) {
                     //Lower case everything
@@ -62,11 +98,13 @@
                     "ABC",
                     "Apple",
                     "CBS",
+                    "Chase",
                     "CNN",
                     "Coke",
                     "Dropbox",
                     "ESPN",
                     "General Electric",
+                    "Girl Scouts",
                     "Google",
                     "Honda",
                     "Hyundai",
@@ -78,7 +116,10 @@
                     "McDonalds",
                     "Mercedes",
                     "MTV",
+                    "NBC",
                     "Nike",
+                    "PBS",
+                    "Pepsi",
                     "Shell",
                     "Starbucks",
                     "Taco Bell",
@@ -94,15 +135,8 @@
                     ?>
                         <li class="brand" id="<?php echo stringAdjust($key) ?>">
                             <h2 class="brand-name"><?php echo $key ?></h2>
-                            <ul class="logos">
-                                <?php for ($i=0; $i <= 5; $i++) { ?>
-                                    <li class="logo logo--blur<?php echo $i*10 ?>">
-                                        <a href="assets/images/build/<?php echo stringAdjust($key).'-'.$i*10 ?>.png">
-                                            <?php echo $i*10 ?>px blur
-                                        </a>
-                                    </li>   
-                                <?php } ?>
-                            </ul>
+                            <div class="logo"></div>
+                        </li>
                     <?php
                 }
 
@@ -117,8 +151,8 @@
         <p>View source on <a href="https://github.com/jimniels/logos">Github</a>.</p>
     </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type="text/javascript" src="assets/scripts/scripts.js"></script>
+    <script type="text/javascript" src="assets/scripts/jquery.js"></script>
+    <script type="text/javascript" src="assets/scripts/scripts.js"></script>
 
 </body>
 </html>
