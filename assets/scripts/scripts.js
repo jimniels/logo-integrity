@@ -24,6 +24,29 @@ $(document).ready(function(){
     $('.filter-shuffle').on('click', function(){
         $('.brands li').shuffle(); 
     });
+
+
+    var elWrap = $(".wrap");
+    var elMenu = $(".menu");
+    var osMenu = elMenu.offset().top;
+    
+
+    $(window).scroll($.throttle(10, function() {
+        console.log('fireing');
+        elMenu.css("top", 0);
+        var edge = $(window).scrollTop();
+
+        if (osMenu <= edge) {
+            elWrap.addClass("dock").removeClass("stop");
+        }
+        else {
+            elWrap.removeClass("dock stop");
+        }
+
+    }));
+
+
+
 });
 
 //

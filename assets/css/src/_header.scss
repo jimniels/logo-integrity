@@ -10,7 +10,7 @@
     h1 {
         font-size: #{24 / $font-size-base}em;
         margin: 0 auto;
-        max-width: 500px;
+        max-width: $max-width;
         margin-bottom: #{10 / $font-size-base}em;
     } 
 

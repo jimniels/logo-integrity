@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 <head>
     <meta charset="utf-8">
     <title>Logos Test</title>
@@ -15,7 +15,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
-    
+
+
+.menu { height:50px; }
+.main {}
+
+/* account for "Menu" being removed from doc flow... */
+.dock .main, .stop .main { padding-top:50px; }
+/* when "Head" is out of view... */
+.dock .menu { z-index:40; position:fixed; width: 100%;}
+/* when "Main" is out of view... */
+.stop .menu { z-index:40; position:absolute; }
 
 
     </style>
@@ -67,9 +77,9 @@
         <p>How many logos can you identify? Try sharpening the logos to make it easier.</p>
     </header>
 
-    <section class="container" data-active-blur-value="25">
+    <section class="container wrap" data-active-blur-value="25">
 
-        <div class="filters">
+        <div class="filters menu">
             <ul class="filter-range">
                 <li><a href="#" class="filter-point" data-blur-value="0">Sharp</a></li>
                 <li><a href="#" class="filter-point" data-blur-value="5">Hardly Blurry</a></li>
@@ -81,7 +91,7 @@
             <a href="#" class="filter-shuffle" title="Shuffle">Shuffle</a>
         </div>
 
-        <ul class="brands">
+        <ul class="brands main">
             <?php
                 function stringAdjust($string) {
                     //Lower case everything
@@ -134,7 +144,9 @@
                 foreach ($logos as $key) {
                     ?>
                         <li class="brand" id="<?php echo stringAdjust($key) ?>">
-                            <h2 class="brand-name"><?php echo $key ?></h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/<?php echo stringAdjust($key) ?>.jpg"><?php echo $key ?></a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                     <?php

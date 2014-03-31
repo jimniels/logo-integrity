@@ -2,6 +2,8 @@ $font-size-base: 16;
 $color-highlight: #29abe2;
 $color-background-light: #eee;
 
+$max-width: 500px;
+
 $svg-directory: _svgs;
 
 @mixin respond-to($media) {

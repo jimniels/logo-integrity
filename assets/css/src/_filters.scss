@@ -7,6 +7,10 @@
     background: #000;
     text-align: center;
     position: relative;
+
+    .no-js & {
+        display: none;
+    }
 }
 
 .filter-shuffle {
