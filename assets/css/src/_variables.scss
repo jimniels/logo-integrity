@@ -4,7 +4,7 @@ $color-background-light: #eee;
 
 $max-width: 500px;
 
-$svg-directory: _svgs;
+$svg-directory: svgs;
 
 @mixin respond-to($media) {
     @if $media == mobile {
