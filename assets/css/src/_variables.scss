@@ -19,10 +19,20 @@ $svg-directory: logos/svgs;
 }
 
 @mixin filter($value) {
-    filter:         blur(#{$value}px); 
-    -webkit-filter: blur(#{$value}px); 
-    -moz-filter:    blur(#{$value}px);
-    -o-filter:      blur(#{$value}px); 
-    -ms-filter:     blur(#{$value}px);
-    filter:         image-url('blur#blur-#{$value}');
+    // Don't put filter: blur(0), as it's not as sharp as filter: none
+    @if ($value == 0) {
+        filter:         none; 
+        -webkit-filter: none; 
+        -moz-filter:    none;
+        -o-filter:      none; 
+        -ms-filter:     none;
+    } 
+    @else {
+        filter:         blur(#{$value}px); 
+        -webkit-filter: blur(#{$value}px); 
+        -moz-filter:    blur(#{$value}px);
+        -o-filter:      blur(#{$value}px); 
+        -ms-filter:     blur(#{$value}px);
+        filter:         image-url('blur#blur-#{$value}');
+    }
 }

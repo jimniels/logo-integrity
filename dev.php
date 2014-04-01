@@ -1,4 +1,57 @@
-<!DOCTYPE html>
+<?php
+function stringAdjust($string) {
+    //Lower case everything
+    $string = strtolower($string);
+    //Make alphanumeric (removes all other characters)
+    $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
+    //Clean up multiple dashes or whitespaces
+    $string = preg_replace("/[\s-]+/", " ", $string);
+    //Convert whitespaces and underscore to dash
+    $string = preg_replace("/[\s_]/", "-", $string);
+    return $string;
+}
+$logos = array(
+    "ABC",
+    "Apple",
+    "CBS",
+    "Chase",
+    "CNN",
+    "Coke",
+    "Dropbox",
+    "ESPN",
+    "General Electric",
+    "Girl Scouts",
+    "Honda",
+    "Hyundai",
+    "IBM",
+    "Intel",
+    "John Deere",
+    "Jumpman",
+    "KFC",
+    "LG",
+    "Mazda",
+    "McDonalds",
+    "Mercedes",
+    "Mitsubishi",
+    "MTV",
+    "NBC",
+    "Nike",
+    "PBS",
+    "Pepsi",
+    "Puma",
+    "Quicksilver",
+    "Rolex",
+    "Shell",
+    "Starbucks",
+    "Taco Bell",
+    "Target",
+    "Toyota",
+    "Twitter",
+    "Univision",
+    "UPS",
+    "Volkswagen"
+);
+?><!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8">
@@ -33,39 +86,6 @@
 <body>
     
     <header class="header">
-    <!--
-        <div>
-            <svg width="300" height="300">
-                <image xlink:href="assets/svgs/abc.svg" width="300" height="300"/>
-            </svg>
-        </div>
-        <div>
-            <svg width="300" height="300">
-                <image class="svg-blur-5" xlink:href="assets/svgs/abc.svg" src="assets/images/build/abc-10.jpg" width="300" height="300"/>
-            </svg>
-        </div>
-        <div>
-            <svg width="300" height="300">
-                <image class="svg-blur-10" xlink:href="assets/svgs/abc.svg" src="assets/images/build/abc-20.jpg" width="300" height="300"/>
-            </svg>
-        </div>
-        <div>
-            <svg width="300" height="300">
-                <image class="svg-blur-15" xlink:href="assets/svgs/abc.svg" src="assets/images/build/abc-30.jpg" width="300" height="300"/>
-            </svg>
-        </div>
-        <div>
-            <svg width="300" height="300">
-                <image class="svg-blur-20" xlink:href="assets/svgs/abc.svg" src="assets/images/build/abc-40.jpg" width="300" height="300"/>
-            </svg>
-        </div>
-        <div>
-            <svg width="300" height="300">
-                <image class="svg-blur-25" xlink:href="assets/svgs/abc.svg" src="assets/images/build/abc-50.jpg" width="300" height="300"/>
-            </svg>
-        </div>
-    -->
-
         <h1 class="h1" id="h1">Bringing Logos into Focus</h1>
         <blockquote>
             <p>
@@ -93,72 +113,17 @@
 
         <ul class="brands main">
             <?php
-                function stringAdjust($string) {
-                    //Lower case everything
-                    $string = strtolower($string);
-                    //Make alphanumeric (removes all other characters)
-                    $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
-                    //Clean up multiple dashes or whitespaces
-                    $string = preg_replace("/[\s-]+/", " ", $string);
-                    //Convert whitespaces and underscore to dash
-                    $string = preg_replace("/[\s_]/", "-", $string);
-                    return $string;
-                }
-                $logos = array(
-                    "ABC",
-                    "Apple",
-                    "CBS",
-                    "Chase",
-                    "CNN",
-                    "Coke",
-                    "Dropbox",
-                    "ESPN",
-                    "General Electric",
-                    "Girl Scouts",
-                    "Honda",
-                    "Hyundai",
-                    "IBM",
-                    "Intel",
-                    "John Deere",
-                    "Jumpman",
-                    "KFC",
-                    "LG",
-                    "Mazda",
-                    "McDonalds",
-                    "Mercedes",
-                    "Mitsubishi",
-                    "MTV",
-                    "NBC",
-                    "Nike",
-                    "PBS",
-                    "Pepsi",
-                    "Puma",
-                    "Quicksilver",
-                    "Rolex",
-                    "Shell",
-                    "Starbucks",
-                    "Taco Bell",
-                    "Target",
-                    "Toyota",
-                    "Twitter",
-                    "Univision",
-                    "UPS",
-                    "Volkswagen"
-                );
                 foreach ($logos as $key) {
                     ?>
                         <li class="brand" id="<?php echo stringAdjust($key) ?>">
                             <h2 class="brand-name">
-                                <a href="assets/images/build/<?php echo stringAdjust($key) ?>.jpg"><?php echo $key ?></a>
+                                <a href="assets/images/build/logos/jpgs/<?php echo stringAdjust($key) ?>.jpg"><?php echo $key ?></a>
                             </h2>
                             <div class="logo"></div>
                         </li>
                     <?php
                 }
-
-            ?>
-            
-        </ul>
+            ?>        </ul>
 
     </section>
 

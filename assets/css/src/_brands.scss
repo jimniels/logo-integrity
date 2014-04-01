@@ -46,14 +46,30 @@
     .js & {
         position: absolute;
         width: 100%;
-        bottom: -100%;
-        right: .5em;
+        bottom: 0;
+        left: 50%;
+        width: 280px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-left: -140px;
         font-size: 1em;
         color: black; 
-        text-align: right;
-        -webkit-transition: .2s ease all;
+        text-align: center;
         color: #999;  
         z-index: 10; 
+        @include opacity(0);
+        visibility: hidden;
+        @include transition(.2s ease all);
+
+        a {
+            color: inherit;
+        }
+    }
+
+    .reveal & {
+        @include opacity(1);
+        visibility: visible;
     }
 
     .no-js & {
@@ -102,23 +118,6 @@
     }
 }
 
-
-
-.brands--blur50 .logo--blur50 {opacity: 1}
-.brands--blur40 .logo--blur40 {opacity: 1}
-.brands--blur30 .logo--blur30 {opacity: 1}
-.brands--blur20 .logo--blur20 {opacity: 1}
-.brands--blur10 .logo--blur10 {opacity: 1}
-.brands--blur0 .logo--blur0 {opacity: 1}
-
-
-.brand.reveal{
-
-    // Show the Brand name
-    h2 {
-        bottom: .5em;
-    }
-}
 
 // List these alphabetically
 $logos: 
@@ -173,9 +172,11 @@ $logos:
 }
 
 // Each logo as a background image
-@each $logo in $logos {
-    ##{$logo} {
-        .logo {background-image: image-url('#{$svg-directory}/#{$logo}.svg') }
+.svgfilters {
+    @each $logo in $logos {
+        ##{$logo} {
+            .logo {background-image: image-url('#{$svg-directory}/#{$logo}.svg') }
+        }
     }
 }
 
@@ -201,5 +202,4 @@ $filter-point-value: 0;
     }
 
     $filter-point-value: $filter-point-value + 1;
-
 }
