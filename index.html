@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 <head>
     <meta charset="utf-8">
     <title>Logos Test</title>
@@ -15,7 +15,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
-    
+
+
+.menu { height:50px; }
+.main {}
+
+/* account for "Menu" being removed from doc flow... */
+.dock .main, .stop .main { padding-top:50px; }
+/* when "Head" is out of view... */
+.dock .menu { z-index:40; position:fixed; width: 100%;}
+/* when "Main" is out of view... */
+.stop .menu { z-index:40; position:absolute; }
 
 
     </style>
@@ -67,9 +77,9 @@
         <p>How many logos can you identify? Try sharpening the logos to make it easier.</p>
     </header>
 
-    <section class="container" data-active-blur-value="25">
+    <section class="container wrap" data-active-blur-value="25">
 
-        <div class="filters">
+        <div class="filters menu">
             <ul class="filter-range">
                 <li><a href="#" class="filter-point" data-blur-value="0">Sharp</a></li>
                 <li><a href="#" class="filter-point" data-blur-value="5">Hardly Blurry</a></li>
@@ -81,145 +91,239 @@
             <a href="#" class="filter-shuffle" title="Shuffle">Shuffle</a>
         </div>
 
-        <ul class="brands">
+        <ul class="brands main">
                                     <li class="brand" id="abc">
-                            <h2 class="brand-name">ABC</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/abc.jpg">ABC</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="apple">
-                            <h2 class="brand-name">Apple</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/apple.jpg">Apple</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="cbs">
-                            <h2 class="brand-name">CBS</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/cbs.jpg">CBS</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="chase">
-                            <h2 class="brand-name">Chase</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/chase.jpg">Chase</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="cnn">
-                            <h2 class="brand-name">CNN</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/cnn.jpg">CNN</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="coke">
-                            <h2 class="brand-name">Coke</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/coke.jpg">Coke</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="dropbox">
-                            <h2 class="brand-name">Dropbox</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/dropbox.jpg">Dropbox</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="espn">
-                            <h2 class="brand-name">ESPN</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/espn.jpg">ESPN</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="general-electric">
-                            <h2 class="brand-name">General Electric</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/general-electric.jpg">General Electric</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="girl-scouts">
-                            <h2 class="brand-name">Girl Scouts</h2>
-                            <div class="logo"></div>
-                        </li>
-                                            <li class="brand" id="google">
-                            <h2 class="brand-name">Google</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/girl-scouts.jpg">Girl Scouts</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="honda">
-                            <h2 class="brand-name">Honda</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/honda.jpg">Honda</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="hyundai">
-                            <h2 class="brand-name">Hyundai</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/hyundai.jpg">Hyundai</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="ibm">
-                            <h2 class="brand-name">IBM</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/ibm.jpg">IBM</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="intel">
-                            <h2 class="brand-name">Intel</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/intel.jpg">Intel</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="john-deere">
-                            <h2 class="brand-name">John Deere</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/john-deere.jpg">John Deere</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="jumpman">
-                            <h2 class="brand-name">Jumpman</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/jumpman.jpg">Jumpman</a>
+                            </h2>
+                            <div class="logo"></div>
+                        </li>
+                                            <li class="brand" id="kfc">
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/kfc.jpg">KFC</a>
+                            </h2>
+                            <div class="logo"></div>
+                        </li>
+                                            <li class="brand" id="lg">
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/lg.jpg">LG</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="mazda">
-                            <h2 class="brand-name">Mazda</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/mazda.jpg">Mazda</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="mcdonalds">
-                            <h2 class="brand-name">McDonalds</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/mcdonalds.jpg">McDonalds</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="mercedes">
-                            <h2 class="brand-name">Mercedes</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/mercedes.jpg">Mercedes</a>
+                            </h2>
+                            <div class="logo"></div>
+                        </li>
+                                            <li class="brand" id="mitsubishi">
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/mitsubishi.jpg">Mitsubishi</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="mtv">
-                            <h2 class="brand-name">MTV</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/mtv.jpg">MTV</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="nbc">
-                            <h2 class="brand-name">NBC</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/nbc.jpg">NBC</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="nike">
-                            <h2 class="brand-name">Nike</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/nike.jpg">Nike</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="pbs">
-                            <h2 class="brand-name">PBS</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/pbs.jpg">PBS</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="pepsi">
-                            <h2 class="brand-name">Pepsi</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/pepsi.jpg">Pepsi</a>
+                            </h2>
+                            <div class="logo"></div>
+                        </li>
+                                            <li class="brand" id="puma">
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/puma.jpg">Puma</a>
+                            </h2>
+                            <div class="logo"></div>
+                        </li>
+                                            <li class="brand" id="quicksilver">
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/quicksilver.jpg">Quicksilver</a>
+                            </h2>
+                            <div class="logo"></div>
+                        </li>
+                                            <li class="brand" id="rolex">
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/rolex.jpg">Rolex</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="shell">
-                            <h2 class="brand-name">Shell</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/shell.jpg">Shell</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="starbucks">
-                            <h2 class="brand-name">Starbucks</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/starbucks.jpg">Starbucks</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="taco-bell">
-                            <h2 class="brand-name">Taco Bell</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/taco-bell.jpg">Taco Bell</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="target">
-                            <h2 class="brand-name">Target</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/target.jpg">Target</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="toyota">
-                            <h2 class="brand-name">Toyota</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/toyota.jpg">Toyota</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="twitter">
-                            <h2 class="brand-name">Twitter</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/twitter.jpg">Twitter</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="univision">
-                            <h2 class="brand-name">Univision</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/univision.jpg">Univision</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="ups">
-                            <h2 class="brand-name">UPS</h2>
-                            <div class="logo"></div>
-                        </li>
-                                            <li class="brand" id="visa">
-                            <h2 class="brand-name">Visa</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/ups.jpg">UPS</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                             <li class="brand" id="volkswagen">
-                            <h2 class="brand-name">Volkswagen</h2>
+                            <h2 class="brand-name">
+                                <a href="assets/images/build/volkswagen.jpg">Volkswagen</a>
+                            </h2>
                             <div class="logo"></div>
                         </li>
                                 
