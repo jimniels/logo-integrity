@@ -4,7 +4,7 @@ $color-background-light: #eee;
 
 $max-width: 500px;
 
-$svg-directory: svgs;
+$svg-directory: logos/svgs;
 
 @mixin respond-to($media) {
     @if $media == mobile {
@@ -24,5 +24,5 @@ $svg-directory: svgs;
     -moz-filter:    blur(#{$value}px);
     -o-filter:      blur(#{$value}px); 
     -ms-filter:     blur(#{$value}px);
-    filter:         image-url('_svgs/blur#blur-#{$value}');
+    filter:         image-url('blur#blur-#{$value}');
 }
