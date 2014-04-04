@@ -51,6 +51,54 @@ $logos = array(
     "UPS",
     "Volkswagen"
 );
+$brands = array(
+    "ABC" => array(
+        "ABC",
+        "American Broadcasting Company"
+    ),
+    "Apple",
+    "CBS",
+    "Chase" => array(
+        "Chase",
+        "Chase Bank",
+        "J.P. Morgan Chase"
+    ),
+    "CNN",
+    "Coke",
+    "Dropbox",
+    "ESPN",
+    "General Electric",
+    "Girl Scouts",
+    "Honda",
+    "Hyundai",
+    "IBM",
+    "Intel",
+    "John Deere",
+    "Jumpman",
+    "KFC",
+    "LG",
+    "Mazda",
+    "McDonalds",
+    "Mercedes",
+    "Mitsubishi",
+    "MTV",
+    "NBC",
+    "Nike",
+    "PBS",
+    "Pepsi",
+    "Puma",
+    "Quicksilver",
+    "Rolex",
+    "Shell",
+    "Starbucks",
+    "Taco Bell",
+    "Target",
+    "Toyota",
+    "Twitter",
+    "Univision",
+    "UPS",
+    "Volkswagen"
+);
 ?><!DOCTYPE html>
 <html class="no-js">
 <head>
@@ -97,7 +145,7 @@ $logos = array(
         <p>How many logos can you identify? Try sharpening the logos to make it easier.</p>
     </header>
 
-    <section class="container wrap" data-active-blur-value="25">
+    <section class="container wrap" data-active-blur-value="10">
 
         <div class="filters menu">
             <ul class="filter-range">
@@ -106,7 +154,6 @@ $logos = array(
                 <li><a href="#" class="filter-point" data-blur-value="10">Less Blurry</a></li>
                 <li><a href="#" class="filter-point" data-blur-value="15">Blurry</a></li>
                 <li><a href="#" class="filter-point" data-blur-value="20">Blurrier</a></li>
-                <li><a href="#" class="filter-point" data-blur-value="25">Blurriest</a></li>
             </ul>
             <a href="#" class="filter-shuffle" title="Shuffle">Shuffle</a>
         </div>
@@ -115,7 +162,7 @@ $logos = array(
             <?php
                 foreach ($logos as $key) {
                     ?>
-                        <li class="brand" id="<?php echo stringAdjust($key) ?>">
+                        <li class="brand" id="<?php echo stringAdjust($key) ?>" data-answer="['ABC','American Broadcasting Company']">
                             <h2 class="brand-name">
                                 <a href="assets/images/build/logos/jpgs/<?php echo stringAdjust($key) ?>.jpg"><?php echo $key ?></a>
                             </h2>
@@ -134,6 +181,10 @@ $logos = array(
 
     <script type="text/javascript" src="assets/scripts/jquery.js"></script>
     <script type="text/javascript" src="assets/scripts/scripts.js"></script>
+    <script type="text/javascript" src="assets/scripts/fuzzySet.js"></script>
+
+    
+
 
 </body>
 </html>

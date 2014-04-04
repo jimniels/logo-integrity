@@ -1,16 +1,90 @@
 $(document).ready(function(){
     
-    //$('body').addClass('js');
+    // Shuffle the logos on page load
+    //$('.brands li').shuffle(); 
 
     var logos = $('.logos > li');
+    var formHtml = '\
+        <form class="form">\
+            <label>Brand name:</label>\
+            <input type="text" />\
+            <button type="submit">Show Me</button>\
+        </form>\
+    ';
 
-    $('.brand').on('click', function(){
-        $(this).toggleClass('reveal');
+    // Append form, set each 'answered' as false
+    $('.brand').each(function(){
+        $(formHtml).appendTo(this);
+        $(this).attr('data-answered', 'false');   
+    })
+
+    // Brand
+    $('body').on('click', '.brand', function(e){
+
+        var $this = $(this);
+
+        // find any other .reveal and remove
+        // $('.reveal[data-answered="false"]').each(function(){
+        //    $(this).removeClass('reveal'); 
+        // });
+
+        // If this question is unanswered
+        if( $this.attr('data-answered') == 'false' ) {
+            $this.toggleClass('reveal');
+
+            // If it's visible, focus the input
+            if($this.hasClass('reveal')) {
+                setTimeout(function(){
+                    $this.find('input').focus();
+                }, 100);
+            }
+        }
+        // Otherwise Do nothing
+        else {
+            
+            console.log('Already answered!');
+        }
     });
 
+    $('body').on('click', 'input', function(e){
+        e.stopPropagation();
+    });
+
+    $('body').on('click', 'button', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        
+        var $this = $(this),
+            $brand = $this.parents('.brand');
+
+        // evaluate the value here
+        var input = $this.siblings('input').val();
+        var answer = $brand.attr('data-answer');
+        answer = eval(answer);
+
+        
+        var f = FuzzySet(answer);
+        var fuzzy = f.get(input);
+        
+
+        if(fuzzy[0][0] >= .66666667) {
+            console.log("Close enough! " + fuzzy[0][0]);
+        } else {
+            console.log("Wrong! " + fuzzy[0][0]);
+        }
+
+        
+
+        // show the div
+        $brand.attr('data-answered', true);
+    });
+
+
+
+
+    // Filters
     $('.filter-point').on('click', function(e){
         e.preventDefault();
-        
         
         // Any 'revealed' logos should go blurred on change
         $('.reveal').each(function(){
@@ -48,6 +122,8 @@ $(document).ready(function(){
 
 
 });
+
+
 
 //
 //  Shuffle plugin

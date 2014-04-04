@@ -67,7 +67,7 @@
         }
     }
 
-    .reveal & {
+    .reveal[data-answered="true"] & {
         @include opacity(1);
         visibility: visible;
     }
@@ -108,7 +108,7 @@
         -ms-transition: .15s ease -ms-filter;
     }
 
-    .reveal & {
+    .reveal[data-answered="true"] & {
         filter: none !important; 
         -webkit-filter: none !important; 
         -moz-filter: none !important;
@@ -181,7 +181,7 @@ $logos:
 }
 
 // Blurs for controls
-$logo-blurs: 0 5 10 15 20 25;
+$logo-blurs: 0 5 10 15 20;
 $filter-point-value: 0;
 
 @each $logo-blur in $logo-blurs {

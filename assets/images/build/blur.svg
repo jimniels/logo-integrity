@@ -23,7 +23,4 @@
     <filter id="blur-20">
         <feGaussianBlur stdDeviation="20" />
     </filter>
-    <filter id="blur-25">
-        <feGaussianBlur stdDeviation="25" />
-    </filter>
 </svg>
