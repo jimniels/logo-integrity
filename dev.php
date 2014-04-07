@@ -1,105 +1,4 @@
-<?php
-function stringAdjust($string) {
-    //Lower case everything
-    $string = strtolower($string);
-    //Make alphanumeric (removes all other characters)
-    $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
-    //Clean up multiple dashes or whitespaces
-    $string = preg_replace("/[\s-]+/", " ", $string);
-    //Convert whitespaces and underscore to dash
-    $string = preg_replace("/[\s_]/", "-", $string);
-    return $string;
-}
-$logos = array(
-    "ABC",
-    "Apple",
-    "CBS",
-    "Chase",
-    "CNN",
-    "Coke",
-    "Dropbox",
-    "ESPN",
-    "General Electric",
-    "Girl Scouts",
-    "Honda",
-    "Hyundai",
-    "IBM",
-    "Intel",
-    "John Deere",
-    "Jumpman",
-    "KFC",
-    "LG",
-    "Mazda",
-    "McDonalds",
-    "Mercedes",
-    "Mitsubishi",
-    "MTV",
-    "NBC",
-    "Nike",
-    "PBS",
-    "Pepsi",
-    "Puma",
-    "Quicksilver",
-    "Rolex",
-    "Shell",
-    "Starbucks",
-    "Taco Bell",
-    "Target",
-    "Toyota",
-    "Twitter",
-    "Univision",
-    "UPS",
-    "Volkswagen"
-);
-$brands = array(
-    "ABC" => array(
-        "ABC",
-        "American Broadcasting Company"
-    ),
-    "Apple",
-    "CBS",
-    "Chase" => array(
-        "Chase",
-        "Chase Bank",
-        "J.P. Morgan Chase"
-    ),
-    "CNN",
-    "Coke",
-    "Dropbox",
-    "ESPN",
-    "General Electric",
-    "Girl Scouts",
-    "Honda",
-    "Hyundai",
-    "IBM",
-    "Intel",
-    "John Deere",
-    "Jumpman",
-    "KFC",
-    "LG",
-    "Mazda",
-    "McDonalds",
-    "Mercedes",
-    "Mitsubishi",
-    "MTV",
-    "NBC",
-    "Nike",
-    "PBS",
-    "Pepsi",
-    "Puma",
-    "Quicksilver",
-    "Rolex",
-    "Shell",
-    "Starbucks",
-    "Taco Bell",
-    "Target",
-    "Toyota",
-    "Twitter",
-    "Univision",
-    "UPS",
-    "Volkswagen"
-);
-?><!DOCTYPE html>
+<?php include('brands.php'); ?><!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8">
@@ -160,11 +59,25 @@ $brands = array(
 
         <ul class="brands main">
             <?php
-                foreach ($logos as $key) {
+                function outputBrandNames($names){
+                    
+                    $string = '';
+
+                    foreach ($names as $name) {
+                        $string .= "'".$name."',";
+                    }
+                    
+                    // cut off the last comma
+                    $string = substr($string, 0, -1);
+
+                    return $string;
+                }
+                foreach ($brands as $brandID => $brandNames) {
                     ?>
-                        <li class="brand" id="<?php echo stringAdjust($key) ?>" data-answer="['ABC','American Broadcasting Company']">
+                        
+                        <li class="brand" id="<?php echo $brandID ?>" data-answer="[<?php echo outputBrandNames($brandNames) ?>]">
                             <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/<?php echo stringAdjust($key) ?>.jpg"><?php echo $key ?></a>
+                                <a href="assets/images/build/logos/jpgs/<?php echo $brandID ?>.jpg"><?php echo $brandNames[0] ?></a>
                             </h2>
                             <div class="logo"></div>
                         </li>
