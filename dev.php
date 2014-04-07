@@ -72,6 +72,7 @@
 
                     return $string;
                 }
+                $i = 0;
                 foreach ($brands as $brandID => $brandNames) {
                     ?>
                         

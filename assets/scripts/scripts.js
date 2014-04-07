@@ -69,9 +69,11 @@ $(document).ready(function(){
         if(fuzzy) {
             if(fuzzy[0][0] < .6666666) {
                 console.log("Not close enough! " + fuzzy[0][0]);
+                $brand.addClass('incorrect');
             }
             else {
                 console.log("You're right! " + fuzzy[0][0]);
+                $brand.addClass('correct');
             }
         } else {
             console.log("Not even close!");
@@ -93,6 +95,15 @@ $(document).ready(function(){
         $('.reveal').each(function(){
             $(this).removeClass('reveal');
         });
+
+        // $('.brands').toggleClass('shuffling');
+        // setTimeout(function(){
+        //    $('.brands li').shuffle();
+        // }, 200);
+        
+        // setTimeout(function(){
+        //    $('.brands').toggleClass('shuffling');
+        // }, 800);
 
         // Change the active blur value to whatever was clicked
         $('.container').attr('data-active-blur-value', $(this).attr('data-blur-value'));
@@ -139,7 +150,7 @@ $(document).ready(function(){
 (function($){
  
     $.fn.shuffle = function() {
- 
+
         var allElems = this.get(),
             getRandom = function(max) {
                 return Math.floor(Math.random() * max);

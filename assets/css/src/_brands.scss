@@ -6,7 +6,8 @@
 .brands {
     .js & {
         border-top: 1px solid #eee;
-        overflow: hidden;  
+        overflow: hidden;
+        position: relative;
     }
 }
 
@@ -35,6 +36,48 @@
         &:hover {
             cursor: pointer;
         }
+
+        &.correct {
+            .brand-name {
+                color: $color-correct;
+
+                &:before {
+                    content: '+ 1';
+                    background: $color-correct;
+                    color: white;
+                    border-color: $color-correct;
+                }
+            }
+        }
+        &.incorrect {
+            .brand-name {
+                color: $color-incorrect;
+                
+                &:before {
+                    content: '+ 0';
+                    color: $color-incorrect;
+                    border-color: $color-incorrect;
+                }
+            }
+        }
+        &.incorrect,
+        &.correct {
+            .brand-name:before {
+                // position: absolute;
+                // left: 0;
+                // bottom: 0;
+                padding: #{2 / $font-size-base}em #{5 / $font-size-base}em;
+                @include border-radius(3px);
+                line-height: 1;
+                margin-right: #{4 / $font-size-base}em;
+                border-width: 1px;
+                border-style: solid;
+            }
+
+            &:hover {
+                cursor: default;
+            }
+        }
     }
 
     .no-js & {
@@ -45,17 +88,13 @@
 .brand-name {
     .js & {
         position: absolute;
-        width: 100%;
-        bottom: 0;
-        left: 50%;
-        width: 280px;
+        width: 80%;
+        bottom: .5em;
+        left: .5em;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        margin-left: -140px;
         font-size: 1em;
-        color: black; 
-        text-align: center;
         color: #999;  
         z-index: 10; 
         @include opacity(0);
