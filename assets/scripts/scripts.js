@@ -65,14 +65,17 @@ $(document).ready(function(){
         
         var f = FuzzySet(answer);
         var fuzzy = f.get(input);
-        
 
-        if(fuzzy[0][0] >= .66666667) {
-            console.log("Close enough! " + fuzzy[0][0]);
+        if(fuzzy) {
+            if(fuzzy[0][0] < .6666666) {
+                console.log("Not close enough! " + fuzzy[0][0]);
+            }
+            else {
+                console.log("You're right! " + fuzzy[0][0]);
+            }
         } else {
-            console.log("Wrong! " + fuzzy[0][0]);
+            console.log("Not even close!");
         }
-
         
 
         // show the div
