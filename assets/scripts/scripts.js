@@ -6,7 +6,7 @@ $(document).ready(function(){
     var logos = $('.logos > li');
     var formHtml = '\
         <form class="form">\
-            <label>Brand name:</label>\
+            <label>Guess the brand:</label>\
             <input type="text" />\
             <button type="submit">Show Me</button>\
         </form>\
@@ -15,7 +15,7 @@ $(document).ready(function(){
     // Append form, set each 'answered' as false
     $('.brand').each(function(){
         $(formHtml).appendTo(this);
-        $(this).attr('data-answered', 'false');   
+        $(this).attr('data-answered', 'false');  
     })
 
     // Brand
@@ -58,13 +58,13 @@ $(document).ready(function(){
             $brand = $this.parents('.brand');
 
         // evaluate the value here
-        var input = $this.siblings('input').val();
+        var $input = $this.siblings('input');
         var answer = $brand.attr('data-answer');
         answer = eval(answer);
 
-        
+
         var f = FuzzySet(answer);
-        var fuzzy = f.get(input);
+        var fuzzy = f.get($input.val());
 
         if(fuzzy) {
             if(fuzzy[0][0] < .6666666) {
@@ -77,11 +77,15 @@ $(document).ready(function(){
             }
         } else {
             console.log("Not even close!");
+            $brand.addClass('incorrect');
         }
         
 
         // show the div
         $brand.attr('data-answered', true);
+
+        // clear the input
+        $input.val('')
     });
 
 
@@ -91,9 +95,10 @@ $(document).ready(function(){
     $('.filter-point').on('click', function(e){
         e.preventDefault();
         
-        // Any 'revealed' logos should go blurred on change
-        $('.reveal').each(function(){
-            $(this).removeClass('reveal');
+        // Reset all the brands
+        $('.brand').each(function(){
+            $(this).removeClass('reveal correct incorrect');
+            $(this).attr('data-answered', 'false');
         });
 
         // $('.brands').toggleClass('shuffling');
@@ -109,9 +114,6 @@ $(document).ready(function(){
         $('.container').attr('data-active-blur-value', $(this).attr('data-blur-value'));
     });
 
-    $('.filter-shuffle').on('click', function(){
-        $('.brands li').shuffle(); 
-    });
 
 
     var elWrap = $(".wrap");

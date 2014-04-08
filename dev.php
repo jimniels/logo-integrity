@@ -54,7 +54,6 @@
                 <li><a href="#" class="filter-point" data-blur-value="15">Blurry</a></li>
                 <li><a href="#" class="filter-point" data-blur-value="20">Blurrier</a></li>
             </ul>
-            <a href="#" class="filter-shuffle" title="Shuffle">Shuffle</a>
         </div>
 
         <ul class="brands main">

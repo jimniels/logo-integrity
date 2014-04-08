@@ -4,6 +4,9 @@ $brands = array(
         "ABC",
         "American Broadcasting Company"
     ),
+    "addidas" => array(
+        "Addidas"
+    ),
     "apple" => array(
         "Apple",
         "Apple Inc.",
@@ -25,17 +28,8 @@ $brands = array(
         "CNN",
         "Cable News Network"
     ),
-    "coke" => array(
-        "Coke",
-        "Coca-Cola"
-    ),
     "dropbox" => array(
         "Dropbox"
-    ),
-    "espn" => array(
-        "ESPN",
-        "ESPN Inc.",
-        "Entertainment and Sports Programming Network"
     ),
     "general-electric" => array(
         "GE",
@@ -56,13 +50,8 @@ $brands = array(
         "Hyundai",
         "Hyundai Motor Company"
     ),
-    "ibm" => array(
-        "IBM",
-        "International Business Machines Corporation"
-    ),
-    "intel" => array(
-        "Intel",
-        "Intel Corporation"
+    "jaguar" => array(
+        "Jaguar"
     ),
     "john-deere" => array(
         "John Deere",
@@ -74,6 +63,9 @@ $brands = array(
     "kfc" => array(
         "KFC",
         "Kentucky Fried Chicken"
+    ),
+    "lacoste" => array(
+        "Lacoste"
     ),
     "lg" => array(
         "LG",
@@ -134,6 +126,10 @@ $brands = array(
     ),
     "target" => array(
         "Target"
+    ),
+    "texaco" => array(
+        "Texaco",
+        "The Texas Company"
     ),
     "toyota" => array(
         "Toyota",
