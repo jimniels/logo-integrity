@@ -8,7 +8,7 @@ $(document).ready(function(){
         <form class="form">\
             <label>Guess the brand:</label>\
             <input type="text" />\
-            <button type="submit">Show Me</button>\
+            <button type="submit">Reveal</button>\
         </form>\
     ';
 
@@ -19,14 +19,9 @@ $(document).ready(function(){
     })
 
     // Brand
-    $('body').on('click', '.brand', function(e){
+    $('.brand').on('click', function(e){
 
         var $this = $(this);
-
-        // find any other .reveal and remove
-        // $('.reveal[data-answered="false"]').each(function(){
-        //    $(this).removeClass('reveal'); 
-        // });
 
         // If this question is unanswered
         if( $this.attr('data-answered') == 'false' ) {
@@ -41,16 +36,15 @@ $(document).ready(function(){
         }
         // Otherwise Do nothing
         else {
-            
             console.log('Already answered!');
         }
     });
 
-    $('body').on('click', 'input', function(e){
+    $('input').on('click', function(e){
         e.stopPropagation();
     });
 
-    $('body').on('click', 'button', function(e){
+    $('button').on('click', function(e){
         e.preventDefault();
         e.stopPropagation();
         
@@ -59,33 +53,30 @@ $(document).ready(function(){
 
         // evaluate the value here
         var $input = $this.siblings('input');
+        var userAnswer = $input.val();
         var answer = $brand.attr('data-answer');
         answer = eval(answer);
 
 
         var f = FuzzySet(answer);
-        var fuzzy = f.get($input.val());
+        var fuzzy = f.get(userAnswer);
 
-        if(fuzzy) {
-            if(fuzzy[0][0] < .6666666) {
-                console.log("Not close enough! " + fuzzy[0][0]);
-                $brand.addClass('incorrect');
-            }
-            else {
-                console.log("You're right! " + fuzzy[0][0]);
-                $brand.addClass('correct');
-            }
+        if(fuzzy && fuzzy[0][0] > .6666666) {
+            console.log("You're right! " + fuzzy[0][0]);
+            $brand.addClass('correct');
+            $this.attr('disabled', 'disabled').text('+1');
         } else {
-            console.log("Not even close!");
+            console.log("Not close enough!");
+            if(fuzzy) {console.log(fuzzy[0][0]);}
             $brand.addClass('incorrect');
+            $this.attr('disabled', 'disabled').text('0');
         }
         
-
+        // disable inputs
+        $brand.find('input').attr('disabled', 'disabled');
+        
         // show the div
         $brand.attr('data-answered', true);
-
-        // clear the input
-        $input.val('')
     });
 
 
@@ -95,10 +86,12 @@ $(document).ready(function(){
     $('.filter-point').on('click', function(e){
         e.preventDefault();
         
-        // Reset all the brands
+        // Reset all the brands and form attributes
         $('.brand').each(function(){
             $(this).removeClass('reveal correct incorrect');
             $(this).attr('data-answered', 'false');
+            $(this).find('input').attr('disabled', false).val('');
+            $(this).find('button').attr('disabled', false).text('Reveal');
         });
 
         // $('.brands').toggleClass('shuffling');

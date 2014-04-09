@@ -44,6 +44,7 @@ $brands = array(
     ),
     "honda" => array(
         "Honda",
+        "Honda Motors",
         "Honda Motor Company"
     ),
     "hyundai" => array(
