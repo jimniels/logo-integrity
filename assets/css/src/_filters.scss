@@ -3,10 +3,13 @@
 //  Filter
 //  ==============================
 //
+$filter-height: 50px;
+
 .filters {
     background: #000;
     text-align: center;
     position: relative;
+    height: $filter-height;
 
     .no-js & {
         display: none;
@@ -79,4 +82,52 @@
     height: 10px;
     text-indent: -9999px;
     padding: 1.5em 2.5em;
+}
+
+//
+//
+//  Points
+//  ===================
+//
+.filter-points {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    color: rgba(255,255,255,.65);
+    background: $color-highlight;
+    height: $filter-height;
+    padding: 0 2em;
+    @include transition(.5s ease background);
+
+    a {
+        color: inherit;
+        line-height: $filter-height;
+        position: relative;
+        top: 1px;
+        font-size: #{14 / $font-size-base};
+
+        &:hover {
+            text-decoration: underline;
+            color: white;
+
+            &:after {
+                content: '\00BB';
+                position: absolute;
+                margin-left: .25em;
+            }
+        }
+    }
+
+    .points {
+        font-size: 2em;
+        @include inline-block();
+        color: white;
+        padding-right: .5em;
+        line-height: $filter-height;
+    }
+
+    &.points-added {
+        background-color: $color-correct;
+    }
 }

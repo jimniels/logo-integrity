@@ -1,12 +1,4 @@
 .form {
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // width: 100%;
-    // height: 300px;
-    // background: #fff;
-    // text-align: center;
-    // padding: 7em 1em 1em;
     @include transition(.25s ease all);
 
     @include opacity(0);
@@ -35,6 +27,7 @@
         display: block;
         width: 100%;
         border: 0;
+        border-radius: 0;
         border-top: 1px solid $color-background-light;
         color: #bbb;
         font-size: 1em;
@@ -47,6 +40,12 @@
             color: #000;
             outline: none;
         }
+
+        &:disabled {
+            background: #fff;
+            text-shadow: none;
+            box-shadow: none;
+        }
     }
 
     button {
@@ -57,6 +56,7 @@
         -webkit-appearance: none;
         width: 25%;
         text-align: center;
+        height: 40px;
         line-height: 40px;
         font-size: #{13 / $font-size-base}em;
         @include transition(.33s ease background);
@@ -105,5 +105,10 @@
                 cursor: default;
             }
         }
+    }
+
+    //overrides
+    input[disabled="disabled"] {
+        @include opacity(1);
     }
 }

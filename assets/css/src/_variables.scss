@@ -38,3 +38,15 @@ $svg-directory: logos/svgs;
         filter:         image-url('blur#blur-#{$value}');
     }
 }
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+    }
+
+    &:after {
+        clear: both;
+    }
+}

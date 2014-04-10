@@ -6,8 +6,26 @@
 .brands {
     .js & {
         border-top: 1px solid #eee;
-        overflow: hidden;
         position: relative;
+        
+        -webkit-transition: .22s ease -webkit-transform;
+        -moz-transition: .22s ease -moz-transform;
+        -ms-transition: .22s ease -ms-transform;
+        -o-transition: .22s ease -o-transform;
+        transition: .22s ease transform;
+        @include clearfix();
+
+        &.shuffling {
+            @include translateY(100px);
+
+            &:before {
+                content: 'Shuffling...';
+                position: absolute;
+                top: -55px;
+                text-align: center;
+                width: 100%;
+            }
+        }
     }
 }
 

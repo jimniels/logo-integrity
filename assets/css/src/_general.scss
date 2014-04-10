@@ -29,3 +29,7 @@ a {
 em {
     font-style: italic;
 }
+
+.clearfix {
+    @include clearfix();
+}

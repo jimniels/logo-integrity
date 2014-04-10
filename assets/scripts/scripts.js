@@ -2,6 +2,7 @@ $(document).ready(function(){
     
     // Shuffle the logos on page load
     //$('.brands li').shuffle(); 
+    var $points = $('.points');
 
     var logos = $('.logos > li');
     var formHtml = '\
@@ -65,6 +66,15 @@ $(document).ready(function(){
             console.log("You're right! " + fuzzy[0][0]);
             $brand.addClass('correct');
             $this.attr('disabled', 'disabled').text('+1');
+            
+            // increase the points
+            var currentPoints = $points.text();
+            currentPoints = parseInt(currentPoints);
+            $points.text(currentPoints+1);
+            $points.parent().toggleClass('points-added');
+            setTimeout(function(){
+                $points.parent().toggleClass('points-added');
+            }, 600); //matches the css transition duration
         } else {
             console.log("Not close enough!");
             if(fuzzy) {console.log(fuzzy[0][0]);}
@@ -85,48 +95,32 @@ $(document).ready(function(){
     // Filters
     $('.filter-point').on('click', function(e){
         e.preventDefault();
+        $this = $(this);
         
         // Reset all the brands and form attributes
         $('.brand').each(function(){
-            $(this).removeClass('reveal correct incorrect');
-            $(this).attr('data-answered', 'false');
-            $(this).find('input').attr('disabled', false).val('');
-            $(this).find('button').attr('disabled', false).text('Reveal');
+            $brand = $(this);
+            $brand.removeClass('reveal correct incorrect');
+            $brand.attr('data-answered', 'false');
+            $brand.find('input').attr('disabled', false).val('');
+            $brand.find('button').attr('disabled', false).text('Reveal');
         });
 
-        // $('.brands').toggleClass('shuffling');
-        // setTimeout(function(){
-        //    $('.brands li').shuffle();
-        // }, 200);
-        
-        // setTimeout(function(){
-        //    $('.brands').toggleClass('shuffling');
-        // }, 800);
-
         // Change the active blur value to whatever was clicked
-        $('.container').attr('data-active-blur-value', $(this).attr('data-blur-value'));
+        $('.brands').toggleClass('shuffling');
+
+        setTimeout(function(){
+            $('.container').attr('data-active-blur-value', $this.attr('data-blur-value'));
+            $('.brands li').shuffle();
+
+            setTimeout(function(){
+                $('.brands').toggleClass('shuffling');
+                
+                // reset points
+                $points.text('0');
+            }, 300)
+        }, 300);
     });
-
-
-
-    var elWrap = $(".wrap");
-    var elMenu = $(".menu");
-    var osMenu = elMenu.offset().top;
-    
-
-    $(window).scroll($.throttle(10, function() {
-        console.log('fireing');
-        elMenu.css("top", 0);
-        var edge = $(window).scrollTop();
-
-        if (osMenu <= edge) {
-            elWrap.addClass("dock").removeClass("stop");
-        }
-        else {
-            elWrap.removeClass("dock stop");
-        }
-
-    }));
 
 
 

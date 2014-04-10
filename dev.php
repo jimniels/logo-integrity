@@ -14,21 +14,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-
-
-.menu { height:50px; }
-.main {}
-
-/* account for "Menu" being removed from doc flow... */
-.dock .main, .stop .main { padding-top:50px; }
-/* when "Head" is out of view... */
-.dock .menu { z-index:40; position:fixed; width: 100%;}
-/* when "Main" is out of view... */
-.stop .menu { z-index:40; position:absolute; }
-
-
-    </style>
 </head>
 <body>
     
@@ -46,14 +31,15 @@
 
     <section class="container wrap" data-active-blur-value="10">
 
-        <div class="filters menu">
+        <div class="filters">
             <ul class="filter-range">
-                <li><a href="#" class="filter-point" data-blur-value="0">Sharp</a></li>
-                <li><a href="#" class="filter-point" data-blur-value="5">Hardly Blurry</a></li>
-                <li><a href="#" class="filter-point" data-blur-value="10">Less Blurry</a></li>
-                <li><a href="#" class="filter-point" data-blur-value="15">Blurry</a></li>
-                <li><a href="#" class="filter-point" data-blur-value="20">Blurrier</a></li>
+                <li><a href="#" class="filter-point" data-blur-value="0">Level 1</a></li>
+                <li><a href="#" class="filter-point" data-blur-value="5">Level 2</a></li>
+                <li><a href="#" class="filter-point" data-blur-value="10">Level 3</a></li>
+                <li><a href="#" class="filter-point" data-blur-value="15">Level 4</a></li>
+                <li><a href="#" class="filter-point" data-blur-value="20">Level 5</a></li>
             </ul>
+            <div class="filter-points"><span class="points">0</span> <a href="#">Tweet your points</a></div>
         </div>
 
         <ul class="brands main">
@@ -94,9 +80,7 @@
 
     <script type="text/javascript" src="assets/scripts/jquery.js"></script>
     <script type="text/javascript" src="assets/scripts/scripts.js"></script>
-    <script type="text/javascript" src="assets/scripts/fuzzySet.js"></script>
-
-    
+    <script type="text/javascript" src="assets/scripts/fuzzySet.js"></script>    
 
 
 </body>
