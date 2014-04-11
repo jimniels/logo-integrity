@@ -90,19 +90,21 @@ $filter-height: 50px;
 //  ===================
 //
 .filter-points {
-    position: absolute;
+    width: 320px;
+    position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     color: white;
     color: rgba(255,255,255,.65);
     background: $color-highlight;
-    height: $filter-height;
+    height: $filter-height+10;
     padding: 0 2em;
     @include transition(.5s ease background);
+    z-index: 10000;
 
     a {
         color: inherit;
-        line-height: $filter-height;
+        line-height: $filter-height+10;
         position: relative;
         top: 1px;
         font-size: #{14 / $font-size-base};
@@ -124,7 +126,7 @@ $filter-height: 50px;
         @include inline-block();
         color: white;
         padding-right: .5em;
-        line-height: $filter-height;
+        line-height: $filter-height+10;
     }
 
     &.points-added {
