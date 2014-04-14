@@ -5,25 +5,42 @@
 //
 .brands {
     .js & {
-        border-top: 1px solid #eee;
         position: relative;
+        overflow: hidden;
         
-        -webkit-transition: .22s ease -webkit-transform;
+
+        //@include clearfix();
+
+        &:after {
+            -webkit-transition: .22s ease -webkit-transform;
         -moz-transition: .22s ease -moz-transform;
         -ms-transition: .22s ease -ms-transform;
         -o-transition: .22s ease -o-transform;
         transition: .22s ease transform;
-        @include clearfix();
+
+            content: 'Shuffling...';
+            position: absolute;
+            line-height: 100px;
+            height: 100px;
+            top: -100px;
+            text-align: center;
+            width: 200px;
+            margin-left: -100px;
+            left: 50%;
+            background: #000 image-url('shuffling.gif') no-repeat 50% 14px;
+            padding-top: 14px;
+            z-index: 1000;
+            color: white;
+            border-radius: 0 0 2px 2px;
+        }
 
         &.shuffling {
-            @include translateY(100px);
+            
 
-            &:before {
-                content: 'Shuffling...';
-                position: absolute;
-                top: -55px;
-                text-align: center;
-                width: 100%;
+            &:after {
+                @include translateY(100px);
+                //background: image-url('shuffling.gif') no-repeat 50% 0;
+                //padding: 2em 0;
             }
         }
     }

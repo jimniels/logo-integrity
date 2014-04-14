@@ -90,46 +90,61 @@ $filter-height: 50px;
 //  ===================
 //
 .filter-points {
-    width: 320px;
+    //width: 320px;
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 1em;
+    right: 1em;
     color: white;
-    color: rgba(255,255,255,.65);
+    color: rgba(255,255,255,.6);
     background: $color-highlight;
-    height: $filter-height+10;
-    padding: 0 2em;
-    @include transition(.5s ease background);
+    height: $filter-height;
     z-index: 10000;
 
+    @include respond-to(mobile) {
+        width: 100%;
+        top: 0;
+        right: 0;
+    }
+
     a {
-        color: inherit;
-        line-height: $filter-height+10;
+        color: white;
+        line-height: $filter-height;
         position: relative;
         top: 1px;
-        font-size: #{14 / $font-size-base};
+        font-size: #{14 / $font-size-base}em;
+        padding: 0 1em;
 
         &:hover {
             text-decoration: underline;
             color: white;
-
-            &:after {
-                content: '\00BB';
-                position: absolute;
-                margin-left: .25em;
-            }
         }
     }
 
     .points {
-        font-size: 2em;
-        @include inline-block();
-        color: white;
-        padding-right: .5em;
-        line-height: $filter-height+10;
+        float: left;
+        background: darken($color-highlight, 15%);
+        padding: 0 1em;
+        @include transition(.5s ease background);
+        
+        @include respond-to(mobile) {
+            padding: 0 2em;
+        }
+        
+        &.points-increase {
+            background-color: $color-correct;
+        }
     }
 
-    &.points-added {
-        background-color: $color-correct;
+    .points-label {
+        position: relative;
+        top: 1px;
+        font-size: #{14 / $font-size-base}em;
+    }
+
+    .points-count {
+        font-size: #{34 / $font-size-base}em;
+        @include inline-block();
+        color: white;
+        line-height: $filter-height;
     }
 }

@@ -7,6 +7,11 @@
     padding: 3em 4%;
     background: $color-background-light;
 
+    // Header sticks on mobile, so allow more space up top
+    @include respond-to(mobile) {
+        padding-top: 5em;
+    }
+
     h1 {
         font-size: #{24 / $font-size-base}em;
         margin: 0 auto;

@@ -80,6 +80,7 @@
     .correct & {
         input {
             color: $color-correct;
+            -webkit-text-fill-color: $color-correct;
         }
         button {
             background: $color-correct;
@@ -88,6 +89,7 @@
     .incorrect & {
         input {
             color: $color-incorrect;
+            -webkit-text-fill-color: $color-incorrect;
             text-decoration: line-through;
         }
         button {

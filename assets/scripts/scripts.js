@@ -2,7 +2,7 @@ $(document).ready(function(){
     
     // Shuffle the logos on page load
     //$('.brands li').shuffle(); 
-    var $points = $('.points');
+    var $points = $('.points-count');
 
     var logos = $('.logos > li');
     var formHtml = '\
@@ -32,7 +32,7 @@ $(document).ready(function(){
             if($this.hasClass('reveal')) {
                 setTimeout(function(){
                     $this.find('input').focus();
-                }, 100);
+                }, 500);
             }
         }
         // Otherwise Do nothing
@@ -71,9 +71,9 @@ $(document).ready(function(){
             var currentPoints = $points.text();
             currentPoints = parseInt(currentPoints);
             $points.text(currentPoints+1);
-            $points.parent().toggleClass('points-added');
+            $points.parent().toggleClass('points-increase');
             setTimeout(function(){
-                $points.parent().toggleClass('points-added');
+                $points.parent().toggleClass('points-increase');
             }, 600); //matches the css transition duration
         } else {
             console.log("Not close enough!");

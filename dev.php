@@ -39,10 +39,16 @@
                 <li><a href="#" class="filter-point" data-blur-value="15">Level 4</a></li>
                 <li><a href="#" class="filter-point" data-blur-value="20">Level 5</a></li>
             </ul>
-            <div class="filter-points"><span class="points">0</span> <a href="#">Tweet your points</a></div>
+            <div class="filter-points">
+                <div class="points">
+                    <span class="points-count">0</span> 
+                    <span class="points-label">pts</span>
+                </div>
+                <a href="#" title="Share your score on Twitter">Tweet your score &raquo;</a>
+            </div>
         </div>
 
-        <ul class="brands main">
+        <ul class="brands">
             <?php
                 function outputBrandNames($names){
                     
@@ -69,7 +75,8 @@
                         </li>
                     <?php
                 }
-            ?>        </ul>
+            ?>
+        </ul>
 
     </section>
 
