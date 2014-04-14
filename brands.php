@@ -19,29 +19,29 @@ $brands = array(
         "CBS Broadcasting Inc.",
         "Columbia Broadcasting System"
     ),
-    "chase" => array(
-        "Chase",
-        "Chase Bank",
-        "JPMorgan Chase"
-    ),
-    "cnn" => array(
-        "CNN",
-        "Cable News Network"
-    ),
-    "dropbox" => array(
-        "Dropbox"
-    ),
+    // "chase" => array(
+    //     "Chase",
+    //     "Chase Bank",
+    //     "JPMorgan Chase"
+    // ),
+    // "cnn" => array(
+    //     "CNN",
+    //     "Cable News Network"
+    // ),
+    // "dropbox" => array(
+    //     "Dropbox"
+    // ),
     "general-electric" => array(
         "GE",
         "General Electric",
         "General Electric Company"
     ),
-    "girl-scouts" => array(
-        "Girl Scouts",
-        "Girl Scouts of the USA",
-        "Girl Scouts of the United States of America",
-        "GSUSA"
-    ),
+    // "girl-scouts" => array(
+    //     "Girl Scouts",
+    //     "Girl Scouts of the USA",
+    //     "Girl Scouts of the United States of America",
+    //     "GSUSA"
+    // ),
     "honda" => array(
         "Honda",
         "Honda Motors",
@@ -51,27 +51,27 @@ $brands = array(
         "Hyundai",
         "Hyundai Motor Company"
     ),
-    "jaguar" => array(
-        "Jaguar"
-    ),
-    "john-deere" => array(
-        "John Deere",
-        "Deere and Company"
-    ),
-    "jumpman" => array(
-        "Jumpman"
-    ),
-    "kfc" => array(
-        "KFC",
-        "Kentucky Fried Chicken"
-    ),
-    "lacoste" => array(
-        "Lacoste"
-    ),
-    "lg" => array(
-        "LG",
-        "Lucky Goldstar"
-    ),
+    // "jaguar" => array(
+    //     "Jaguar"
+    // ),
+    // "john-deere" => array(
+    //     "John Deere",
+    //     "Deere and Company"
+    // ),
+    // "jumpman" => array(
+    //     "Jumpman"
+    // ),
+    // "kfc" => array(
+    //     "KFC",
+    //     "Kentucky Fried Chicken"
+    // ),
+    // "lacoste" => array(
+    //     "Lacoste"
+    // ),
+    // "lg" => array(
+    //     "LG",
+    //     "Lucky Goldstar"
+    // ),
     "mazda" => array(
         "Mazda",
         "Mazda Motor Corporation"
@@ -109,12 +109,12 @@ $brands = array(
     "puma" => array(
         "Puma"
     ),
-    "quicksilver" => array(
-        "Quicksilver"
-    ),
-    "rolex" => array(
-        "Rolex"
-    ),
+    // "quicksilver" => array(
+    //     "Quicksilver"
+    // ),
+    // "rolex" => array(
+    //     "Rolex"
+    // ),
     "shell" => array(
         "Shell",
         "Royal Dutch Shell"
@@ -128,10 +128,10 @@ $brands = array(
     "target" => array(
         "Target"
     ),
-    "texaco" => array(
-        "Texaco",
-        "The Texas Company"
-    ),
+    // "texaco" => array(
+    //     "Texaco",
+    //     "The Texas Company"
+    // ),
     "toyota" => array(
         "Toyota",
         "Toyota Motor Corporation"
@@ -139,9 +139,9 @@ $brands = array(
     "twitter" => array(
         "Twitter"
     ),
-    "univision" => array(
-        "Univision"
-    ),
+    // "univision" => array(
+    //     "Univision"
+    // ),
     "ups" => array(
         "UPS",
         "United Parcel Service"

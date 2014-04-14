@@ -14,10 +14,13 @@ $(document).ready(function(){
     ';
 
     // Append form, set each 'answered' as false
+    var numberOfBrands = 0;
     $('.brand').each(function(){
         $(formHtml).appendTo(this);
         $(this).attr('data-answered', 'false');  
+        numberOfBrands++;
     })
+    $('.points-label').text('/'+numberOfBrands);
 
     // Brand
     $('.brand').on('click', function(e){

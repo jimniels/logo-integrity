@@ -42,9 +42,9 @@
             <div class="filter-points">
                 <div class="points">
                     <span class="points-count">0</span> 
-                    <span class="points-label">pts</span>
+                    <span class="points-label"></span>
                 </div>
-                <a href="#" title="Share your score on Twitter">Tweet your score &raquo;</a>
+                <a href="#" title="Share your score on Twitter">Tweet result &raquo;</a>
             </div>
         </div>
 
