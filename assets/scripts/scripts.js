@@ -35,7 +35,7 @@ $(document).ready(function(){
             if($this.hasClass('reveal')) {
                 setTimeout(function(){
                     $this.find('input').focus();
-                }, 500);
+                }, 100);
             }
         }
         // Otherwise Do nothing
