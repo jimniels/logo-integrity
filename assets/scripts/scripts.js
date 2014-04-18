@@ -5,52 +5,71 @@ $(document).ready(function(){
     var $points = $('.points-count');
 
     var logos = $('.logos > li');
-    var formHtml = '\
-        <form class="form">\
-            <label>Guess the brand:</label>\
-            <input type="text" />\
-            <button type="submit">Reveal</button>\
-        </form>\
-    ';
+    
 
     // Append form, set each 'answered' as false
     var numberOfBrands = 0;
     $('.brand').each(function(){
+        var formHtml = '\
+            <form class="form">\
+                <input type="text" tabindex="'+numberOfBrands+'"/>\
+                <label>Guess the brand:</label>\
+                <button type="submit">Reveal</button>\
+            </form>\
+        ';
         $(formHtml).appendTo(this);
         $(this).attr('data-answered', 'false');  
         numberOfBrands++;
     })
     $('.points-label').text('/'+numberOfBrands);
 
-    // Brand
-    $('.brand').on('click', function(e){
+    //
+    //
+    //  Brand Clicks
+    //  -----
+    //  inputFocused is a toggle for keeping track of 
+    //  whether the input is in focus
+    var inputFocused = false;
 
+    $('.brand').on('mousedown', function(){
+        $input = $(this).find('input');
+        if($input.is(':focus')) {
+            inputFocused = true;
+        } else {
+            inputFocused = false;
+        }
+    }).on('click', function(e){
         var $this = $(this);
 
         // If this question is unanswered
         if( $this.attr('data-answered') == 'false' ) {
-            $this.toggleClass('reveal');
-
-            // If it's visible, focus the input
-            if($this.hasClass('reveal')) {
-                setTimeout(function(){
-                    $this.find('input').focus();
-                }, 100);
+            var $input = $this.find('input');
+            
+            if(!inputFocused) {
+                $input.focus();
             }
         }
-        // Otherwise Do nothing
-        else {
-            console.log('Already answered!');
-        }
     });
 
-    $('input').on('click', function(e){
-        e.stopPropagation();
-    });
-
-    $('button').on('click', function(e){
+    //
+    // Form / Input clicks
+    //
+    $('form').on('click', function(e){
         e.preventDefault();
         e.stopPropagation();
+    });
+
+
+    //
+    //
+    //  Button Clicks
+    //  -----
+    //
+    $('button').on('mousedown click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        console.log('fired button click');
         
         var $this = $(this),
             $brand = $this.parents('.brand');
@@ -87,6 +106,7 @@ $(document).ready(function(){
         
         // disable inputs
         $brand.find('input').attr('disabled', 'disabled');
+        $brand.removeClass('focused');
         
         // show the div
         $brand.attr('data-answered', true);

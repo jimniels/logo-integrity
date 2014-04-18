@@ -74,6 +74,7 @@
                             <div class="logo"></div>
                         </li>
                     <?php
+                    $i++;
                 }
             ?>
         </ul>

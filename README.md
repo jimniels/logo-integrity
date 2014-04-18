@@ -10,3 +10,7 @@ Example:
     - `convert * -set filename:f '%t' -blur 80x40 '%[filename:f]-40.jpg'`
 - Combine into single image
     - `convert *-50.jpg -append 50.jpg`
+
+Feedback:
+- Swap out a few brands, some car ones (mazda?) bring back CNN
+- Figure out the scoring/point system +5, +4, +3, +2, +1

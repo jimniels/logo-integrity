@@ -13,10 +13,10 @@
 
         &:after {
             -webkit-transition: .22s ease -webkit-transform;
-        -moz-transition: .22s ease -moz-transform;
-        -ms-transition: .22s ease -ms-transform;
-        -o-transition: .22s ease -o-transform;
-        transition: .22s ease transform;
+            -moz-transition: .22s ease -moz-transform;
+            -ms-transition: .22s ease -ms-transform;
+            -o-transition: .22s ease -o-transform;
+            transition: .22s ease transform;
 
             content: 'Shuffling...';
             position: absolute;
@@ -108,7 +108,7 @@
         }
     }
 
-    .reveal[data-answered="true"] & {
+    [data-answered="true"] & {
         @include opacity(1);
         visibility: visible;
         @include translateY(0);
@@ -143,14 +143,14 @@
         position: absolute;
         margin-left: -150px;
         left: 50%;
-        transition: .15s ease filter;
-        -webkit-transition: .15s ease -webkit-filter;
-        -moz-transition: .15s ease -moz-filter;
-        -o-transition: .15s ease -o-filter;
-        -ms-transition: .15s ease -ms-filter;
+        // transition: .15s ease filter;
+        // -webkit-transition: .15s ease -webkit-filter;
+        // -moz-transition: .15s ease -moz-filter;
+        // -o-transition: .15s ease -o-filter;
+        // -ms-transition: .15s ease -ms-filter;
     }
 
-    .reveal[data-answered="true"] & {
+    [data-answered="true"] & {
         filter: none !important; 
         -webkit-filter: none !important; 
         -moz-filter: none !important;
