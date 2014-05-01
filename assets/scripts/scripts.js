@@ -1,12 +1,22 @@
 $(document).ready(function(){
     
-    // Shuffle the logos on page load
-    //$('.brands li').shuffle(); 
-    var $points = $('.points-count');
+    //
+    //
+    //  Initialize
+    //  -----
 
-    var logos = $('.logos > li');
+    // Setup jQuery variables
+    var $points = $('.points'),
+        $container = $('.container');
+
+    // Set the active blur value on page load
+    $container.attr('data-active-blur-value', 20);
+
+    // Set blur varlue variables 
+    // note that the active blur value (20, 15, 10, 5) also serves as the point value
+    var blurValueActive = eval($container.attr('data-active-blur-value')),
+        blurValueIncrement = 5; 
     
-
     // Append form, set each 'answered' as false
     var numberOfBrands = 0;
     $('.brand').each(function(){
@@ -87,16 +97,27 @@ $(document).ready(function(){
         if(fuzzy && fuzzy[0][0] > .6666666) {
             console.log("You're right! " + fuzzy[0][0]);
             $brand.addClass('correct');
-            $this.attr('disabled', 'disabled').text('+1');
+            $this.attr('disabled', 'disabled').text('+' + blurValueActive);
             
             // increase the points
-            var currentPoints = $points.text();
-            currentPoints = parseInt(currentPoints);
-            $points.text(currentPoints+1);
-            $points.parent().toggleClass('points-increase');
+            var currentPoints = parseInt($points.text());
+            var i = currentPoints;
+
+            $points.toggleClass('points-increase');
+            
             setTimeout(function(){
-                $points.parent().toggleClass('points-increase');
-            }, 600); //matches the css transition duration
+                var counter = setInterval(function(){
+                    i++;
+                    $points.html(i);
+                    console.log('count up');
+                    if(i == currentPoints + blurValueActive){
+                       clearInterval(counter); 
+                       console.log('clear it');
+                       $points.toggleClass('points-increase');
+                    }
+                }, 25);
+
+            }, 166); // duraction of animation
         } else {
             console.log("Not close enough!");
             if(fuzzy) {console.log(fuzzy[0][0]);}
@@ -113,36 +134,51 @@ $(document).ready(function(){
     });
 
 
+    
 
-
-    // Filters
-    $('.filter-point').on('click', function(e){
+    //
+    //
+    //  Sharpen
+    //
+    $('.sharpen a').on('click', function(e){
         e.preventDefault();
         $this = $(this);
+
+        if(blurValueActive == 0) {
+            return;
+        }
         
         // Reset all the brands and form attributes
-        $('.brand').each(function(){
-            $brand = $(this);
-            $brand.removeClass('reveal correct incorrect');
-            $brand.attr('data-answered', 'false');
-            $brand.find('input').attr('disabled', false).val('');
-            $brand.find('button').attr('disabled', false).text('Reveal');
+        $('.brand.incorrect').each(function(){
+            $this = $(this);
+            $this.removeClass('reveal incorrect');
+            $this.attr('data-answered', 'false');
+            $this.find('input').attr('disabled', false).val('');
+            $this.find('button').attr('disabled', false).text('Reveal');
         });
 
         // Change the active blur value to whatever was clicked
         $('.brands').toggleClass('shuffling');
 
         setTimeout(function(){
-            $('.container').attr('data-active-blur-value', $this.attr('data-blur-value'));
-            $('.brands li').shuffle();
+            
+            // Set the active blur value
+            $('.container').attr('data-active-blur-value', blurValueActive - blurValueIncrement);
+
+            // Shuffle each thing
+            //$('.brands li').shuffle();
 
             setTimeout(function(){
                 $('.brands').toggleClass('shuffling');
-                
-                // reset points
-                $points.text('0');
             }, 300)
         }, 300);
+
+        // Update set the active blur value variable
+        blurValueActive -= blurValueIncrement;
+
+        if(blurValueActive == 5) {
+            $this.text("That's as sharp as they get");
+        }
     });
 
 

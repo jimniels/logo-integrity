@@ -108,7 +108,8 @@
         }
     }
 
-    [data-answered="true"] & {
+    [data-answered="true"].correct &,
+    [data-active-blur-value="0"] [data-answered="true"] & {
         @include opacity(1);
         visibility: visible;
         @include translateY(0);
@@ -150,7 +151,8 @@
         // -ms-transition: .15s ease -ms-filter;
     }
 
-    [data-answered="true"] & {
+    [data-answered="true"].correct &,
+    [data-active-blur-value="0"] [data-answered="true"] & {
         filter: none !important; 
         -webkit-filter: none !important; 
         -moz-filter: none !important;

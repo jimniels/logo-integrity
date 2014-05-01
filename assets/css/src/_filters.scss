@@ -3,13 +3,11 @@
 //  Filter
 //  ==============================
 //
-$filter-height: 50px;
-
 .filters {
     background: #000;
     text-align: center;
     position: relative;
-    height: $filter-height;
+    height: $navigation-height;
 
     .no-js & {
         display: none;
@@ -82,69 +80,4 @@ $filter-height: 50px;
     height: 10px;
     text-indent: -9999px;
     padding: 1.5em 2.5em;
-}
-
-//
-//
-//  Points
-//  ===================
-//
-.filter-points {
-    //width: 320px;
-    position: fixed;
-    top: 1em;
-    right: 1em;
-    color: white;
-    color: rgba(255,255,255,.6);
-    background: $color-highlight;
-    height: $filter-height;
-    z-index: 10000;
-
-    @include respond-to(mobile) {
-        width: 100%;
-        top: 0;
-        right: 0;
-    }
-
-    a {
-        color: white;
-        line-height: $filter-height;
-        position: relative;
-        top: 1px;
-        font-size: #{14 / $font-size-base}em;
-        padding: 0 1em;
-
-        &:hover {
-            text-decoration: underline;
-            color: white;
-        }
-    }
-
-    .points {
-        float: left;
-        background: darken($color-highlight, 15%);
-        padding: 0 1em;
-        @include transition(.5s ease background);
-        
-        @include respond-to(mobile) {
-            padding: 0 2em;
-        }
-        
-        &.points-increase {
-            background-color: $color-correct;
-        }
-    }
-
-    .points-label {
-        position: relative;
-        top: 1px;
-        font-size: #{14 / $font-size-base}em;
-    }
-
-    .points-count {
-        font-size: #{34 / $font-size-base}em;
-        @include inline-block();
-        color: white;
-        line-height: $filter-height;
-    }
 }

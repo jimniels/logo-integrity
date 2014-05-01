@@ -4,8 +4,8 @@
 //  ------------------------------
 //
 .header {
-    padding: 3em 4%;
-    background: $color-background-light;
+    padding: 7em 4% 2em;
+    background: #000;
 
     // Header sticks on mobile, so allow more space up top
     @include respond-to(mobile) {
@@ -14,9 +14,9 @@
 
     h1 {
         font-size: #{24 / $font-size-base}em;
-        margin: 0 auto;
         max-width: $max-width;
         margin-bottom: #{10 / $font-size-base}em;
+        color: white;
     } 
 
     // hanging punctuation
@@ -32,10 +32,8 @@
 
     p {
         position: relative;
-        font-size: #{14 / $font-size-base}em;
-        max-width: 500px;
-        margin: 0 auto;
-        color: #777;
+        max-width: 550px;
+        color: #bbb;
         margin-bottom: #{20 / $font-size-base}em;
     }
 }
