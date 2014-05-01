@@ -31,7 +31,7 @@
 
     <nav class="navigation">
         <div class="sharpen">
-            <a href="#" title="Make it easier please!">Sharpen the Logos</a>
+            <a href="#" title="Sharpen the logos">Make It Easier!</a>
         </div>
         <div class="points">0</div>
     </nav>

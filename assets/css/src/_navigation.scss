@@ -13,11 +13,15 @@
     height: $navigation-height;
     z-index: 10000;
     width: 320px;
+    @include box-shadow(0 0 0 3px rgba(255,255,255,.125));
+    border-radius: 1px;
 
     @include respond-to(mobile) {
         width: 100%;
         top: 0;
-        right: 0;
+        left: 0;
+        @include box-shadow(none);
+        border-radius: 0;
     }
 
     .sharpen,
@@ -32,6 +36,10 @@
         line-height: $navigation-height;
         background-color: $color-highlight;
         border-radius: 0 2px 2px 0;
+        
+        @include respond-to(mobile) {
+            border-radius: 0;
+        }
         
         left: 30%;
         width: 70%;
@@ -50,7 +58,7 @@
     }
 
     .points {
-        border-radius: 2px 0 0 2px;
+
         float: left;
         text-align: center;
         background: $color-correct;
@@ -59,13 +67,14 @@
         line-height: $navigation-height;
         @include text-shadow(0 0 8px rgba(255,255,255,.5));
         @include transition(.33s ease width);
+        border-radius: 2px 0 0 2px;
+        
+        @include respond-to(mobile) {
+            border-radius: 0;
+        }
 
         left: 0;
         width: 30%;
-                
-        @include respond-to(mobile) {
-            padding: 0 2em;
-        }
         
         &.points-increase {
             width: 100%;

@@ -176,8 +176,9 @@ $(document).ready(function(){
         // Update set the active blur value variable
         blurValueActive -= blurValueIncrement;
 
-        if(blurValueActive == 5) {
-            $this.text("That's as sharp as they get");
+        if(blurValueActive == 0) {
+            $this.text("Doesn't get any easier");
+            $this.css('background-color', '#ccc').css('color', '#000');
         }
     });
 

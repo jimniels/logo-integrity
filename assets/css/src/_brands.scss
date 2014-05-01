@@ -18,7 +18,7 @@
             -o-transition: .22s ease -o-transform;
             transition: .22s ease transform;
 
-            content: 'Shuffling...';
+            content: 'Sharpening...';
             position: absolute;
             line-height: 100px;
             height: 100px;
@@ -27,7 +27,7 @@
             width: 200px;
             margin-left: -100px;
             left: 50%;
-            background: #000 image-url('shuffling.gif') no-repeat 50% 14px;
+            background: #000 image-url('sharpening.gif') no-repeat 50% 14px;
             padding-top: 14px;
             z-index: 1000;
             color: white;
@@ -159,6 +159,10 @@
         -o-filter: none !important; 
         -ms-filter: none !important;
         filter: none !important;
+    }
+
+    [data-answered="true"].incorrect & {
+        background-color: $color-incorrect-light;
     }
 }
 
