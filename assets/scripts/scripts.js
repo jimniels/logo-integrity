@@ -11,11 +11,13 @@ $(document).ready(function(){
 
     // Set the active blur value on page load
     $container.attr('data-active-blur-value', 20);
+    
 
     // Set blur varlue variables 
     // note that the active blur value (20, 15, 10, 5) also serves as the point value
     var blurValueActive = eval($container.attr('data-active-blur-value')),
         blurValueIncrement = 5; 
+
     
     // Append form, set each 'answered' as false
     var numberOfBrands = 0;
@@ -105,19 +107,19 @@ $(document).ready(function(){
 
             $points.toggleClass('points-increase');
             
-            setTimeout(function(){
+            //setTimeout(function(){
                 var counter = setInterval(function(){
                     i++;
                     $points.html(i);
                     console.log('count up');
                     if(i == currentPoints + blurValueActive){
                        clearInterval(counter); 
-                       console.log('clear it');
                        $points.toggleClass('points-increase');
                     }
-                }, 25);
+                }, 500/blurValueActive); // half a second
+            //}, 166); // duraction of animation
 
-            }, 166); // duraction of animation
+
         } else {
             console.log("Not close enough!");
             if(fuzzy) {console.log(fuzzy[0][0]);}
@@ -144,41 +146,36 @@ $(document).ready(function(){
         e.preventDefault();
         $this = $(this);
 
-        if(blurValueActive == 0) {
-            return;
-        }
-        
-        // Reset all the brands and form attributes
-        $('.brand.incorrect').each(function(){
-            $this = $(this);
-            $this.removeClass('reveal incorrect');
-            $this.attr('data-answered', 'false');
-            $this.find('input').attr('disabled', false).val('');
-            $this.find('button').attr('disabled', false).text('Reveal');
-        });
+        if(blurValueActive > 0) {
+            // Reset all the brands and form attributes
+            $('.brand.incorrect').each(function(){
+                $this = $(this);
+                $this.removeClass('reveal incorrect');
+                $this.attr('data-answered', 'false');
+                $this.find('input').attr('disabled', false).val('');
+                $this.find('button').attr('disabled', false).text('Reveal');
+            });
 
-        // Change the active blur value to whatever was clicked
-        $('.brands').toggleClass('shuffling');
-
-        setTimeout(function(){
-            
-            // Set the active blur value
-            $('.container').attr('data-active-blur-value', blurValueActive - blurValueIncrement);
-
-            // Shuffle each thing
-            //$('.brands li').shuffle();
+            // Change the active blur value to whatever was clicked
+            $('.brands').toggleClass('shuffling');
 
             setTimeout(function(){
-                $('.brands').toggleClass('shuffling');
-            }, 300)
-        }, 300);
+                
+                // Set the active blur value
+                $('.container').attr('data-active-blur-value', blurValueActive - blurValueIncrement);
 
-        // Update set the active blur value variable
-        blurValueActive -= blurValueIncrement;
+                setTimeout(function(){
+                    $('.brands').toggleClass('shuffling');
 
-        if(blurValueActive == 0) {
-            $this.text("Doesn't get any easier");
-            $this.css('background-color', '#ccc').css('color', '#000');
+                    // Update set the active blur value variable
+                    blurValueActive -= blurValueIncrement;
+
+                    if(blurValueActive == 0) {
+                        $this.text("Doesn't get any easier");
+                        $this.css('background-color', '#ccc').css('color', '#000');  
+                    }
+                }, 300)
+            }, 300);
         }
     });
 
