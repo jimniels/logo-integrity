@@ -34,7 +34,6 @@
     .sharpen {
         text-align: center;
         line-height: $navigation-height;
-        background-color: $color-highlight;
         border-radius: 0 2px 2px 0;
         
         @include respond-to(mobile) {
@@ -46,6 +45,8 @@
 
 
         a {
+            background-color: $color-highlight;
+            -webkit-backface-visibility: hidden;
             color: white;
             display: block;
             padding: 0 2em;

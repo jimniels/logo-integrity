@@ -16,7 +16,7 @@ $(document).ready(function(){
     // Set blur varlue variables 
     // note that the active blur value (20, 15, 10, 5) also serves as the point value
     var blurValueActive = eval($container.attr('data-active-blur-value')),
-        blurValueIncrement = 5; 
+        blurValueIncrement = 5;
 
     
     // Append form, set each 'answered' as false
@@ -26,7 +26,7 @@ $(document).ready(function(){
             <form class="form">\
                 <input type="text" tabindex="'+numberOfBrands+'"/>\
                 <label>Guess the brand:</label>\
-                <button type="submit">Reveal</button>\
+                <button type="submit">Guess</button>\
             </form>\
         ';
         $(formHtml).appendTo(this);
@@ -120,9 +120,7 @@ $(document).ready(function(){
             //}, 166); // duraction of animation
 
 
-        } else {
-            console.log("Not close enough!");
-            if(fuzzy) {console.log(fuzzy[0][0]);}
+        } else {            
             $brand.addClass('incorrect');
             $this.attr('disabled', 'disabled').text('0');
         }

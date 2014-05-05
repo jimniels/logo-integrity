@@ -7,6 +7,7 @@
     <!-- CSS
     =================================== -->
     <link rel="stylesheet" href="assets/css/build/styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Scripts
     =================================== -->
@@ -18,15 +19,15 @@
 <body>
     
     <header class="header">
-        <h1 class="h1" id="h1">Bringing Logos into Focus</h1>
+        
         <blockquote>
             <p>
                 <span>“</span>How far out of focus can an image be and still be recognized? A [logo] which is subject to an infinite number of uses, abuses, and variations whether for competitive purposes or for reasons of ‘self-expression,’ cannot survive unless it is designed with utmost simplicity and restraint.”
                 <br />— Paul Rand, <em>A Designer’s Art</em>.
             </p>
         </blockquote>
+        <p>Try identifying the logos below. The blurrier they are, the more points you’ll get for a correct guess. When you can’t guess anymore, you can make it easier by sharpening the logos.</p>
         <p><a href="#">Read more about this experiment &raquo;</a></p>
-        <p>How many logos can you identify? Try sharpening the logos to make it easier.</p>
     </header>
 
     <nav class="navigation">

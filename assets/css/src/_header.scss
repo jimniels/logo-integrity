@@ -13,12 +13,17 @@
     }
 
     h1 {
-        font-size: #{26 / $font-size-base}em;
+        font-size: #{32 / $font-size-base}em;
         max-width: $max-width;
         margin-bottom: #{10 / $font-size-base}em;
         color: white;
         font-weight: bold;
     } 
+
+    blockquote p {
+        font-size: #{21 / $font-size-base}em;
+        color: white;
+    }
 
     // hanging punctuation
     span {
@@ -33,8 +38,8 @@
 
     p {
         position: relative;
-        max-width: 550px;
-        color: #bbb;
+        max-width: 35em;
+        color: #ccc;
         margin-bottom: #{20 / $font-size-base}em;
     }
 }
