@@ -31,7 +31,7 @@
 
     <nav class="navigation">
         <div class="sharpen">
-            <a href="#" title="Sharpen the logos">Make It Easier!</a>
+            <a href="#" title="Sharpen the logos">Sharpen the Logos</a>
         </div>
         <div class="points">0</div>
     </nav>
@@ -73,7 +73,7 @@
 
     <div class="congrats">
         <div class="wrapper">
-            <h2 class="final-score">Congrtulations on your score!</h2>
+            <h2 class="final-score">Congratulations on your score!</h2>
             <p class="final-score-points">0</p>
             <ul class="final-score-share">
                 <li><a href="#" class="icon-twitter">Tweet your score</a></li>
@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <footer>
+    <footer class="footer">
         <p>Created by <a href="http://jim-nielsen.com/">Jim Nielsen</a>. Got feedback? Tweet me <a href="http://twitter.com/jimniels/">@jimniels</a>.</p>
     </footer>
 

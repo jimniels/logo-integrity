@@ -8,13 +8,17 @@
     background: $color-highlight;
     color: white;
     text-align: center;
-    @include translateX(100%);
+    @include translateY(-100%);
     @include transition(.75s ease all);
 
     .wrapper {
         max-width: 600px;
         margin: 0 auto;
-        padding: 1.5em;
+        
+
+        @media screen and (min-width: #{800 / $font-size-base}em) {
+            padding: 3em 0;
+        }
     }
 
     .final-score {
@@ -29,15 +33,38 @@
         line-height: 1;
     }
     .final-score-share {
-        margin-top: #{80 / $font-size-base}em;
+        margin: #{60 / $font-size-base}em 0;
         
         li {
             width: 33%;
             float: left;
+            
+            a {
+                line-height: 1;
+            }
 
             a:before {
                 display: block;
                 font-size: 3em;
+                margin-bottom: .125em;
+                @include transition(.3s ease all);
+            }
+            
+            // hover effects
+            &:hover {
+                a:before {
+                    @include rotate(-8deg);
+                }
+            }
+            &:first-child:hover {
+                a:before {
+                    @include rotate(8deg);
+                }
+            }
+            &:last-child:hover {
+                a:before {
+                    @include rotate(16deg);
+                }
             }
         }
 
@@ -55,15 +82,20 @@
 }
 
 .end {
-    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 
     .header,
     .footer,
-    .navigation,
-    .container {
-        @include translateX(-100%);
+    .container,
+    .navigation {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
     }
+    //.navigation {opacity: 0; visibility: hidden;}
     .congrats {
-        @include translateX(0);
+        @include translateY(0);
     }
 }

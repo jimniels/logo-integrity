@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('.points').on('click', function(){
-        $(this).toggleClass('end');
+        $('body').toggleClass('end');
 
         //setTimeout(function(){
             $finalScorePoints = $('.final-score-points');
