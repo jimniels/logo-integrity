@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('body').on('click', function(){
+    $('.points').on('click', function(){
         $(this).toggleClass('end');
 
         //setTimeout(function(){
