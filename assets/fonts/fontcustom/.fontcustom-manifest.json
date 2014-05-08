@@ -1,0 +1,52 @@
+{
+  "checksum": {
+    "previous": "25e91189bcd6527a1224b648138ed805c8f5c30c6b53e6e7c225c2667b63c833",
+    "current": "25e91189bcd6527a1224b648138ed805c8f5c30c6b53e6e7c225c2667b63c833"
+  },
+  "fonts": [
+    "..//icons-custom_25e91189bcd6527a1224b648138ed805.ttf",
+    "..//icons-custom_25e91189bcd6527a1224b648138ed805.svg",
+    "..//icons-custom_25e91189bcd6527a1224b648138ed805.woff",
+    "..//icons-custom_25e91189bcd6527a1224b648138ed805.eot"
+  ],
+  "glyphs": {
+    "facebook": {
+      "codepoint": 61696,
+      "source": "svgs/facebook.svg"
+    },
+    "play-again": {
+      "codepoint": 61697,
+      "source": "svgs/play-again.svg"
+    },
+    "twitter": {
+      "codepoint": 61698,
+      "source": "svgs/twitter.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": "fontcustom.yml",
+    "css_selector": ".icon-{{glyph}}",
+    "debug": true,
+    "font_name": "icons-custom",
+    "force": false,
+    "input": {
+      "templates": "svgs",
+      "vectors": "svgs"
+    },
+    "no_hash": false,
+    "output": {
+      "css": "../../css/src",
+      "fonts": "../",
+      "preview": "../"
+    },
+    "preprocessor_path": "",
+    "quiet": false,
+    "templates": [
+      "scss"
+    ]
+  },
+  "templates": [
+    "../../css/src/_icons-custom.scss"
+  ]
+}

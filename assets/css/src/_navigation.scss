@@ -53,7 +53,7 @@
             @include transition(.33s ease background-color);
 
             &:hover {
-                background-color: darken($color-highlight, 5%);
+                background-color: darken($color-highlight, 10%);
             }
         }
     }

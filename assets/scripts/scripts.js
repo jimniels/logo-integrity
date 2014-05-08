@@ -1,5 +1,21 @@
 $(document).ready(function(){
-    
+    $('body').on('click', function(){
+        $(this).toggleClass('end');
+
+        //setTimeout(function(){
+            $finalScorePoints = $('.final-score-points');
+            var i=0;
+            var finalScore = setInterval(function(){
+                i++;
+                $finalScorePoints.html(i);
+                console.log('count up');
+                if(i == 250){
+                   clearInterval(finalScore); 
+                   
+                }
+            }, 3);
+        //}, 750); // length of transition
+    });
     //
     //
     //  Initialize
