@@ -1,20 +1,15 @@
 $(document).ready(function(){
     $('.points').on('click', function(){
-        $('body').toggleClass('end');
-
-        //setTimeout(function(){
-            $finalScorePoints = $('.final-score-points');
-            var i=0;
-            var finalScore = setInterval(function(){
-                i++;
-                $finalScorePoints.html(i);
-                console.log('count up');
-                if(i == 250){
-                   clearInterval(finalScore); 
-                   
-                }
-            }, 3);
-        //}, 750); // length of transition
+        $('body').addClass('share-modal-enabled');
+        $finalScorePoints = $('.final-score-points');
+        var i=0;
+        var finalScore = setInterval(function(){
+            i++;
+            $finalScorePoints.html(i);
+            if(i == 250){
+               clearInterval(finalScore); 
+            }
+        }, 1);
     });
     //
     //

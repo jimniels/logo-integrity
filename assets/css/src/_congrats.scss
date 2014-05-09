@@ -1,15 +1,77 @@
-.congrats {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 100;
-    background: $color-highlight;
+//
+//
+//  Share Modal 
+//  ==============================
+//
+
+//
+//  With Transitions
+//  ----- 
+.csstransforms3d {
+
+    // Normal hidden state
+    .share-modal {
+        @include transition(transform .5s ease);
+        @include translateY(-100%);
+        
+        .wrapper {
+            @include transition(transform .5s ease .5s);
+            @include scale(0);
+        }
+    }
+
+    // Transition to show
+    .share-modal-enabled {
+        overflow: hidden;
+
+        .share-modal {
+            @include translateY(0%);
+
+            .wrapper {
+                @include scale(1);
+            }
+        }
+    }
+}
+
+//
+//  Without Transitions
+//  ----- 
+.no-csstransforms3d {
+    // Normal hidden state
+    .share-modal {
+        display: none;
+    }
+
+    // Transition to show
+    .share-modal-enabled {
+        overflow: hidden;
+
+        .share-modal {
+            display: block;
+        }
+    }  
+}
+
+//
+//  Share Modal Styling
+//  -----
+.share-modal {
     color: white;
     text-align: center;
-    @include translateY(-100%);
-    @include transition(.75s ease all);
+    z-index: 10001;
+    position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%; 
+        background: $color-highlight;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+    
+    
 
     .wrapper {
         max-width: 600px;
@@ -72,30 +134,12 @@
     a {
         color: white;
     }
-}
+    .made-by {
+        @include opacity(.5);
+        margin-bottom: 2em;
 
-.header,
-.footer,
-.navigation,
-.container {
-    @include transition(.75s ease all);
-}
-
-.end {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    .header,
-    .footer,
-    .container,
-    .navigation {
-        opacity: 0;
-        visibility: hidden;
-        display: none;
-    }
-    //.navigation {opacity: 0; visibility: hidden;}
-    .congrats {
-        @include translateY(0);
+        a:hover {
+            text-decoration: underline;
+        }
     }
 }
