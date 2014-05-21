@@ -33,7 +33,7 @@
         <div class="sharpen">
             <a href="#" title="Sharpen the logos">Sharpen the Logos</a>
         </div>
-        <div class="points">0</div>
+        <div class="points score-current">0</div>
     </nav>
 
     <section class="container wrap" data-active-blur-value="20">
@@ -75,7 +75,7 @@
     <div class="share-modal">
         <div class="wrapper">
             <h2 class="final-score">Congratulations on your score!</h2>
-            <p class="final-score-points">0</p>
+            <p class="final-score-points score-final">0</p>
             <ul class="final-score-share clearfix">
                 <li><a href="#" class="icon-twitter">Tweet your score</a></li>
                 <li><a href="#" class="icon-facebook">Share your score</a></li>
@@ -91,7 +91,15 @@
 
     <script type="text/javascript" src="assets/scripts/jquery.js"></script>
     <script type="text/javascript" src="assets/scripts/scripts.js"></script>
-    <script type="text/javascript" src="assets/scripts/fuzzySet.js"></script>    
+    <script type="text/javascript" src="assets/scripts/fuzzySet.js"></script>  
+
+    <script type="text/html" id="template-brand-form">
+        <form class="form">
+            <input type="text" />
+            <label>Guess the brand:</label>
+            <button type="submit">Guess</button>
+        </form>
+    </script>  
 
 
 </body>

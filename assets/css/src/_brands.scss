@@ -161,6 +161,9 @@
         filter: none !important;
     }
 
+    [data-answered="true"].correct & {
+        background-color: $color-correct-light;
+    }
     [data-answered="true"].incorrect & {
         background-color: $color-incorrect-light;
     }

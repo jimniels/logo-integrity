@@ -1,50 +1,252 @@
-$(document).ready(function(){
-    $('.points').on('click', function(){
-        $('body').addClass('share-modal-enabled');
-        $finalScorePoints = $('.final-score-points');
-        var i=0;
-        var finalScore = setInterval(function(){
-            i++;
-            $finalScorePoints.html(i);
-            if(i == 250){
-               clearInterval(finalScore); 
+//
+//  Fuzzy String Matching
+//  Based on http://glench.github.io/fuzzyset.js/
+//
+//  @guess - string to search for
+//  @answer - array of possible correct matches
+//  Return a number from 0 to 1 rating the approximation of the guess
+//
+function fuzzyStringMatch(guess, answer) {
+    var f = FuzzySet(answer),
+        fuzzy = f.get(guess);
+
+    if(fuzzy) {
+        return fuzzy[0][0];
+    } else {
+        return 0;
+    }
+};
+
+
+//
+//  Game Object
+//
+var Game = {
+    $scoreCurrent: $('.score-current'),
+    $scoreFinal: $('.score-final'),
+    score: 0,
+    $container: $('.container'),
+    $body: $('body'),
+    $brands: $('.brand'),
+
+    //  Blur values 
+    //  The current blur value (20, 15, 10, 5) is the value of the svg blur
+    //  The blur increment is the increments the blur comes in
+    //  The current point value is the two added together
+    blurCurrent: 20,
+    blurIncrement: 5,
+    pointsCurrent: function(){
+        return this.blurCurrent + this.blurIncrement;
+    },
+
+    init: function(){
+        
+        // Set the active blur value on page load
+        this.$container.attr('data-active-blur-value', this.blurCurrent);
+        
+        // Appdend form template to each brand
+        var tabindex = 0;
+        formHtml = $('#template-brand-form').html();
+        this.$brands.each(function(){
+            $(formHtml).appendTo(this).find('input').attr('tabindex', tabindex);
+            $(this).attr('data-answered', 'false');  
+            tabindex++;
+        });
+    },
+
+
+    end: function() {
+        this.$body.addClass('share-modal-enabled');
+        this.animateScore( 
+            this.$scoreFinal,                       // element to animate
+            0,                                      // start
+            parseInt(this.$scoreCurrent.html()),    // stop
+            (1500 / this.score),                    // timing
+            function(){}                            // callback
+        );
+    },
+
+    //
+    //
+    //  Animate Score
+    //  @$el - jquery object of DOM element we're animating
+    //  @start - Value we start counting at
+    //  @end - Value we stop counting at
+    //  @timing - how long to execute each interval
+    //
+    animateScore: function($el, start, stop, timing, callback) {
+        var c = setInterval(function(){
+            $el.html(start);
+            if(start == stop ){
+                clearInterval(c);
+                $el.html(stop);
+                callback(); 
+            } else {
+                start++;
             }
-        }, 1);
-    });
+        }, timing ); // half a second?
+        
+    },
+
     //
     //
-    //  Initialize
+    //  Evaluate an answer
+    //  
+    //  @brand - jQuery object of the brand being guessed at
+    //
+    evaluateAnswer: function($brand) {
+        
+        // Variables
+        var guess = $brand.find('input').val(),
+            answer = eval( $brand.attr('data-answer') ),
+            grade = fuzzyStringMatch(guess, answer);
+
+        console.log('Grade:'+ Math.round(grade*100)/1 +'%; Guess:'+guess+'; Answer:'+answer );
+
+        if(grade > .6666666) {
+            
+            // Mark as correct
+            $brand.addClass('correct');
+
+            // Denote points received on screen
+            $brand.find('button').html('+' + this.pointsCurrent());
+            
+            // Animate the increase
+            oldScore = this.score;
+            newScore = this.score + this.pointsCurrent();
+            self = this;
+            this.$scoreCurrent.toggleClass('points-increase');
+            this.animateScore( 
+                this.$scoreCurrent,         // element to animate
+                oldScore,                   // start
+                newScore,                   // stop
+                (500 / this.pointsCurrent()), // half a second timing
+                function() {
+                    self.$scoreCurrent.toggleClass('points-increase');
+            });
+
+            // Inscrease overall Game score
+            this.score += this.pointsCurrent();          
+
+        } else {
+
+            // Mark as incorrect
+            $brand.addClass('incorrect');
+
+            // Denote points received as 0
+            $brand.find('button').html('0');
+        }
+
+        // Disable button & input
+        $brand.find('button').attr('disabled', 'disabled');
+        $brand.find('input').attr('disabled', 'disabled');
+        $brand.removeClass('focused');
+        
+        // Show the div
+        $brand.attr('data-answered', true);
+
+        // If there are no more brands to guess at, end the game
+        if ( this.$brands.filter('[data-answered="false"]').size() == 0 ) {
+            game = this;
+            setTimeout(function(){
+                game.end();
+            }, 1000);
+        }
+
+    },
+
+    startOver: function() {
+        this.$brands.each(function(){
+            $this = $(this);
+            $this.removeClass('reveal incorrect correct').attr('data-answered', 'false');
+            $this.find('input').attr('disabled', false).val('');
+            $this.find('button').attr('disabled', false).text('Reveal');
+        });
+        
+        // Reset points
+        this.score = 0;
+        
+        // Reset on screen scores
+        this.$scoreCurrent.html('0');
+        this.$scoreFinal.html('0');
+
+        // Reset blur
+        this.blurCurrent();
+        this.SetBlurCurrent();
+    },
+
+    resetLogos: function($brands) {
+        $brands.each(function(){
+            $this = $(this);
+            $this.removeClass('reveal incorrect').attr('data-answered', 'false');
+            $this.find('input').attr('disabled', false).val('');
+            $this.find('button').attr('disabled', false).text('Reveal');
+        });
+    },
+
+    sharpenLogos: function($this) {
+
+        if(this.blurCurrent > 0) {
+
+            // Reduce current blur value
+            this.blurCurrent -= this.blurIncrement;
+            console.log('current blur value'+ this.blurCurrent);
+            
+            // Reset the brands that have been answered incorrectly
+            this.resetLogos( $('.brand.incorrect') );
+            
+            // Sharpen the logos
+            $('.brands').toggleClass('shuffling');
+            game = this;            
+            setTimeout(function(){
+                
+                // Set the active blur value
+                $('.container').attr('data-active-blur-value', game.blurCurrent);
+
+                setTimeout(function(){
+                    $('.brands').toggleClass('shuffling');
+
+                    // Update set the active blur value variable
+                    //game.blurCurrent -= game.blurIncrement;
+
+                    if(game.blurCurrent == 0) {
+                        $this.text("Doesn't get any easier");
+                        $this.css('background-color', '#ccc').css('color', '#000');  
+                    }
+                }, 300)
+            }, 300);
+        }
+    }
+};
+
+$(document).ready(function(){
+
+    //
+    //
+    //  Initialize the Game
     //  -----
+    //
+    Game.init();
 
-    // Setup jQuery variables
-    var $points = $('.points'),
-        $container = $('.container');
+    //
+    //
+    //  Restart the Game
+    //  -----
+    //
+    $('.icon-play-again').on('click', function(){
+        //Game.startOver();
+        //$('body').removeClass('share-modal-enabled');
+        location.reload();
+    });
 
-    // Set the active blur value on page load
-    $container.attr('data-active-blur-value', 20);
-    
-
-    // Set blur varlue variables 
-    // note that the active blur value (20, 15, 10, 5) also serves as the point value
-    var blurValueActive = eval($container.attr('data-active-blur-value')),
-        blurValueIncrement = 5;
-
-    
-    // Append form, set each 'answered' as false
-    var numberOfBrands = 0;
-    $('.brand').each(function(){
-        var formHtml = '\
-            <form class="form">\
-                <input type="text" tabindex="'+numberOfBrands+'"/>\
-                <label>Guess the brand:</label>\
-                <button type="submit">Guess</button>\
-            </form>\
-        ';
-        $(formHtml).appendTo(this);
-        $(this).attr('data-answered', 'false');  
-        numberOfBrands++;
-    })
-    $('.points-label').text('/'+numberOfBrands);
+    //
+    //
+    //  End the Game
+    //  -----
+    //
+    $('.points').on('click', function(){
+        Game.end();
+    });
 
     //
     //
@@ -52,8 +254,8 @@ $(document).ready(function(){
     //  -----
     //  inputFocused is a toggle for keeping track of 
     //  whether the input is in focus
+    //
     var inputFocused = false;
-
     $('.brand').on('mousedown', function(){
         $input = $(this).find('input');
         if($input.is(':focus')) {
@@ -75,7 +277,8 @@ $(document).ready(function(){
     });
 
     //
-    // Form / Input clicks
+    //  Form clicks
+    //  -----
     //
     $('form').on('click', function(e){
         e.preventDefault();
@@ -85,107 +288,23 @@ $(document).ready(function(){
 
     //
     //
-    //  Button Clicks
+    //  Make a Guess Button
     //  -----
     //
     $('button').on('mousedown click', function(e){
         e.preventDefault();
         e.stopPropagation();
-
-        console.log('fired button click');
-        
-        var $this = $(this),
-            $brand = $this.parents('.brand');
-
-        // evaluate the value here
-        var $input = $this.siblings('input');
-        var userAnswer = $input.val();
-        var answer = $brand.attr('data-answer');
-        answer = eval(answer);
-
-
-        var f = FuzzySet(answer);
-        var fuzzy = f.get(userAnswer);
-
-        if(fuzzy && fuzzy[0][0] > .6666666) {
-            console.log("You're right! " + fuzzy[0][0]);
-            $brand.addClass('correct');
-            $this.attr('disabled', 'disabled').text('+' + blurValueActive);
-            
-            // increase the points
-            var currentPoints = parseInt($points.text());
-            var i = currentPoints;
-
-            $points.toggleClass('points-increase');
-            
-            //setTimeout(function(){
-                var counter = setInterval(function(){
-                    i++;
-                    $points.html(i);
-                    console.log('count up');
-                    if(i == currentPoints + blurValueActive){
-                       clearInterval(counter); 
-                       $points.toggleClass('points-increase');
-                    }
-                }, 500/blurValueActive); // half a second
-            //}, 166); // duraction of animation
-
-
-        } else {            
-            $brand.addClass('incorrect');
-            $this.attr('disabled', 'disabled').text('0');
-        }
-        
-        // disable inputs
-        $brand.find('input').attr('disabled', 'disabled');
-        $brand.removeClass('focused');
-        
-        // show the div
-        $brand.attr('data-answered', true);
+        Game.evaluateAnswer( $(this).parents('.brand') );
     });
-
-
     
-
     //
     //
-    //  Sharpen
+    //  Sharpen Logos Button
+    //  -----
     //
     $('.sharpen a').on('click', function(e){
         e.preventDefault();
-        $this = $(this);
-
-        if(blurValueActive > 0) {
-            // Reset all the brands and form attributes
-            $('.brand.incorrect').each(function(){
-                $this = $(this);
-                $this.removeClass('reveal incorrect');
-                $this.attr('data-answered', 'false');
-                $this.find('input').attr('disabled', false).val('');
-                $this.find('button').attr('disabled', false).text('Reveal');
-            });
-
-            // Change the active blur value to whatever was clicked
-            $('.brands').toggleClass('shuffling');
-
-            setTimeout(function(){
-                
-                // Set the active blur value
-                $('.container').attr('data-active-blur-value', blurValueActive - blurValueIncrement);
-
-                setTimeout(function(){
-                    $('.brands').toggleClass('shuffling');
-
-                    // Update set the active blur value variable
-                    blurValueActive -= blurValueIncrement;
-
-                    if(blurValueActive == 0) {
-                        $this.text("Doesn't get any easier");
-                        $this.css('background-color', '#ccc').css('color', '#000');  
-                    }
-                }, 300)
-            }, 300);
-        }
+        Game.sharpenLogos( $(this) );
     });
 
 
