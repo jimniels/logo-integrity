@@ -24,6 +24,7 @@ Feedback:
 - Accompanying blog post
 - iOS get input to show next to keyboard
 - Share link text
+- Test in IE8 (make images work as svg fallbacks)
 
 ### Would be nice
 - 'Reset' game rather than reload
