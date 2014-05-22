@@ -14,3 +14,16 @@ Example:
 Feedback:
 - Swap out a few brands, some car ones (mazda?) bring back CNN
 - Figure out the scoring/point system +5, +4, +3, +2, +1
+
+## To-Do
+
+### 1.0
+- Image for facebook share
+- Favicon
+- Title of the thing? <title> tag at least
+- Accompanying blog post
+- iOS get input to show next to keyboard
+- Share link text
+
+### Would be nice
+- 'Reset' game rather than reload
