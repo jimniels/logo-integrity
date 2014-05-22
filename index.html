@@ -218,20 +218,6 @@
 
     </section>
 
-    
-    <div class="share-modal">
-        <div class="wrapper">
-            <h2 class="final-score">Congratulations on your score!</h2>
-            <p class="final-score-points score-final">0</p>
-            <ul class="final-score-share clearfix">
-                <li><a href="#" class="icon-twitter">Tweet your score</a></li>
-                <li><a href="#" class="icon-facebook">Share your score</a></li>
-                <li><a href="#" class="icon-play-again">Play again</a></li>
-            </ul>
-            <p class="made-by">Made by: <a href="http://jim-nielsen.com/" title="Jim's Homepage">Jim Nielsen</a>, a.k.a. <a href="http://twitter.com/jimniels" title="Jim Nielsen on Twitter">@jimniels</a></p>
-        </div>
-    </div>
-
     <footer class="footer">
         <p>Created by <a href="http://jim-nielsen.com/">Jim Nielsen</a>. Got feedback? Tweet me <a href="http://twitter.com/jimniels/">@jimniels</a>.</p>
     </footer>
@@ -247,6 +233,20 @@
             <button type="submit">Guess</button>
         </form>
     </script>  
+    <script type="text/html" id="template-share-modal">
+        <div class="share-modal">
+            <div class="wrapper">
+                <h2 class="score-final-title">Congratulations on your score!</h2>
+                <p class="score-final">0</p>
+                <ul class="score-final-share clearfix">
+                    <li><a href="#" class="icon-twitter" target="_blank">Tweet your score</a></li>
+                    <li><a href="#" class="icon-facebook" target="_blank">Share your score</a></li>
+                    <li><a href="#" class="icon-play-again">Play again</a></li>
+                </ul>
+                <p class="made-by">Made by: <a href="http://jim-nielsen.com/" title="Jim's Homepage">Jim Nielsen</a>, a.k.a. <a href="http://twitter.com/jimniels" title="Jim Nielsen on Twitter">@jimniels</a></p>
+            </div>
+        </div>
+    </script>
 
 
 </body>

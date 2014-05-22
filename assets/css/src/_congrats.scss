@@ -83,18 +83,18 @@
         }
     }
 
-    .final-score {
+    .score-final-title {
         font-size: #{36 / $font-size-base}em;
         font-weight: 300;
         line-height: 1;
         margin-top: 1em;
     }
-    .final-score-points {
+    .score-final {
         font-size: #{150 / $font-size-base}em;
         font-weight: 300;
         line-height: 1;
     }
-    .final-score-share {
+    .score-final-share {
         margin: #{60 / $font-size-base}em 0;
         
         li {

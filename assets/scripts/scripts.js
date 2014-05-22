@@ -17,48 +17,61 @@ function fuzzyStringMatch(guess, answer) {
     }
 };
 
-
+//
 //
 //  Game Object
-//
+//  ====================
+//  Blur values 
+//  @blurCurrent is the value of the svg blur (20, 15, 10, 5)
+//  @blurIncrement is the increments the blur comes in
+//  @scoreCurrent is the two added together
 var Game = {
     $scoreCurrent: $('.score-current'),
-    $scoreFinal: $('.score-final'),
     score: 0,
-    $container: $('.container'),
-    $body: $('body'),
-    $brands: $('.brand'),
-
-    //  Blur values 
-    //  The current blur value (20, 15, 10, 5) is the value of the svg blur
-    //  The blur increment is the increments the blur comes in
-    //  The current point value is the two added together
+    $brands: [],
     blurCurrent: 20,
     blurIncrement: 5,
-    pointsCurrent: function(){
+    scoreCurrent: function(){
         return this.blurCurrent + this.blurIncrement;
     },
 
     init: function(){
         
         // Set the active blur value on page load
-        this.$container.attr('data-active-blur-value', this.blurCurrent);
-        
+        $('.container').attr('data-active-blur-value', this.blurCurrent);
+
+        // Shuffle the logos then set $brands
+        $('.brand').shuffle();
+        this.$brands = $('.brand');
+
         // Appdend form template to each brand
-        var tabindex = 0;
+        var tabindex = 1;
         formHtml = $('#template-brand-form').html();
         this.$brands.each(function(){
+            console.log('append form');
             $(formHtml).appendTo(this).find('input').attr('tabindex', tabindex);
             $(this).attr('data-answered', 'false');  
             tabindex++;
         });
+
+        // Append share modal
+        $( $('#template-share-modal').html() ).appendTo('body');
     },
 
 
     end: function() {
-        this.$body.addClass('share-modal-enabled');
+
+        // Generate share links
+        var twitter = 'http://twitter.com/home?status=I scored '+this.score+' points trying to identify logos. Think you can beat me? Try it: '+location.href,
+            facebook = 'http://www.facebook.com/share.php?u='+location.href;
+        $('.icon-twitter').attr('href', twitter);
+        $('.icon-facebook').attr('href', facebook);
+        $('.icon-play-again').attr('href', location.href);
+
+        // Animate share on screen
+        $('body').addClass('share-modal-enabled');
         this.animateScore( 
-            this.$scoreFinal,                       // element to animate
+            $('.score-final'),                      // element to animate
             0,                                      // start
             parseInt(this.$scoreCurrent.html()),    // stop
             (1500 / this.score),                    // timing
@@ -109,24 +122,24 @@ var Game = {
             $brand.addClass('correct');
 
             // Denote points received on screen
-            $brand.find('button').html('+' + this.pointsCurrent());
+            $brand.find('button').html('+' + this.scoreCurrent());
             
             // Animate the increase
             oldScore = this.score;
-            newScore = this.score + this.pointsCurrent();
+            newScore = this.score + this.scoreCurrent();
             self = this;
-            this.$scoreCurrent.toggleClass('points-increase');
+            this.$scoreCurrent.toggleClass('score-increase');
             this.animateScore( 
                 this.$scoreCurrent,         // element to animate
                 oldScore,                   // start
                 newScore,                   // stop
-                (500 / this.pointsCurrent()), // half a second timing
+                (500 / this.scoreCurrent()), // half a second timing
                 function() {
-                    self.$scoreCurrent.toggleClass('points-increase');
+                    self.$scoreCurrent.toggleClass('score-increase');
             });
 
             // Inscrease overall Game score
-            this.score += this.pointsCurrent();          
+            this.score += this.scoreCurrent();          
 
         } else {
 
@@ -145,35 +158,43 @@ var Game = {
         // Show the div
         $brand.attr('data-answered', true);
 
-        // If there are no more brands to guess at, end the game
+        // If there are no more brands to guess at end the game
         if ( this.$brands.filter('[data-answered="false"]').size() == 0 ) {
-            game = this;
-            setTimeout(function(){
-                game.end();
-            }, 1000);
+
+            // If the current blur is not 0, go to next level by sharpening the logos
+            // Otherwise, end the game
+            if(this.blurCurrent != 0) {
+                this.sharpenLogos()
+            } 
+            else {
+                game = this;
+                setTimeout(function(){
+                    game.end();
+                }, 1000);
+            }
         }
 
     },
 
-    startOver: function() {
-        this.$brands.each(function(){
-            $this = $(this);
-            $this.removeClass('reveal incorrect correct').attr('data-answered', 'false');
-            $this.find('input').attr('disabled', false).val('');
-            $this.find('button').attr('disabled', false).text('Reveal');
-        });
+    // startOver: function() {
+    //     this.$brands.each(function(){
+    //         $this = $(this);
+    //         $this.removeClass('reveal incorrect correct').attr('data-answered', 'false');
+    //         $this.find('input').attr('disabled', false).val('');
+    //         $this.find('button').attr('disabled', false).text('Reveal');
+    //     });
         
-        // Reset points
-        this.score = 0;
+    //     // Reset points
+    //     this.score = 0;
         
-        // Reset on screen scores
-        this.$scoreCurrent.html('0');
-        this.$scoreFinal.html('0');
+    //     // Reset on screen scores
+    //     this.$scoreCurrent.html('0');
+    //     this.$scoreFinal.html('0');
 
-        // Reset blur
-        this.blurCurrent();
-        this.SetBlurCurrent();
-    },
+    //     // Reset blur
+    //     this.blurCurrent();
+    //     this.SetBlurCurrent();
+    // },
 
     resetLogos: function($brands) {
         $brands.each(function(){
@@ -230,21 +251,10 @@ $(document).ready(function(){
 
     //
     //
-    //  Restart the Game
-    //  -----
-    //
-    $('.icon-play-again').on('click', function(){
-        //Game.startOver();
-        //$('body').removeClass('share-modal-enabled');
-        location.reload();
-    });
-
-    //
-    //
     //  End the Game
     //  -----
     //
-    $('.points').on('click', function(){
+    $('.score-current').on('click', function(){
         Game.end();
     });
 
