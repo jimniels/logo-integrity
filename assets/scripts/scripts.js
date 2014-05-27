@@ -1,6 +1,6 @@
 //
 //  Fuzzy String Matching
-//  Based on http://glench.github.io/fuzzyset.js/
+//  http://glench.github.io/fuzzyset.js/
 //
 //  @guess - string to search for
 //  @answer - array of possible correct matches
@@ -25,12 +25,13 @@ function fuzzyStringMatch(guess, answer) {
 //  @blurCurrent is the value of the svg blur (20, 15, 10, 5)
 //  @blurIncrement is the increments the blur comes in
 //  @scoreCurrent is the two added together
+//
 var Game = {
     $scoreCurrent: $('.score-current'),
     score: 0,
     $brands: [],
-    blurCurrent: 20,
-    blurIncrement: 5,
+    blurCurrent: 21,
+    blurIncrement: 7,
     scoreCurrent: function(){
         return this.blurCurrent + this.blurIncrement;
     },
@@ -41,7 +42,7 @@ var Game = {
         $('.container').attr('data-active-blur-value', this.blurCurrent);
 
         // Shuffle the logos then set $brands
-        $('.brand').shuffle();
+        //$('.brand').shuffle();
         this.$brands = $('.brand');
 
         // Appdend form template to each brand
@@ -61,7 +62,7 @@ var Game = {
 
     end: function() {
 
-        // Generate share links
+        // Generate share links with point values
         var twitter = 'http://twitter.com/home?status=I scored '+this.score+' points trying to identify logos. Think you can beat me? Try it: '+location.href,
             facebook = 'http://www.facebook.com/share.php?u='+location.href;
         $('.icon-twitter').attr('href', twitter);
@@ -82,6 +83,8 @@ var Game = {
     //
     //
     //  Animate Score
+    //  Generic function that counts up a number on screen
+    //
     //  @$el - jquery object of DOM element we're animating
     //  @start - Value we start counting at
     //  @end - Value we stop counting at
@@ -98,7 +101,6 @@ var Game = {
                 start++;
             }
         }, timing ); // half a second?
-        
     },
 
     //

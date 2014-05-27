@@ -1,100 +1,99 @@
-<?php
-$brands = array(
-    "abc" => array(
+{
+    "abc": [
         "ABC",
         "American Broadcasting Company"
-    ),
-    "addidas" => array(
+    ],
+    "addidas": [
         "Addidas"
-    ),
-    "apple" => array(
+    ],
+    "apple": [
         "Apple",
         "Apple Inc.",
         "Apple Computer",
         "Apple Computer Inc."
-    ),
-    "cbs" => array(
+    ],
+    "cbs": [
         "CBS",
         "CBS Broadcasting",
         "CBS Broadcasting Inc.",
         "Columbia Broadcasting System"
-    ),
-    "general-electric" => array(
+    ],
+    "general-electric": [
         "GE",
         "General Electric",
         "General Electric Company"
-    ),
-    "honda" => array(
+    ],
+    "honda": [
         "Honda",
         "Honda Motors",
         "Honda Motor Company"
-    ),
-    "hyundai" => array(
+    ],
+    "hyundai": [
         "Hyundai",
         "Hyundai Motor Company"
-    ),
-    "mazda" => array(
+    ],
+    "mazda": [
         "Mazda",
         "Mazda Motor Corporation"
-    ),
-    "mcdonalds" => array(
+    ],
+    "mcdonalds": [
         "McDonalds"
-    ),
-    "mercedes" => array(
+    ],
+    "mercedes": [
         "Mercedes",
         "Mercedes-Benz"
-    ),
-    "mitsubishi" => array(
+    ],
+    "mitsubishi": [
         "Mitsubishi",
         "Mitsubishi Group"
-    ),
-    "mtv" => array(
+    ],
+    "mtv": [
         "MTV",
         "Music Television"
-    ),
-    "nbc" => array(
+    ],
+    "nbc": [
         "NBC",
         "National Broadcasting Company"
-    ),
-    "nike" => array(
+    ],
+    "nike": [
         "Nike"
-    ),
-    "pbs" => array(
+    ],
+    "pbs": [
         "PBS",
         "Public Broadcasting Service"
-    ),
-    "pepsi" => array(
+    ],
+    "pepsi": [
         "Pepsi",
         "Pepsi-Cola"
-    ),
-    "puma" => array(
+    ],
+    "puma": [
         "Puma"
-    ),
-    "shell" => array(
+    ],
+    "shell": [
         "Shell",
         "Royal Dutch Shell"
-    ),
-    "starbucks" => array(
+    ],
+    "starbucks": [
         "Starbucks"
-    ),
-    "taco-bell" => array(
+    ],
+    "taco-bell": [
         "Taco Bell"
-    ),
-    "target" => array(
+    ],
+    "target": [
         "Target"
-    ),
-    "toyota" => array(
+    ],
+    "toyota": [
         "Toyota",
         "Toyota Motor Corporation"
-    ),
-    "twitter" => array(
+    ],
+    "twitter": [
         "Twitter"
-    ),
-    "ups" => array(
+    ],
+    "ups": [
         "UPS",
         "United Parcel Service"
-    ),
-    "volkswagen" => array(
+    ],
+    "volkswagen": [
         "Volkswagen"
-    )
-);
+    ]
+}

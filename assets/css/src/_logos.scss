@@ -1,0 +1,58 @@
+//
+//
+//  Logo Background Images
+//  ==============================
+//  For browsers that support it, give .logo an .svg background
+//  Otherwise, give them the .jpg fallback
+//
+.svgfilters {
+    @each $logo in $logos {
+        ##{$logo} {
+            .logo {background-image: image-url('#{$svg-directory}/#{$logo}.svg') }
+        }
+    }
+
+    //
+    //  Logo Blurs
+    //  -----
+    //  Create a CSS rule for any blur 1 through 30
+    //  (Likely don't need all these for production)
+    //
+    @for $i from 1 through 30 {
+        .container[data-active-blur-value="#{$i}"] {
+            .logo {
+                @include filter($i);
+            }
+        }
+    }
+}
+
+.no-svgfilters {
+    @each $logo in $logos {
+        ##{$logo} {
+            .logo {background-image: image-url('logos/jpgs/#{$logo}.jpg') }
+        }
+    }
+
+    // Background Y position for each specific logo
+    @for $i from 1 through length($logos) {
+        $logo: nth($logos, $i);
+        
+        // ##{$logo} {
+        //     .logo {background-position-y: -#{ $i * 300 - 300 }px }
+        // }
+    }
+}
+
+
+/*
+$logo-blurs: 0 5 10 15 20 25 30;
+@each $logo-blur in $logo-blurs {
+    
+    .container[data-active-blur-value="#{$logo-blur}"] {
+        
+        .logo {
+            @include filter($logo-blur);
+        }
+    }
+}*/
