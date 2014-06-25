@@ -38,6 +38,8 @@
         color: #fff; //hide by default
         font-size: 1em;
         height: 40px;
+        line-height: 40px;
+        vertical-align: middle;
         width: 75%;
         text-indent: 10px;
         
@@ -50,10 +52,11 @@
     
             // can't use + label + button for webkit bug!
             // http://stackoverflow.com/questions/8320530/webkit-bug-with-hover-and-multiple-adjacent-sibling-selectors
-            + label,
-            ~ button { 
+            
+            ~ * { 
                 @include opacity(1);
                 visibility: visible;
+                content: ' ';
             }
         }
 
@@ -73,6 +76,7 @@
         text-align: center;
         height: 40px;
         line-height: 40px;
+        vertical-align: middle;
         font-size: #{13 / $font-size-base}em;
         //@include transition(.33s ease opacity);
 

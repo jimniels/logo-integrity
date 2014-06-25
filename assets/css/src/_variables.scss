@@ -39,7 +39,7 @@ $svg-directory: logos/svgs;
         -moz-filter:    blur(#{$value}px);
         -o-filter:      blur(#{$value}px); 
         -ms-filter:     blur(#{$value}px);
-        filter:         image-url('blur.svg#blur-#{$value}');
+        filter:         url('#blur-#{$value}');
     }
 }
 

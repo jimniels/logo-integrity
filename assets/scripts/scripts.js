@@ -30,8 +30,8 @@ var Game = {
     $scoreCurrent: $('.score-current'),
     score: 0,
     $brands: [],
-    blurCurrent: 21,
-    blurIncrement: 7,
+    blurCurrent: 20,
+    blurIncrement: 5,
     scoreCurrent: function(){
         return this.blurCurrent + this.blurIncrement;
     },
@@ -127,9 +127,9 @@ var Game = {
             $brand.find('button').html('+' + this.scoreCurrent());
             
             // Animate the increase
-            oldScore = this.score;
-            newScore = this.score + this.scoreCurrent();
-            self = this;
+            var oldScore = this.score;
+            var newScore = this.score + this.scoreCurrent();
+            var self = this;
             this.$scoreCurrent.toggleClass('score-increase');
             this.animateScore( 
                 this.$scoreCurrent,         // element to animate
@@ -242,7 +242,13 @@ var Game = {
     }
 };
 
+// Set user agent
+var doc = document.documentElement;
+doc.setAttribute('data-useragent', navigator.userAgent);
+
+// On ready
 $(document).ready(function(){
+
 
     //
     //
@@ -295,6 +301,11 @@ $(document).ready(function(){
     $('form').on('click', function(e){
         e.preventDefault();
         e.stopPropagation();
+    }).on('submit', function(){
+        // Game.evaluateAnswer( $(this).parents('.brand') );
+        // console.log('fired submit');
+        Game.evaluateAnswer( $(this).parents('.brand') );
+        return false;
     });
 
 
@@ -302,7 +313,7 @@ $(document).ready(function(){
     //
     //  Make a Guess Button
     //  -----
-    //
+    //  Make sure you do the same thing on form submit for IE8 enter issue
     $('button').on('mousedown click', function(e){
         e.preventDefault();
         e.stopPropagation();

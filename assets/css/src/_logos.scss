@@ -5,54 +5,71 @@
 //  For browsers that support it, give .logo an .svg background
 //  Otherwise, give them the .jpg fallback
 //
+
+// The 5 different gaussian blur values we use
+$blurs: 0 5 10 15 20;
+
+
+//
+//  SVGs Supported
+//  -----
 .svgfilters {
     @each $logo in $logos {
         ##{$logo} {
-            .logo {background-image: image-url('#{$svg-directory}/#{$logo}.svg') }
+            .logo {
+                background-image: image-url('#{$svg-directory}/#{$logo}.svg');
+                background-repeat: none; 
+            }
         }
     }
 
     //
     //  Logo Blurs
     //  -----
-    //  Create a CSS rule for any blur 1 through 30
-    //  (Likely don't need all these for production)
     //
-    @for $i from 1 through 30 {
-        .container[data-active-blur-value="#{$i}"] {
+    //  Development
+    //  Create a CSS rule for any blur 1 through 30
+    //  (Don't need all these for production)
+    // @for $i from 1 through 30 {
+    //     .container[data-active-blur-value="#{$i}"] {
+    //         .logo {
+    //             @include filter($i);
+    //         }
+    //     }
+    // }
+    
+    @each $blur in $blurs {
+        .container[data-active-blur-value="#{$blur}"] {
             .logo {
-                @include filter($i);
+                @include filter($blur);
             }
         }
     }
 }
 
-.no-svgfilters {
+//
+//  SVGs NOT Supported
+//  -----
+//  We have to specifically include IE10 here, as it doesn't allow you to
+//  use SVG filter effects on HTML elements. So it falls back to images.
+.no-svgfilters,
+[data-useragent*="MSIE 10.0"] {
     @each $logo in $logos {
         ##{$logo} {
-            .logo {background-image: image-url('logos/jpgs/#{$logo}.jpg') }
+            .logo {
+                background-image: image-url('logos/jpgs/#{$logo}.jpg');
+                background-repeat: none;
+            }
         }
     }
 
-    // Background Y position for each specific logo
-    @for $i from 1 through length($logos) {
-        $logo: nth($logos, $i);
-        
-        // ##{$logo} {
-        //     .logo {background-position-y: -#{ $i * 300 - 300 }px }
-        // }
+    // Each logo's blur varations are spaced at 300 pixel height
+    // so 60 is our multiplier for the correct background position
+    @each $blur in $blurs {
+        .container[data-active-blur-value="#{$blur}"] {
+            .logo {
+                background-position-y: -#{ $blur * 60 }px;
+            }
+        }
     }
 }
-
-
-/*
-$logo-blurs: 0 5 10 15 20 25 30;
-@each $logo-blur in $logo-blurs {
-    
-    .container[data-active-blur-value="#{$logo-blur}"] {
-        
-        .logo {
-            @include filter($logo-blur);
-        }
-    }
-}*/

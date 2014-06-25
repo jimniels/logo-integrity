@@ -80,10 +80,10 @@
     <script type="text/javascript" src="assets/scripts/fuzzySet.js"></script>  
 
     <script type="text/html" id="template-brand-form">
-        <form class="form">
+    <form class="form" method="post">
             <input type="text" />
             <label>Guess the brand:</label>
-            <button type="submit">Guess</button>
+            <button type="button">Guess</button>
         </form>
     </script>  
     <script type="text/html" id="template-share-modal">
@@ -101,6 +101,18 @@
         </div>
     </script>
 
+    <!-- SVG Blut Filters -->
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <?php
+            for ($i=1; $i <= 30; $i++) { 
+                ?>
+                <filter id="blur-<?php echo $i ?>">
+                    <feGaussianBlur stdDeviation="<?php echo $i ?>" />
+                </filter>
+                <?
+            }
+        ?>
+    </svg>
 
 </body>
 </html>
