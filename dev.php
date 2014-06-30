@@ -1,4 +1,4 @@
-<?php include('brands.php'); ?><!DOCTYPE html>
+<?php $brands = json_decode( file_get_contents("brands.json"), true); ?><!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8">
@@ -100,19 +100,6 @@
             </div>
         </div>
     </script>
-
-    <!-- SVG Blut Filters -->
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <?php
-            for ($i=1; $i <= 30; $i++) { 
-                ?>
-                <filter id="blur-<?php echo $i ?>">
-                    <feGaussianBlur stdDeviation="<?php echo $i ?>" />
-                </filter>
-                <?
-            }
-        ?>
-    </svg>
 
 </body>
 </html>

@@ -1,12 +1,23 @@
 <?php
-// // Start output buffering
-// ob_start();
-// // run code in x.php file
-// include('dev.php');
-// // saving captured output to file
-// file_put_contents('index.html', ob_get_contents());
-// // end buffering and displaying page
-// ob_end_flush();
+//
+//
+//  HTML File
+//  ==============================
+//  Output index.html file with the dev.php content
+//  This is needed as github only works with static files
+//
+
+// Start output buffering
+ob_start();
+
+// run code in x.php file
+include('dev.php');
+
+// saving captured output to file
+file_put_contents('index.html', ob_get_contents());
+
+// end buffering and displaying page
+ob_end_flush();
 
 //
 //

@@ -42,7 +42,7 @@ var Game = {
         $('.container').attr('data-active-blur-value', this.blurCurrent);
 
         // Shuffle the logos then set $brands
-        //$('.brand').shuffle();
+        $('.brand').shuffle();
         this.$brands = $('.brand');
 
         // Appdend form template to each brand
@@ -160,13 +160,14 @@ var Game = {
         // Show the div
         $brand.attr('data-answered', true);
 
-        // If there are no more brands to guess at end the game
+        // If there are no more brands to guess because they've all been answered
         if ( this.$brands.filter('[data-answered="false"]').size() == 0 ) {
-
-            // If the current blur is not 0, go to next level by sharpening the logos
+            
+            // If the current blur is not 0 AND there are incorrect guesses still remaining
+            // Go to next level by sharpening the logos
             // Otherwise, end the game
-            if(this.blurCurrent != 0) {
-                this.sharpenLogos()
+            if(this.blurCurrent != 0 && this.$brands.filter('.incorrect').size() > 0) {
+                this.sharpenLogos( $('.sharpen a') );
             } 
             else {
                 game = this;
@@ -233,6 +234,7 @@ var Game = {
                     //game.blurCurrent -= game.blurIncrement;
 
                     if(game.blurCurrent == 0) {
+                        console.log($this);
                         $this.text("Doesn't get any easier");
                         $this.css('background-color', '#ccc').css('color', '#000');  
                     }
