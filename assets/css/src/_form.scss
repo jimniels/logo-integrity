@@ -14,7 +14,7 @@
         text-indent: 10px;
         font-size: #{11 / $font-size-base}em;
         @include opacity(0);
-        //@include translateY(1em);
+        visibility: hidden;
         @include transition(.33s ease opacity);
     }
 
@@ -42,6 +42,10 @@
         vertical-align: middle;
         width: 75%;
         text-indent: 10px;
+
+        &:hover {
+            cursor: pointer;
+        }
         
 
         &:focus {
@@ -57,6 +61,10 @@
                 @include opacity(1);
                 visibility: visible;
                 content: ' ';
+            }
+
+            &:hover {
+                cursor: text;
             }
         }
 

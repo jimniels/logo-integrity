@@ -22,12 +22,14 @@ Feedback:
 - Title of the thing? <title> tag at least
 - Accompanying blog post
 - iOS get input to show next to keyboard
-- Share link text
 - Test in IE8 (make images work as svg fallbacks)
-- Make sure shuffle is on
 - Make sure analytics are in
-- Make sure clicking the points doesnt end the game
-- Remove console.log
+
 
 ### Would be nice
 - 'Reset' game rather than reload
+
+## Before Pushing
+- Make sure shuffle is on
+- Make sure clicking the points doesnt end the game
+- Remove console.log
