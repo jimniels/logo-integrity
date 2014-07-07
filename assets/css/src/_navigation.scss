@@ -81,4 +81,8 @@
             width: 100%;
         }
     }
+
+    .no-js & {
+        display: none;
+    }
 }

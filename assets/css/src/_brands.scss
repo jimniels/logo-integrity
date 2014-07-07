@@ -116,8 +116,7 @@
     }
 
     .no-js & {
-        margin: 0 auto;
-        max-width: #{$max-width};
+        margin: 0 4%; // matches header side margins
 
         a {
             padding: 1em 0;

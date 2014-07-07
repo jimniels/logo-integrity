@@ -7,6 +7,11 @@
     padding: 7em 4% 2em;
     background: #000;
 
+    // No navigation when no js
+    .no-js & {
+        padding-top: 3em;
+    }
+
     // Header sticks on mobile, so allow more space up top
     @include respond-to(mobile) {
         padding-top: 5em;
