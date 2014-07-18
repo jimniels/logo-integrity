@@ -34,15 +34,9 @@
     .sharpen {
         text-align: center;
         line-height: $navigation-height;
-        border-radius: 0 2px 2px 0;
-        
-        @include respond-to(mobile) {
-            border-radius: 0;
-        }
         
         left: 30%;
         width: 70%;
-
 
         a {
             background-color: $color-highlight;
@@ -51,9 +45,19 @@
             display: block;
             padding: 0 2em;
             @include transition(.33s ease background-color);
+            border-radius: 0 2px 2px 0;
+
+            @include respond-to(mobile) {
+                border-radius: 0;
+            }
 
             &:hover {
                 background-color: darken($color-highlight, 10%);
+            }
+
+            // Give up button
+            &.give-up {
+                background-color: #777;
             }
         }
     }

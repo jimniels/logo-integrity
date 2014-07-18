@@ -235,8 +235,8 @@ var Game = {
 
                     if(game.blurCurrent == 0) {
                         console.log($this);
-                        $this.text("Doesn't get any easier");
-                        $this.css('background-color', '#ccc').css('color', '#000');  
+                        $this.text("I give up!");
+                        $this.addClass('give-up');
                     }
                 }, 300)
             }, 300);
@@ -258,15 +258,6 @@ $(document).ready(function(){
     //  -----
     //
     Game.init();
-
-    //
-    //
-    //  End the Game
-    //  -----
-    //
-    $('.score-current').on('click', function(){
-        Game.end();
-    });
 
     //
     //
@@ -326,10 +317,28 @@ $(document).ready(function(){
     //
     //  Sharpen Logos Button
     //  -----
-    //
+    //  If there's nothing left to sharpen, this is a "give up" button
+    // 
     $('.sharpen a').on('click', function(e){
         e.preventDefault();
-        Game.sharpenLogos( $(this) );
+
+        //  Continuing sharpening logos, unless there's nothing less to sharpen,
+        //  Then end the game
+        if( $(this).hasClass('give-up') ) {
+            Game.end();
+        } else {
+            Game.sharpenLogos( $(this) );   
+        }
+        
+    });
+
+    //
+    //
+    //  End the Game
+    //  -----
+    //
+    $('.give-up').on('click', function(){
+        Game.end();
     });
 
 

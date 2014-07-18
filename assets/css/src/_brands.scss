@@ -8,37 +8,37 @@
         position: relative;
         overflow: hidden;
         
-
-        //@include clearfix();
-
         &:after {
-            -webkit-transition: .22s ease -webkit-transform;
-            -moz-transition: .22s ease -moz-transform;
-            -ms-transition: .22s ease -ms-transform;
-            -o-transition: .22s ease -o-transform;
-            transition: .22s ease transform;
+            
+            @include transition(.33s ease opacity, .33s ease visibility);
 
             content: 'Sharpening...';
-            position: absolute;
+            position: fixed;
             line-height: 100px;
             height: 100px;
-            top: -100px;
             text-align: center;
             width: 200px;
             margin-left: -100px;
             left: 50%;
-            background: #000 image-url('sharpening.gif') no-repeat 50% 14px;
-            padding-top: 14px;
+            top: 30%;
+            background: #000 image-url('sharpening.gif') no-repeat 50% 20px;
+            padding-top: 20px;
             z-index: 1000;
             color: white;
-            border-radius: 0 0 2px 2px;
+            border-radius: 2px;
+            box-shadow: 0 0 0 4px rgba(0,0,0,.15);
+
+            @include opacity(0);
+            visibility: hidden;
         }
 
         &.shuffling {
             
 
             &:after {
-                @include translateY(100px);
+                @include opacity(1);
+                visibility: visible;
+                //@include translateY(100px);
                 //background: image-url('shuffling.gif') no-repeat 50% 0;
                 //padding: 2em 0;
             }
