@@ -12,7 +12,7 @@
     // Normal hidden state
     .share-modal {
         @include transition(transform .5s ease);
-        @include translateY(-100%);
+        @include scale(0);
         
         .wrapper {
             @include transition(transform .5s ease .5s);
@@ -25,7 +25,7 @@
         overflow: hidden;
 
         .share-modal {
-            @include translateY(0%);
+            @include scale(1);
 
             .wrapper {
                 @include scale(1);

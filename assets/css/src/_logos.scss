@@ -2,7 +2,8 @@
 //
 //  Logo Background Images
 //  ==============================
-//  For browsers that support it, give .logo an .svg background
+//  Each brand's SVG is loaded
+//  For browsers that support SVG Filters, give .logo an .svg background
 //  Otherwise, give them the .jpg fallback
 //
 
@@ -11,49 +12,26 @@ $blurs: 0 5 10 15 20;
 
 
 //
-//  SVGs Supported
+//  SVG Filters Supported
 //  -----
 .svgfilters {
-    @each $logo in $logos {
-        ##{$logo} {
-            .logo {
-                background-image: image-url('#{$svg-directory}/#{$logo}.svg');
-                background-repeat: none; 
-            }
-        }
-    }
+    .logo {
 
-    //
-    //  Logo Blurs
-    //  -----
-    //
-    //  Development
-    //  Create a CSS rule for any blur 1 through 30
-    //  (Don't need all these for production)
-    // @for $i from 1 through 30 {
-    //     .container[data-active-blur-value="#{$i}"] {
-    //         .logo {
-    //             @include filter($i);
-    //         }
-    //     }
-    // }
-    
-    @each $blur in $blurs {
-        .container[data-active-blur-value="#{$blur}"] {
-            .logo {
-                @include filter($blur);
-            }
-        }
     }
 }
 
 //
-//  SVGs NOT Supported
+//  SVG Filters NOT Supported
 //  -----
 //  We have to specifically include IE10 here, as it doesn't allow you to
 //  use SVG filter effects on HTML elements. So it falls back to images.
-.no-svgfilters,
-[data-useragent*="MSIE 10.0"] {
+.no-svgfilters {
+
+    // Don't show the SVG
+    .logo svg {
+        display: none;
+    }
+
     @each $logo in $logos {
         ##{$logo} {
             .logo {

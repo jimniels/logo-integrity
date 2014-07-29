@@ -57,11 +57,11 @@
                 foreach ($brands as $brandID => $brandNames) {
                     ?>
                         
-                        <li class="brand" id="<?php echo $brandID ?>" data-answer="[<?php echo outputBrandNames($brandNames) ?>]">
+                        <li class="brand" id="<?php echo $brandID ?>" data-answer="[<?php echo outputBrandNames($brandNames) ?>]" data-answered="false">
                             <h2 class="brand-name">
                                 <a href="assets/images/build/logos/jpgs/<?php echo $brandID ?>.jpg"><?php echo $brandNames[0] ?></a>
                             </h2>
-                            <div class="logo"></div>
+                            
                         </li>
                     <?php
                     $i++;
@@ -75,12 +75,28 @@
         <p>Created by <a href="http://jim-nielsen.com/">Jim Nielsen</a>. Got feedback? Tweet me <a href="http://twitter.com/jimniels/">@jimniels</a>.</p>
     </footer>
 
+
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="width:0;height:0;visibility:hidden">
+        <?php 
+            for ($i=0; $i <= 20; $i++) { 
+                ?> 
+                    <filter id="blur-<?php echo $i ?>" x="-50%" y="-50%" width="225%" height="225%">
+                        <feGaussianBlur stdDeviation="<?php echo $i ?>"></feGaussianBlur>
+                    </filter>
+                <?php  
+            } 
+        ?>
+    </svg>
+
+
+
     <script type="text/javascript" src="assets/scripts/jquery.js"></script>
     <script type="text/javascript" src="assets/scripts/scripts.js"></script>
     <script type="text/javascript" src="assets/scripts/fuzzySet.js"></script>  
 
     <script type="text/html" id="template-brand-form">
-    <form class="form" method="post">
+        <div class="logo"></div>
+        <form class="form" method="post">
             <input type="text" />
             <label>Guess the brand:</label>
             <button type="button">Guess</button>

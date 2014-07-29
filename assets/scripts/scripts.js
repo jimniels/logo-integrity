@@ -17,6 +17,24 @@ function fuzzyStringMatch(guess, answer) {
     }
 };
 
+
+
+//
+//  Load SVG
+//  This function takes a jquery object representing a brand
+//  And loads it's corresponding SVG into .logo
+//  @$brand - jQuery object of brand
+//
+//  TO-DO: Make changing the path blur a function, as it's used in Game.Sharpen
+//
+function loadSVG($brand) {
+    $.get('assets/images/build/logos/svgs/' + $brand.attr('id') + '.svg', function( response ) {
+        $svg = $(response).find('svg');
+        $svg.find('path').attr('filter', 'url(#blur-' + Game.blurCurrent + ')');
+        $svg.appendTo( $('.logo', $brand) );
+    }, 'xml');
+}
+
 //
 //
 //  Game Object
@@ -32,12 +50,18 @@ var Game = {
     $brands: [],
     blurCurrent: 20,
     blurIncrement: 5,
+    usingSvgFilters: false,
     scoreCurrent: function(){
         return this.blurCurrent + this.blurIncrement;
     },
 
     init: function(){
-        
+
+        // Detect if we're using SVG filters or not
+        if( $('.svgfilters') ) {
+            this.usingSvgFilters = true;
+        }
+
         // Set the active blur value on page load
         $('.container').attr('data-active-blur-value', this.blurCurrent);
 
@@ -46,13 +70,25 @@ var Game = {
         this.$brands = $('.brand');
 
         // Appdend form template to each brand
-        var tabindex = 1;
-        formHtml = $('#template-brand-form').html();
-        this.$brands.each(function(){
-            console.log('append form');
-            $(formHtml).appendTo(this).find('input').attr('tabindex', tabindex);
-            $(this).attr('data-answered', 'false');  
-            tabindex++;
+        var self = this,
+            templateHTML = $('#template-brand-form').html();
+        $.each(this.$brands, function(i) {
+            
+            $this = $(this);
+
+            $template = $(templateHTML);
+            
+            // Add tabindex to each input
+            $template.find('input').attr('tabindex', i + 1);
+
+            // Append the template
+            $template.appendTo($this);
+
+            // Append SVGs if we're using them
+            if( self.usingSvgFilters ) {
+                loadSVG( $this );
+            }
+
         });
 
         // Append share modal
@@ -220,20 +256,25 @@ var Game = {
             this.resetLogos( $('.brand.incorrect') );
             
             // Sharpen the logos
-            $('.brands').toggleClass('shuffling');
-            game = this;            
+            $('.brands').toggleClass('sharpening');
+            self = this;            
             setTimeout(function(){
                 
                 // Set the active blur value
-                $('.container').attr('data-active-blur-value', game.blurCurrent);
+                $('.container').attr('data-active-blur-value', self.blurCurrent);
+                if( self.usingSvgFilters ) {
+                    $.each(self.$brands, function(){
+                        $(this).find('path').attr('filter', 'url(#blur-' + self.blurCurrent + ')');
+                    });
+                }
 
                 setTimeout(function(){
-                    $('.brands').toggleClass('shuffling');
+                    $('.brands').toggleClass('sharpening');
 
                     // Update set the active blur value variable
-                    //game.blurCurrent -= game.blurIncrement;
+                    //self.blurCurrent -= self.blurIncrement;
 
-                    if(game.blurCurrent == 0) {
+                    if(self.blurCurrent == 0) {
                         console.log($this);
                         $this.text("I give up!");
                         $this.addClass('give-up');
@@ -244,14 +285,9 @@ var Game = {
     }
 };
 
-// Set user agent
-var doc = document.documentElement;
-doc.setAttribute('data-useragent', navigator.userAgent);
-
 // On ready
 $(document).ready(function(){
-
-
+    $('.score-current').on('click',function(){ Game.end(); })
     //
     //
     //  Initialize the Game
