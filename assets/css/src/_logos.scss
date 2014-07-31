@@ -27,11 +27,6 @@ $blurs: 0 5 10 15 20;
 //  use SVG filter effects on HTML elements. So it falls back to images.
 .no-svgfilters {
 
-    // Don't show the SVG
-    .logo svg {
-        display: none;
-    }
-
     @each $logo in $logos {
         ##{$logo} {
             .logo {

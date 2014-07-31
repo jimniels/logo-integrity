@@ -2,19 +2,13 @@
 <html class="no-js">
 <head>
     <meta charset="utf-8">
-    <title>Logos Test</title>
-
-    <!-- CSS
-    =================================== -->
-    <link rel="stylesheet" href="assets/css/build/styles.css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
-    
-    <!-- Scripts
-    =================================== -->
-    <script type="text/javascript" src="assets/scripts/modernizr.js"></script>
+    <title>Logos</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <link rel="stylesheet" href="assets/css/build/styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="assets/scripts/modernizr.js"></script>
 </head>
 <body class="">
     
@@ -53,18 +47,14 @@
 
                     return $string;
                 }
-                $i = 0;
                 foreach ($brands as $brandID => $brandNames) {
                     ?>
-                        
                         <li class="brand" id="<?php echo $brandID ?>" data-answer="[<?php echo outputBrandNames($brandNames) ?>]" data-answered="false">
                             <h2 class="brand-name">
                                 <a href="assets/images/build/logos/jpgs/<?php echo $brandID ?>.jpg"><?php echo $brandNames[0] ?></a>
                             </h2>
-                            
                         </li>
                     <?php
-                    $i++;
                 }
             ?>
         </ul>
@@ -89,10 +79,9 @@
     </svg>
 
 
-
     <script type="text/javascript" src="assets/scripts/jquery.js"></script>
+    <script type="text/javascript" src="assets/scripts/fuzzySet.js"></script> 
     <script type="text/javascript" src="assets/scripts/scripts.js"></script>
-    <script type="text/javascript" src="assets/scripts/fuzzySet.js"></script>  
 
     <script type="text/html" id="template-brand-form">
         <div class="logo"></div>

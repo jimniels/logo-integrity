@@ -159,6 +159,9 @@ var Game = {
             // Mark as correct
             $brand.addClass('correct');
 
+            // Sharpen SVG
+            $brand.find('path').attr('filter', 'url(#blur-0)');
+
             // Denote points received on screen
             $brand.find('button').html('+' + this.scoreCurrent());
             
@@ -262,9 +265,11 @@ var Game = {
                 
                 // Set the active blur value
                 $('.container').attr('data-active-blur-value', self.blurCurrent);
+                
+                // Set the blur value for non-answered SVGs
                 if( self.usingSvgFilters ) {
-                    $.each(self.$brands, function(){
-                        $(this).find('path').attr('filter', 'url(#blur-' + self.blurCurrent + ')');
+                    self.$brands.filter('[data-answered="false"]').each(function(){
+                        $(this).find('path').attr('filter', 'url(#blur-' + Game.blurCurrent + ')');
                     });
                 }
 
@@ -287,7 +292,9 @@ var Game = {
 
 // On ready
 $(document).ready(function(){
+    
     $('.score-current').on('click',function(){ Game.end(); })
+
     //
     //
     //  Initialize the Game
@@ -331,8 +338,6 @@ $(document).ready(function(){
         e.preventDefault();
         e.stopPropagation();
     }).on('submit', function(){
-        // Game.evaluateAnswer( $(this).parents('.brand') );
-        // console.log('fired submit');
         Game.evaluateAnswer( $(this).parents('.brand') );
         return false;
     });
