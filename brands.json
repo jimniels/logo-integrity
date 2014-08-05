@@ -1,8 +1,4 @@
 {
-    "abc": [
-        "ABC",
-        "American Broadcasting Company"
-    ],
     "adidas": [
         "Adidas"
     ],
@@ -17,11 +13,6 @@
         "CBS Broadcasting",
         "CBS Broadcasting Inc.",
         "Columbia Broadcasting System"
-    ],
-    "general-electric": [
-        "GE",
-        "General Electric",
-        "General Electric Company"
     ],
     "honda": [
         "Honda",
@@ -42,14 +33,6 @@
     "mercedes": [
         "Mercedes",
         "Mercedes-Benz"
-    ],
-    "mitsubishi": [
-        "Mitsubishi",
-        "Mitsubishi Group"
-    ],
-    "mtv": [
-        "MTV",
-        "Music Television"
     ],
     "nbc": [
         "NBC",
@@ -88,10 +71,6 @@
     ],
     "twitter": [
         "Twitter"
-    ],
-    "ups": [
-        "UPS",
-        "United Parcel Service"
     ],
     "volkswagen": [
         "Volkswagen"

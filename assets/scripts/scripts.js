@@ -48,7 +48,7 @@ var Game = {
     $scoreCurrent: $('.score-current'),
     score: 0,
     $brands: [],
-    blurCurrent: 20,
+    blurCurrent: 15,
     blurIncrement: 5,
     usingSvgFilters: false,
     scoreCurrent: function(){

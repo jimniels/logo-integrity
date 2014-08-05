@@ -38,12 +38,12 @@
 
     a {
         text-decoration: underline;
-        color: inherit;
+        //color: inherit;
     }
 
     p {
         position: relative;
-        max-width: 35em;
+        max-width: 36em;
         color: #ccc;
         margin-bottom: #{20 / $font-size-base}em;
     }

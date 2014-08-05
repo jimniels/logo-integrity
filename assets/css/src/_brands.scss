@@ -33,14 +33,14 @@
         }
 
         &.sharpening {
-            
-
             &:after {
                 @include opacity(1);
                 visibility: visible;
-                //@include translateY(100px);
-                //background: image-url('shuffling.gif') no-repeat 50% 0;
-                //padding: 2em 0;
+            }
+
+            [data-answered="false"] .logo {
+                @include opacity(0);
+                //visibility: hidden;
             }
         }
     }
@@ -143,21 +143,10 @@
         position: absolute;
         margin-left: -150px;
         left: 50%;
-        // transition: .15s ease filter;
-        // -webkit-transition: .15s ease -webkit-filter;
-        // -moz-transition: .15s ease -moz-filter;
-        // -o-transition: .15s ease -o-filter;
-        // -ms-transition: .15s ease -ms-filter;
     }
 
-    [data-answered="true"].correct &,
-    [data-active-blur-value="0"] [data-answered="true"] & {
-        filter: none !important; 
-        -webkit-filter: none !important; 
-        -moz-filter: none !important;
-        -o-filter: none !important; 
-        -ms-filter: none !important;
-        filter: none !important;
+    [data-answered="false"] & {
+        @include transition(.33s ease opacity, .33s ease visibility);
     }
 
     [data-answered="true"].correct & {

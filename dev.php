@@ -2,7 +2,7 @@
 <html class="no-js">
 <head>
     <meta charset="utf-8">
-    <title>Logos</title>
+    <title>Logo Recognizability</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,12 +15,12 @@
     <header class="header">
         <blockquote>
             <p>
-                <span>“</span>How far out of focus can an image be and still be recognized? A [logo] which is subject to an infinite number of uses, abuses, and variations whether for competitive purposes or for reasons of ‘self-expression,’ cannot survive unless it is designed with utmost simplicity and restraint.”
+                <span>“</span>How far out of focus can an image be and still be recognized? A [logo] which is subject to an infinite number of uses, abuses, and variations&hellip;cannot survive unless it is designed with utmost simplicity and restraint.”
                 <br />— Paul Rand, <em>A Designer’s Art</em>.
             </p>
         </blockquote>
-        <p>Try identifying the logos below. The blurrier they are, the more points you’ll get for a correct guess. When you can’t guess anymore, you can make it easier by sharpening the logos.</p>
-        <p><a href="#">Read more about this experiment &raquo;</a></p>
+        <p>According to Paul Rand, a well-designed logo retains its form and recognizability under the duress of real-world use and abuse. To test this theory, let’s look at how well these contemporary iconic logo marks hold up to a single form of visual stress: a gaussian blur. <a href="#">Read more about this experiment &raquo;</a></p>
+        <p>See if you can identify the logos below. The blurrier they are, the more points you’ll get for a correct guess. So when you can’t guess anymore, make it easier by sharpening the logos.</p>
     </header>
 
     <nav class="navigation">
