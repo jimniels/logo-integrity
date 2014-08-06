@@ -1,8 +1,6 @@
 # Blurred Logos
 Just an experiment.
 
-/logo-recognizability
-/logo-recognition
 /logo-integrity
 
 ## To-Do

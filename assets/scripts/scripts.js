@@ -40,7 +40,7 @@ function loadSVG($brand) {
 //  Game Object
 //  ====================
 //  Blur values 
-//  @blurCurrent is the value of the svg blur (20, 15, 10, 5)
+//  @blurCurrent is the value of the svg blur (20, 10, 0)
 //  @blurIncrement is the increments the blur comes in
 //  @scoreCurrent is the two added together
 //
@@ -48,8 +48,8 @@ var Game = {
     $scoreCurrent: $('.score-current'),
     score: 0,
     $brands: [],
-    blurCurrent: 15,
-    blurIncrement: 5,
+    blurCurrent: 20,
+    blurIncrement: 10,
     usingSvgFilters: false,
     scoreCurrent: function(){
         return this.blurCurrent + this.blurIncrement;
