@@ -99,7 +99,7 @@ var Game = {
     end: function() {
 
         // Generate share links with point values
-        var twitter = 'http://twitter.com/home?status=I scored '+this.score+' points trying to identify logos. Think you can beat me? Try it: '+location.href,
+        var twitter = 'http://twitter.com/home?status=I scored '+this.score+' points identifying popular logos. Can you beat me? '+location.href+' %23logoIntegrity',
             facebook = 'http://www.facebook.com/share.php?u='+location.href;
         $('.icon-twitter').attr('href', twitter);
         $('.icon-facebook').attr('href', facebook);
