@@ -2,13 +2,20 @@
 <html class="no-js">
 <head>
     <meta charset="utf-8">
-    <title>Logo Recognizability</title>
+    <title>Logo Integrity in Focus</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" href="assets/css/build/styles.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="assets/scripts/modernizr.js"></script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Logo Integrity in Focus" />
+    <meta property="og:site_name" content="Jim Nielsen, Designer / Problem Solver"/>
+    <meta property="og:url" content="http://www.jim-nielsen.com/logo-integrity" />
+    <meta property="og:description" content="A well-designed logo retains its form and recognizability under the duress of real-world use and abuse. Take a look at how well a variety of contemporary iconic logo marks hold up to a single form of visual stress: a gaussian blur." />
+    <meta property="og:image" content="http://jim-nielsen.com/logo-integrity/assets/images/build/logo-integrity-thumbnail.jpg" />
 </head>
 <body class="">
     

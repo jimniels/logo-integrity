@@ -6,10 +6,8 @@ Just an experiment.
 ## To-Do
 
 ### 1.0
-- Title of the thing? <title> tag at least
 - Test in IE8 (make images work as svg fallbacks)
 - Make sure analytics are in
-
 
 ### Would be nice
 - 'Reset' game rather than reload
