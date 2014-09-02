@@ -27,7 +27,7 @@
                 <br />— Paul Rand, <em>A Designer’s Art</em>.
             </p>
         </blockquote>
-        <p>According to Paul Rand, a well-designed logo retains its form and recognizability under the duress of real-world use and abuse. To test this theory, let’s look at how well these contemporary iconic logo marks hold up to a single form of visual stress: a gaussian blur. <a href="#">Read more about this experiment &raquo;</a></p>
+        <p>According to Paul Rand, a well-designed logo retains its form and recognizability under the duress of real-world use and abuse. To test this theory, let’s look at how well these contemporary iconic logo marks hold up to a single form of visual stress: a gaussian blur. <a href="http://jim-nielsen.com/blog/posts/logo-integrity/">Read more about this experiment &raquo;</a></p>
         <h2>Click to Identify the Logos Below</h2>
         <p>The blurrier the logos are, the more points you’ll get for a correct guess. When you can’t guess anymore, make it easier by sharpening the logos.</p>
     </header>
