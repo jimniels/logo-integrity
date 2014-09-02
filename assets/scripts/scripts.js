@@ -342,6 +342,13 @@ $(document).ready(function(){
         return false;
     });
 
+    //
+    //
+    //  Autofocus the first brand
+    //  -----
+    //
+    Game.$brands.first().find('input').focus();
+
 
     //
     //
