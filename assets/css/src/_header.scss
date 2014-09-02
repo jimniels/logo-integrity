@@ -25,7 +25,8 @@
         font-weight: bold;
     } 
 
-    blockquote p {
+    blockquote p,
+    h2 {
         font-size: #{21 / $font-size-base}em;
         color: white;
     }

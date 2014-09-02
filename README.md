@@ -6,8 +6,7 @@ Just an experiment.
 ## To-Do
 
 ### 1.0
-- Test in IE8 (make images work as svg fallbacks)
-- Make sure analytics are in
+
 
 ### Would be nice
 - 'Reset' game rather than reload

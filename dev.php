@@ -28,7 +28,8 @@
             </p>
         </blockquote>
         <p>According to Paul Rand, a well-designed logo retains its form and recognizability under the duress of real-world use and abuse. To test this theory, let’s look at how well these contemporary iconic logo marks hold up to a single form of visual stress: a gaussian blur. <a href="#">Read more about this experiment &raquo;</a></p>
-        <p>See if you can identify the logos below. The blurrier they are, the more points you’ll get for a correct guess. So when you can’t guess anymore, make it easier by sharpening the logos.</p>
+        <h2>Click to Identify the Logos Below</h2>
+        <p>The blurrier the logos are, the more points you’ll get for a correct guess. When you can’t guess anymore, make it easier by sharpening the logos.</p>
     </header>
 
     <nav class="navigation">
@@ -90,6 +91,15 @@
     <script type="text/javascript" src="assets/scripts/jquery.js"></script>
     <script type="text/javascript" src="assets/scripts/fuzzySet.js"></script> 
     <script type="text/javascript" src="assets/scripts/scripts.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-19579223-3', 'auto');
+        ga('send', 'pageview');
+    </script> 
 
     <script type="text/html" id="template-brand-form">
         <div class="logo"></div>

@@ -293,7 +293,8 @@ var Game = {
 // On ready
 $(document).ready(function(){
     
-    $('.score-current').on('click',function(){ Game.end(); })
+    // Click score to test end game
+    //$('.score-current').on('click',function(){ Game.end(); })
 
     //
     //

@@ -151,6 +151,7 @@
 
     [data-answered="true"].correct & {
         background-color: $color-correct-light;
+        background-position-y: 0 !important;
     }
     [data-answered="true"].incorrect & {
         background-color: $color-incorrect-light;
