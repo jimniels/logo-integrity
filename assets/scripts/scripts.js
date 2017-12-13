@@ -271,6 +271,10 @@ var Game = {
                     self.$brands.filter('[data-answered="false"]').each(function(){
                         $(this).find('path').attr('filter', 'url(#blur-' + Game.blurCurrent + ')');
                     });
+                    // Hack that fixes safari not redrawing
+                    document.body.style.display='none';
+                    document.body.offsetHeight; // no need to store this anywhere, the reference is enough
+                    document.body.style.display='';
                 }
 
                 setTimeout(function(){
