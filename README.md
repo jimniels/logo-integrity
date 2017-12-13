@@ -1,5 +1,5 @@
 # Blurred Logos
-Just an experiment.
+This is just an experiment. Nothing to see here.
 
 /logo-integrity
 
