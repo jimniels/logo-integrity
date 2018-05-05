@@ -6,5 +6,6 @@ When you move off github pages:
 
 ```bash
 npm run build
-# puts generated files in `public/`
 ```
+
+Generated site ends up in `dist/`.

@@ -16,9 +16,10 @@
     "node-sass": "^4.9.0"
   },
   "scripts": {
-    "build": "npm run build:html && npm run build:scss && npm run build:css",
-    "build:html": "mustache src/data.json src/index.html.mustache > index.html",
+    "build": "npm run build:clean && npm run build:scss && npm run build:html && npm run build:css",
+    "build:clean": "rm -rf dist/ && cp -R public dist",
     "build:scss": "node scripts/build-scss.js",
-    "build:css": "node-sass --output-style=compressed src/scss/styles.scss public/css/styles.css"
+    "build:html": "mustache src/data.json src/index.html.mustache > dist/index.html",
+    "build:css": "node-sass --output-style=compressed src/scss/styles.scss public/styles.css"
   }
 }

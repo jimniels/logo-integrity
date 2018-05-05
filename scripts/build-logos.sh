@@ -1,5 +1,10 @@
 # #!/bin/bash
 
+###############
+# NOTE: this hasn't been tested since we changed directory strucutre.
+# If you need it, you'll likely have to re-develop it to fit your needs
+###############
+
 # # Convert each SVG file to a single JPG with each blur we need
 echo "=> Building individual JPGs ..."
 for filename in *.svg; do
