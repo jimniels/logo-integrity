@@ -28,7 +28,7 @@ function fuzzyStringMatch(guess, answer) {
 //  TO-DO: Make changing the path blur a function, as it's used in Game.Sharpen
 //
 function loadSVG($brand) {
-    $.get('assets/images/build/logos/svgs/' + $brand.attr('id') + '.svg', function( response ) {
+    $.get('public/images/logos/svgs/' + $brand.attr('id') + '.svg', function( response ) {
         $svg = $(response).find('svg');
         $svg.find('path').attr('filter', 'url(#blur-' + Game.blurCurrent + ')');
         $svg.appendTo( $('.logo', $brand) );

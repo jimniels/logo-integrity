@@ -1,278 +1,292 @@
 <!DOCTYPE html>
 <html class="no-js">
 <head>
-    <meta charset="utf-8">
-    <title>Logo Integrity in Focus</title>
+  <meta charset="utf-8">
+  <title>Logo Integrity in Focus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="public/css/styles.css">
+  <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="public/scripts/modernizr.min.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <link rel="stylesheet" href="assets/css/build/styles.css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="assets/scripts/modernizr.js"></script>
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Logo Integrity in Focus" />
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="Jim Nielsen, Designer / Problem Solver"/>
-    <meta property="og:url" content="http://www.jim-nielsen.com/logo-integrity/" />
-    <meta property="og:description" content="A well-designed logo retains its form and recognizability under the duress of real-world use and abuse. Take a look at how well a variety of contemporary iconic logo marks hold up to a single form of visual stress: a gaussian blur." />
-    <meta property="og:image" content="http://jim-nielsen.com/logo-integrity/assets/images/build/logo-integrity-thumbnail.jpg" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Logo Integrity in Focus" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Jim Nielsen, Designer / Problem Solver"/>
+  <meta property="og:url" content="http://www.jim-nielsen.com/logo-integrity/" />
+  <meta property="og:description" content="A well-designed logo retains its form and recognizability under the duress of real-world use and abuse. Take a look at how well a variety of contemporary iconic logo marks hold up to a single form of visual stress: a gaussian blur." />
+  <meta property="og:image" content="http://jim-nielsen.com/logo-integrity/public/images/logo-integrity-thumbnail.jpg" />
 </head>
 <body class="">
-    <header class="header">
-        <blockquote>
-            <p>
-                <span>“</span>How far out of focus can an image be and still be recognized? A [logo] which is subject to an infinite number of uses, abuses, and variations&hellip;cannot survive unless it is designed with utmost simplicity and restraint.”
-                <br />— Paul Rand, <em>A Designer’s Art</em>.
-            </p>
-        </blockquote>
-        <p>According to Paul Rand, a well-designed logo retains its form and recognizability under the duress of real-world use and abuse. To test this theory, let’s look at how well these contemporary iconic logo marks hold up to a single form of visual stress: a gaussian blur. <a href="http://jim-nielsen.com/blog/posts/logo-integrity/">Read more about this experiment &raquo;</a></p>
-        <h2>Click to Identify the Logos Below</h2>
-        <p>The blurrier the logos are, the more points you’ll get for a correct guess. When you can’t guess anymore, make it easier by sharpening the logos.</p>
-    </header>
+  <header class="header">
+    <blockquote>
+      <p>
+        <span>“</span>How far out of focus can an image be and still be recognized? A [logo] which is subject to an infinite number of uses, abuses, and variations&hellip;cannot survive unless it is designed with utmost simplicity and restraint.”
+        <br />— Paul Rand, <em>A Designer’s Art</em>.
+      </p>
+    </blockquote>
+    <p>According to Paul Rand, a well-designed logo retains its form and recognizability under the duress of real-world use and abuse. To test this theory, let’s look at how well these contemporary iconic logo marks hold up to a single form of visual stress: a gaussian blur. <a href="http://jim-nielsen.com/blog/posts/logo-integrity/">Read more about this experiment &raquo;</a></p>
+    <h2>Click to Identify the Logos Below</h2>
+    <p>The blurrier the logos are, the more points you’ll get for a correct guess. When you can’t guess anymore, make it easier by sharpening the logos.</p>
+  </header>
 
-    <nav class="navigation">
-        <div class="sharpen">
-            <a href="#" title="Sharpen the logos">Sharpen the Logos</a>
-        </div>
-        <div class="points score-current">0</div>
-    </nav>
+  <nav class="navigation">
+    <div class="sharpen">
+      <a href="#" title="Sharpen the logos">Sharpen the Logos</a>
+    </div>
+    <div class="points score-current">0</div>
+  </nav>
 
-    <section class="container wrap" data-active-blur-value="20">
+  <section class="container wrap" data-active-blur-value="20">
+    <ul class="brands">
+        <li class="brand" id="adidas" data-answer="['Adidas',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/adidas.jpg">
+              Adidas
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="apple" data-answer="['Apple','Apple Inc.','Apple Computer','Apple Computer Inc.',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/apple.jpg">
+              Apple
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="cbs" data-answer="['CBS','CBS Broadcasting','CBS Broadcasting Inc.','Columbia Broadcasting System',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/cbs.jpg">
+              CBS
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="honda" data-answer="['Honda','Honda Motors','Honda Motor Company',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/honda.jpg">
+              Honda
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="hyundai" data-answer="['Hyundai','Hyundai Motor Company',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/hyundai.jpg">
+              Hyundai
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="mazda" data-answer="['Mazda','Mazda Motor Corporation',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/mazda.jpg">
+              Mazda
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="mcdonalds" data-answer="['McDonalds',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/mcdonalds.jpg">
+              McDonalds
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="mercedes" data-answer="['Mercedes','Mercedes-Benz',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/mercedes.jpg">
+              Mercedes
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="nbc" data-answer="['NBC','National Broadcasting Company',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/nbc.jpg">
+              NBC
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="nike" data-answer="['Nike',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/nike.jpg">
+              Nike
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="pbs" data-answer="['PBS','Public Broadcasting Service',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/pbs.jpg">
+              PBS
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="pepsi" data-answer="['Pepsi','Pepsi-Cola',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/pepsi.jpg">
+              Pepsi
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="puma" data-answer="['Puma',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/puma.jpg">
+              Puma
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="shell" data-answer="['Shell','Royal Dutch Shell',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/shell.jpg">
+              Shell
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="starbucks" data-answer="['Starbucks',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/starbucks.jpg">
+              Starbucks
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="taco-bell" data-answer="['Taco Bell',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/taco-bell.jpg">
+              Taco Bell
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="target" data-answer="['Target',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/target.jpg">
+              Target
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="toyota" data-answer="['Toyota','Toyota Motor Corporation',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/toyota.jpg">
+              Toyota
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="twitter" data-answer="['Twitter',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/twitter.jpg">
+              Twitter
+            </a>
+          </h2>
+        </li>
+        <li class="brand" id="volkswagen" data-answer="['Volkswagen','VW',]" data-answered="false">
+          <h2 class="brand-name">
+            <a href="public/images/logos/jpgs/volkswagen.jpg">
+              Volkswagen
+            </a>
+          </h2>
+        </li>
+    </ul>
+  </section>
 
-        <ul class="brands">
-                                    <li class="brand" id="adidas" data-answer="['Adidas']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/adidas.jpg">Adidas</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="apple" data-answer="['Apple','Apple Inc.','Apple Computer','Apple Computer Inc.']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/apple.jpg">Apple</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="cbs" data-answer="['CBS','CBS Broadcasting','CBS Broadcasting Inc.','Columbia Broadcasting System']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/cbs.jpg">CBS</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="honda" data-answer="['Honda','Honda Motors','Honda Motor Company']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/honda.jpg">Honda</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="hyundai" data-answer="['Hyundai','Hyundai Motor Company']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/hyundai.jpg">Hyundai</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="mazda" data-answer="['Mazda','Mazda Motor Corporation']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/mazda.jpg">Mazda</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="mcdonalds" data-answer="['McDonalds']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/mcdonalds.jpg">McDonalds</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="mercedes" data-answer="['Mercedes','Mercedes-Benz']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/mercedes.jpg">Mercedes</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="nbc" data-answer="['NBC','National Broadcasting Company']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/nbc.jpg">NBC</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="nike" data-answer="['Nike']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/nike.jpg">Nike</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="pbs" data-answer="['PBS','Public Broadcasting Service']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/pbs.jpg">PBS</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="pepsi" data-answer="['Pepsi','Pepsi-Cola']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/pepsi.jpg">Pepsi</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="puma" data-answer="['Puma']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/puma.jpg">Puma</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="shell" data-answer="['Shell','Royal Dutch Shell']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/shell.jpg">Shell</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="starbucks" data-answer="['Starbucks']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/starbucks.jpg">Starbucks</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="taco-bell" data-answer="['Taco Bell']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/taco-bell.jpg">Taco Bell</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="target" data-answer="['Target']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/target.jpg">Target</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="toyota" data-answer="['Toyota','Toyota Motor Corporation']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/toyota.jpg">Toyota</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="twitter" data-answer="['Twitter']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/twitter.jpg">Twitter</a>
-                            </h2>
-                        </li>
-                                            <li class="brand" id="volkswagen" data-answer="['Volkswagen','VW']" data-answered="false">
-                            <h2 class="brand-name">
-                                <a href="assets/images/build/logos/jpgs/volkswagen.jpg">Volkswagen</a>
-                            </h2>
-                        </li>
-                            </ul>
-
-    </section>
-
-    <footer class="footer">
-        <p>Created by <a href="http://jim-nielsen.com/">Jim Nielsen</a>. Got feedback? Tweet me <a href="http://twitter.com/jimniels/">@jimniels</a>.</p>
-    </footer>
-
-
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="width:0;height:0;visibility:hidden">
-         
-                    <filter id="blur-0" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="0"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-1" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="1"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-2" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="2"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-3" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="3"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-4" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="4"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-5" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="5"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-6" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="6"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-7" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="7"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-8" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="8"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-9" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="9"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-10" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="10"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-11" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="11"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-12" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="12"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-13" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="13"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-14" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="14"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-15" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="15"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-16" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="16"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-17" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="17"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-18" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="18"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-19" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="19"></feGaussianBlur>
-                    </filter>
-                 
-                    <filter id="blur-20" x="-50%" y="-50%" width="225%" height="225%">
-                        <feGaussianBlur stdDeviation="20"></feGaussianBlur>
-                    </filter>
-                    </svg>
+  <footer class="footer">
+    <p>Created by <a href="http://jim-nielsen.com/">Jim Nielsen</a>. Got feedback? Tweet me <a href="https://twitter.com/jimniels/">@jimniels</a>.</p>
+  </footer>
 
 
-    <script type="text/javascript" src="assets/scripts/jquery.js"></script>
-    <script type="text/javascript" src="assets/scripts/fuzzySet.js"></script> 
-    <script type="text/javascript" src="assets/scripts/scripts.js"></script>
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="width:0;height:0;visibility:hidden">
+      <filter id="blur-0" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="0"></feGaussianBlur>
+      </filter>
+      <filter id="blur-1" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="1"></feGaussianBlur>
+      </filter>
+      <filter id="blur-2" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+      </filter>
+      <filter id="blur-3" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+      </filter>
+      <filter id="blur-4" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="4"></feGaussianBlur>
+      </filter>
+      <filter id="blur-5" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+      </filter>
+      <filter id="blur-6" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+      </filter>
+      <filter id="blur-7" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="7"></feGaussianBlur>
+      </filter>
+      <filter id="blur-8" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="8"></feGaussianBlur>
+      </filter>
+      <filter id="blur-9" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="9"></feGaussianBlur>
+      </filter>
+      <filter id="blur-10" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="10"></feGaussianBlur>
+      </filter>
+      <filter id="blur-11" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="11"></feGaussianBlur>
+      </filter>
+      <filter id="blur-12" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="12"></feGaussianBlur>
+      </filter>
+      <filter id="blur-13" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="13"></feGaussianBlur>
+      </filter>
+      <filter id="blur-14" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="14"></feGaussianBlur>
+      </filter>
+      <filter id="blur-15" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="15"></feGaussianBlur>
+      </filter>
+      <filter id="blur-16" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="16"></feGaussianBlur>
+      </filter>
+      <filter id="blur-17" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="17"></feGaussianBlur>
+      </filter>
+      <filter id="blur-18" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="18"></feGaussianBlur>
+      </filter>
+      <filter id="blur-19" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="19"></feGaussianBlur>
+      </filter>
+      <filter id="blur-20" x="-50%" y="-50%" width="225%" height="225%">
+        <feGaussianBlur stdDeviation="20"></feGaussianBlur>
+      </filter>
+  </svg>
 
-        ga('create', 'UA-19579223-3', 'auto');
-        ga('send', 'pageview');
-    </script> 
+  <script type="text/javascript" src="public/scripts/jquery.min.js"></script>
+  <script type="text/javascript" src="public/scripts/fuzzySet.js"></script> 
+  <script type="text/javascript" src="public/scripts/scripts.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
 
-    <script type="text/html" id="template-brand-form">
-        <div class="logo"></div>
-        <form class="form" method="post">
-            <input type="text" />
-            <label>Guess the brand:</label>
-            <button type="button">Guess</button>
-        </form>
-    </script>  
-    <script type="text/html" id="template-share-modal">
-        <div class="share-modal">
-            <div class="wrapper">
-                <h2 class="score-final-title">Congratulations on your score!</h2>
-                <p class="score-final">0</p>
-                <ul class="score-final-share clearfix">
-                    <li><a href="#" class="icon-twitter" target="_blank">Tweet your score</a></li>
-                    <li><a href="#" class="icon-facebook" target="_blank">Share your score</a></li>
-                    <li><a href="#" class="icon-play-again">Play again</a></li>
-                </ul>
-                <p class="made-by">Made by: <a href="http://jim-nielsen.com/" title="Jim's Homepage">Jim Nielsen</a>, a.k.a. <a href="http://twitter.com/jimniels" title="Jim Nielsen on Twitter">@jimniels</a></p>
-            </div>
-        </div>
-    </script>
+    ga("create", "UA-19579223-3", "auto");
+    ga("send", "pageview");
+  </script> 
 
+  <!-- Templates -->
+  <script type="text/html" id="template-brand-form">
+    <div class="logo"></div>
+    <form class="form" method="post">
+      <input type="text" />
+      <label>Guess the brand:</label>
+      <button type="button">Guess</button>
+    </form>
+  </script>
+  <script type="text/html" id="template-share-modal">
+    <div class="share-modal">
+      <div class="wrapper">
+        <h2 class="score-final-title">Congratulations on your score!</h2>
+        <p class="score-final">0</p>
+        <ul class="score-final-share clearfix">
+          <li><a href="#" class="icon-twitter" target="_blank">Tweet your score</a></li>
+          <li><a href="#" class="icon-facebook" target="_blank">Share your score</a></li>
+          <li><a href="#" class="icon-play-again">Play again</a></li>
+        </ul>
+        <p class="made-by">Made by: <a href="http://jim-nielsen.com/" title="Jim’s Homepage">Jim Nielsen</a>, a.k.a. <a href="http://twitter.com/jimniels/" title="Jim Nielsen on Twitter">@jimniels</a></p>
+      </div>
+    </div>
+  </script>
 </body>
 </html>

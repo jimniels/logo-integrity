@@ -11,12 +11,12 @@
 
     // Normal hidden state
     .share-modal {
-        @include transition(transform .5s ease);
-        @include scale(0);
+        transition: transform .5s ease;
+        transform: scale(0);
         
         .wrapper {
-            @include transition(transform .5s ease .5s);
-            @include scale(0);
+            transition: transform .5s ease .5s;
+            transform: scale(0);
         }
     }
 
@@ -25,10 +25,10 @@
         overflow: hidden;
 
         .share-modal {
-            @include scale(1);
+            transform: scale(1);
 
             .wrapper {
-                @include scale(1);
+                transform: scale(1);
             }
         }
     }
@@ -109,23 +109,23 @@
                 display: block;
                 font-size: 3em;
                 margin-bottom: .125em;
-                @include transition(.3s ease all);
+                transition: .3s ease all;
             }
             
             // hover effects
             &:hover {
                 a:before {
-                    @include rotate(-8deg);
+                    transform: rotate(-8deg);
                 }
             }
             &:first-child:hover {
                 a:before {
-                    @include rotate(8deg);
+                    transform: rotate(8deg);
                 }
             }
             &:last-child:hover {
                 a:before {
-                    @include rotate(16deg);
+                    transform: rotate(16deg);
                 }
             }
         }
@@ -135,7 +135,7 @@
         color: white;
     }
     .made-by {
-        @include opacity(.5);
+        opacity: .5;
         margin-bottom: 2em;
 
         a:hover {
