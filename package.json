@@ -20,6 +20,6 @@
     "build:clean": "rm -rf dist/ && cp -R public dist",
     "build:scss": "node scripts/build-scss.js",
     "build:html": "mustache src/data.json src/index.html.mustache > dist/index.html",
-    "build:css": "node-sass --output-style=compressed src/scss/styles.scss public/styles.css"
+    "build:css": "node-sass --output-style=compressed src/scss/styles.scss dist/styles.css"
   }
 }
