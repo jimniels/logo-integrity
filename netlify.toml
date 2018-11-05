@@ -1,0 +1,10 @@
+[build]
+  base = ""
+  publish = "build"
+  command = "npm run build"
+
+[[redirects]]
+  from = "https://logo-integrity.netlify.com/*"
+  to = "https://logo-integrity.jim-nielsen.com/:splat"
+  status = 301
+  force = true

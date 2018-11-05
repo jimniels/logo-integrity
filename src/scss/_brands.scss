@@ -1,0 +1,159 @@
+//
+//
+//  Logos Container
+//  ====================
+//
+.brands {
+    .js & {
+        position: relative;
+        overflow: hidden;
+        
+        &:after {
+            
+            transition: .33s ease opacity, .33s ease visibility;
+
+            content: 'Sharpening...';
+            position: fixed;
+            line-height: 100px;
+            height: 100px;
+            text-align: center;
+            width: 200px;
+            margin-left: -100px;
+            left: 50%;
+            top: 30%;
+            background: #000 image-url('sharpening.gif') no-repeat 50% 20px;
+            padding-top: 20px;
+            z-index: 1000;
+            color: white;
+            border-radius: 2px;
+            box-shadow: 0 0 0 4px rgba(0,0,0,.15);
+
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        &.sharpening {
+            &:after {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            [data-answered="false"] .logo {
+                opacity: 0;
+                //visibility: hidden;
+            }
+        }
+    }
+}
+
+.brand {
+
+    .js & {
+        position: relative;
+        box-sizing: border-box;
+        width: 25%;
+        height: 300px;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        float: left;
+        overflow: hidden;
+
+        @include respond-to(mobile) {
+            width: 100%;
+        }
+        @include respond-to(tablet) {
+            width: 33.3333333%
+        }
+        @include respond-to(widescreen) {
+            width: 20%;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.incorrect,
+        &.correct {
+            &:hover {
+                cursor: default;
+            }
+        }
+    }
+
+    .no-js & {
+        border-bottom: 1px solid #eee;
+    }
+}
+
+.brand-name {
+    .js & {
+        position: absolute;
+        right: .5em;
+        top: 1em;
+        left: .5em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: center;
+        font-weight: bold;
+        z-index: 10; 
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(-3em);
+        transition: .33s ease all;
+
+        a {
+            color: inherit;
+        }
+    }
+
+    [data-answered="true"].correct &,
+    [data-active-blur-value="0"] [data-answered="true"] & {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .no-js & {
+        margin: 0 4%; // matches header side margins
+
+        a {
+            padding: 1em 0;
+            display: block;
+            position: relative;
+
+            @media screen and (max-width: $max-width) {
+                padding: 1em;
+            }
+
+            &:after {
+                content: '\00BB';
+                position: absolute;
+                right: 1em;
+            }
+        }
+    }
+}
+
+.logo {
+    .js & {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        margin-left: -150px;
+        left: 50%;
+    }
+
+    [data-answered="false"] & {
+        transition: .33s ease opacity, .33s ease visibility;
+    }
+
+    [data-answered="true"].correct & {
+        background-color: $color-correct-light;
+        background-position-y: 0 !important;
+    }
+    [data-answered="true"].incorrect & {
+        background-color: $color-incorrect-light;
+    }
+}

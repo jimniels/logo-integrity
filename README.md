@@ -1,18 +1,9 @@
-# Blurred Logos
-This is just an experiment. Nothing to see here.
+# Logo Integrity
 
-/logo-integrity
+## Development: `npm run start`
 
-## To-Do
+Builds site and starts a web server out of `build/` (you must run the build to see subsequent changes, I know, this should be fixed).
 
-### 1.0
+## Build: `npm run build`
 
-
-### Would be nice
-- 'Reset' game rather than reload
-
-## Before Pushing
-- Make sure shuffle is on
-- Make sure clicking the points doesnt end the game
-- Remove console.log
-- Publish Blog Post
+Generated site ends up in `build/`.

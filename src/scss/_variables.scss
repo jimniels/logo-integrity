@@ -1,0 +1,45 @@
+$font-size-base: 16;
+$color-highlight: #29abe2;
+$color-background-light: #eee;
+$color-correct: #0b9744;
+$color-correct-light: #fafdfa;
+$color-incorrect: darkred;
+$color-incorrect-light: #fcfafa;
+
+$navigation-height: 50px;
+
+$max-width: 500px;
+
+$svg-directory: logos/svgs;
+
+@mixin respond-to($media) {
+    @if $media == mobile {
+        @media only screen and (max-width: 600px) { @content; }
+    }
+    @else if $media == tablet {
+        @media only screen and (min-width: 601px) and (max-width: 900px) { @content; }
+    }
+    @else if $media == widescreen {
+        @media only screen and (min-width: 1200px) { @content; }
+    }
+}
+
+@function image-url($path) {
+    @return url(./images/#{$path});
+}
+
+@function font-url($path) {
+    @return url(./fonts/#{$path});
+}
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+    }
+
+    &:after {
+        clear: both;
+    }
+}

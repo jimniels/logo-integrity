@@ -1,0 +1,140 @@
+{
+  "filters": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+  "brands": [
+    {
+      "id": "adidas",
+      "names": ["Adidas"]
+    },
+    {
+      "id": "apple",
+      "names": [
+        "Apple",
+        "Apple Inc.",
+        "Apple Computer",
+        "Apple Computer Inc."
+      ]
+    },
+    {
+      "id": "cbs",
+      "names": [
+        "CBS",
+        "CBS Broadcasting",
+        "CBS Broadcasting Inc.",
+        "Columbia Broadcasting System"
+      ]
+    },
+    {
+      "id": "honda",
+      "names": [
+        "Honda",
+        "Honda Motors",
+        "Honda Motor Company"
+      ]
+    },
+    {
+      "id": "hyundai",
+      "names": [
+        "Hyundai",
+        "Hyundai Motor Company"
+      ]
+    },
+    {
+      "id": "mazda",
+      "names": [
+        "Mazda",
+        "Mazda Motor Corporation"
+      ]
+    },
+    {
+      "id": "mcdonalds",
+      "names": [
+        "McDonalds"
+      ]
+    },
+    {
+      "id": "mercedes",
+      "names": [
+        "Mercedes",
+        "Mercedes-Benz"
+      ]
+    },
+    {
+      "id": "nbc",
+      "names": [
+        "NBC",
+        "National Broadcasting Company"
+      ]
+    },
+    {
+      "id": "nike",
+      "names": [
+        "Nike"
+      ]
+    },
+    {
+      "id": "pbs",
+      "names": [
+        "PBS",
+        "Public Broadcasting Service"
+      ]
+    },
+    {
+      "id": "pepsi",
+      "names": [
+        "Pepsi",
+        "Pepsi-Cola"
+      ]
+    },
+    {
+      "id": "puma",
+      "names": [
+        "Puma"
+      ]
+    },
+    {
+      "id": "shell",
+      "names": [
+        "Shell",
+        "Royal Dutch Shell"
+      ]
+    },
+    {
+      "id": "starbucks",
+      "names": [
+        "Starbucks"
+      ]
+    },
+    {
+      "id": "taco-bell",
+      "names": [
+        "Taco Bell"
+      ]
+    },
+    {
+      "id": "target",
+      "names": [
+        "Target"
+      ]
+    },
+    {
+      "id": "toyota",
+      "names": [
+        "Toyota",
+        "Toyota Motor Corporation"
+      ]
+    },
+    {
+      "id": "twitter",
+      "names": [
+        "Twitter"
+      ]
+    },
+    {
+      "id": "volkswagen",
+      "names": [
+        "Volkswagen", 
+        "VW"
+      ]
+    }
+  ]
+}

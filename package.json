@@ -1,19 +1,27 @@
 {
-  "name": "Logos",
+  "name": "logo-integrity",
   "version": "0.0.1",
   "description": "An experiment in blurring ubiquitous logos.",
   "author": "Jim Nielsen",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jimniels/logos.git"
+    "url": "https://github.com/jimniels/logo-integrity.git"
   },
   "bugs": {
-    "url": "https://github.com/jimniels/logos/issues"
+    "url": "https://github.com/jimniels/logo-integrity/issues"
   },
-  "homepage": "https://github.com/jimniels/logos",
+  "homepage": "https://github.com/jimniels/logo-integrity",
   "devDependencies": {
-    "grunt": "^0.4.4",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-contrib-compass": "^0.7.2"
+    "http-server": "^0.11.1",
+    "mustache": "^2.3.0",
+    "node-sass": "^4.9.0"
+  },
+  "scripts": {
+    "start": "npm run build && http-server build -o -s",
+    "build": "npm run build:clean && npm run build:scss && npm run build:html && npm run build:css",
+    "build:clean": "rm -rf build && cp -R public build",
+    "build:scss": "node scripts/build-scss.js",
+    "build:html": "mustache src/data.json src/index.html.mustache > build/index.html",
+    "build:css": "node-sass --output-style=compressed src/scss/styles.scss build/styles.css"
   }
 }
