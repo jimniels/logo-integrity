@@ -1,11 +1,9 @@
 # Logo Integrity
 
-When you move off github pages:
+## Development: `npm run start`
 
-## Build
+Builds site and starts a web server out of `build/` (you must run the build to see subsequent changes, I know, this should be fixed).
 
-```bash
-npm run build
-```
+## Build: `npm run build`
 
-Generated site ends up in `dist/`.
+Generated site ends up in `build/`.
